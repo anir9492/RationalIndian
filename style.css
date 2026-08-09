@@ -73,3 +73,38 @@ a:hover {
     background-color: var(--accent-color);
     text-decoration: none;
 }
+
+/* Navigation Tabs */
+.publication-tabs {
+    display: flex;
+    flex-wrap: wrap; /* Allows tabs to wrap neatly on mobile screens */
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+}
+
+.publication-tabs a {
+    padding: 0.5rem 1rem;
+    background-color: #f4f4f4;
+    color: var(--text-color);
+    border-radius: 6px 6px 0 0; /* Rounds the top corners like a file folder tab */
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.9rem;
+    border: 1px solid #ddd;
+    border-bottom: none;
+    transition: background-color 0.2s ease;
+}
+
+.publication-tabs a:hover {
+    background-color: #e0e0e0;
+    text-decoration: none;
+}
+
+/* Highlights the tab of the page you are currently on */
+.publication-tabs a.active {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
