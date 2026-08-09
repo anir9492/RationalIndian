@@ -151,10 +151,11 @@ a:hover {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #000000;
+    background-color: #050505; /* Deep 8-bit black */
     z-index: 9999;
-    transition: opacity 1s ease;
+    transition: opacity 1s ease-in-out;
     cursor: pointer;
+    overflow: hidden;
 }
 
 #particle-canvas {
@@ -163,20 +164,23 @@ a:hover {
 
 #click-hint {
     position: absolute;
-    bottom: 20%;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
     width: 100%;
     text-align: center;
-    color: rgba(255, 255, 255, 0.5);
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    letter-spacing: 4px;
-    font-size: 0.9rem;
-    animation: pulse 2s infinite;
-    transition: opacity 0.3s;
+    color: #00ffcc; /* Retro cyan */
+    font-family: 'Courier New', Courier, monospace; /* 8-bit pixel font vibe */
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    animation: blink 1s step-end infinite; /* Hard blocky blinking */
+    user-select: none;
     pointer-events: none; /* Prevents text highlighting when clicking */
 }
 
-@keyframes pulse {
-    0% { opacity: 0.3; }
-    50% { opacity: 0.8; }
-    100% { opacity: 0.3; }
+/* 8-Bit hard blink animation instead of a smooth pulse */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
