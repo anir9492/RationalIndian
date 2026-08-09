@@ -4,15 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anirban | Science Journalist</title>
-    <meta name="description" content="Science and research journalism by Anirban. Featured in The Hindu, Science, Scientific American, and more.">
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Science and research journalism by Anirban.">
+    <style>
+        /* Essential inline styles for the intro to work out-of-the-box */
+        body, html { margin: 0; padding: 0; font-family: sans-serif; }
+        
+        #intro-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #050505; /* Deep 8-bit black */
+            z-index: 9999;
+            transition: opacity 1s ease-in-out;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        
+        #particle-canvas {
+            display: block;
+        }
+        
+        #click-hint {
+            position: absolute;
+            bottom: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #00ffcc; /* Retro cyan */
+            font-family: 'Courier New', Courier, monospace; /* 8-bit styling */
+            font-size: 1.2rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            animation: blink 1s step-end infinite;
+            user-select: none;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Basic portfolio styling (assuming you have style.css, but adding basics here) */
+        header { padding: 40px; text-align: center; background: #f4f4f4; }
+        .publication-tabs { display: flex; justify-content: center; gap: 15px; padding: 20px; background: #ddd; }
+        main { padding: 20px; max-width: 800px; margin: auto; }
+        .clip { border-bottom: 1px solid #ccc; padding: 20px 0; display: flex; gap: 20px; }
+        footer { padding: 40px; text-align: center; background: #333; color: white; }
+    </style>
 </head>
 <body>
 
-    <!-- PARTICLE EXPLOSION INTRO -->
+    <!-- PARTICLE ASSEMBLY INTRO -->
     <div id="intro-container">
         <canvas id="particle-canvas"></canvas>
-        <p id="click-hint">CLICK TO INITIATE</p>
+        <p id="click-hint">INSERT COIN TO ASSEMBLE</p>
     </div>
 
     <header>
@@ -26,32 +72,17 @@
         <a href="index.html" class="active">Home</a>
         <a href="the-hindu.html">The Hindu</a>
         <a href="science.html">Science</a>
-        <a href="scientific-american.html">Scientific American</a>
-        <a href="cen.html">C&EN</a>
-        <a href="the-scientist.html">The Scientist</a>
-        <a href="live-science.html">Live Science</a>
-        <a href="science-news.html">Science News</a>
     </nav>
 
     <main>
         <section id="clips">
             <h2>Featured Works</h2>
-            
             <article class="clip">
                 <img src="https://via.placeholder.com/150" alt="Article thumbnail" class="clip-img">
                 <div class="clip-content">
                     <h3><a href="#" target="_blank">The Title of Your Best Feature</a></h3>
                     <p class="meta">Published in <strong>Scientific American</strong> | October 2025</p>
-                    <p class="description">A brief one-to-two sentence summary of what the piece is about and why it matters. Keep it punchy to hook the editor.</p>
-                </div>
-            </article>
-
-            <article class="clip">
-                <img src="https://via.placeholder.com/150" alt="Article thumbnail" class="clip-img">
-                <div class="clip-content">
-                    <h3><a href="#" target="_blank">Another Great Investigation</a></h3>
-                    <p class="meta">Published in <strong>Science</strong> | August 2025</p>
-                    <p class="description">A brief description of the reporting process or the impact the story had after publication.</p>
+                    <p class="description">A brief one-to-two sentence summary of what the piece is about and why it matters.</p>
                 </div>
             </article>
         </section>
@@ -61,10 +92,9 @@
         <h2>Contact</h2>
         <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
         <p>Signal: @yourusername (For secure tips)</p>
-        <p>Twitter/X: <a href="https://twitter.com/yourhandle">@yourhandle</a></p>
     </footer>
 
-    <!-- PARTICLE EXPLOSION SCRIPT -->
+    <!-- PARTICLE 8-BIT SCRIPT -->
     <script>
         const canvas = document.getElementById('particle-canvas');
         const ctx = canvas.getContext('2d', { willReadFrequently: true });
@@ -75,11 +105,10 @@
         canvas.height = window.innerHeight;
 
         let particlesArray = [];
-        let isExploding = false;
+        let isAssembling = false;
 
-        // Keep it centered if the window is resized
         window.addEventListener('resize', () => {
-            if(!isExploding) {
+            if(!isAssembling) {
                 canvas.width = window.innerWidth;
                 canvas.height = window.innerHeight;
                 init();
@@ -87,25 +116,49 @@
         });
 
         class Particle {
-            constructor(x, y) {
-                this.x = x;
-                this.y = y;
-                this.size = Math.random() * 2 + 1;
-                // Random velocities for the explosion
-                this.vx = (Math.random() - 0.5) * 20; 
-                this.vy = (Math.random() - 0.5) * 20;
+            constructor(targetX, targetY) {
+                // Final destination to spell the word
+                this.targetX = targetX;
+                this.targetY = targetY;
+                
+                // Start scattered randomly across the screen
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                
+                // Size of the 8-bit block
+                this.size = 6; 
+                
+                // Random floating speed for initial chaos
+                this.vx = (Math.random() - 0.5) * 2; 
+                this.vy = (Math.random() - 0.5) * 2;
+                
+                // 8-bit Retro Cyan color for the "atoms"
+                this.color = '#00ffcc';
             }
+            
             draw() {
-                ctx.fillStyle = '#ffffff'; // White particles
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
+                ctx.fillStyle = this.color;
+                // Using fillRect instead of arc for the 8-bit pixel block look
+                ctx.fillRect(this.x, this.y, this.size, this.size);
             }
+            
             update() {
-                if (isExploding) {
+                if (isAssembling) {
+                    // Ease towards target position
+                    let dx = this.targetX - this.x;
+                    let dy = this.targetY - this.y;
+                    
+                    // The 0.05 controls the speed of the assembly (higher = faster)
+                    this.x += dx * 0.05;
+                    this.y += dy * 0.05;
+                } else {
+                    // Float aimlessly before clicking
                     this.x += this.vx;
                     this.y += this.vy;
-                    this.size -= 0.04; // Gradually shrink into nothing
+
+                    // Bounce off walls to stay on screen
+                    if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                    if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
                 }
             }
         }
@@ -113,21 +166,27 @@
         function init() {
             particlesArray = [];
             
-            // Draw the hidden text to extract pixel coordinates
+            // Draw the hidden text
             ctx.fillStyle = 'white';
-            let fontSize = Math.min(window.innerWidth / 5, 140);
-            ctx.font = '900 ' + fontSize + 'px Arial';
+            let fontSize = Math.min(window.innerWidth / 5, 150);
+            
+            // Use a bold sans-serif to create solid blocks to sample from
+            ctx.font = '900 ' + fontSize + 'px Arial'; 
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
             ctx.fillText('ANIRBAN', canvas.width / 2, canvas.height / 2);
 
             const textCoordinates = ctx.getImageData(0, 0, canvas.width, canvas.height);
-            ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the solid block of text
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            // Map the text to atoms (sampling every 4th pixel to avoid lag)
-            for (let y = 0, y2 = textCoordinates.height; y < y2; y += 4) {
-                for (let x = 0, x2 = textCoordinates.width; x < x2; x += 4) {
+            // Step size of 8 gives that chunky 8-bit gap between atoms
+            const step = 8; 
+            
+            for (let y = 0, y2 = textCoordinates.height; y < y2; y += step) {
+                for (let x = 0, x2 = textCoordinates.width; x < x2; x += step) {
+                    // Check alpha channel to see if pixel exists here
                     if (textCoordinates.data[(y * 4 * textCoordinates.width) + (x * 4) + 3] > 128) {
+                        // Pass the found x,y as the TARGET coordinates
                         particlesArray.push(new Particle(x, y));
                     }
                 }
@@ -137,33 +196,34 @@
         init();
 
         function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            // Slight opacity clear to leave short 8-bit trails as they float
+            ctx.fillStyle = 'rgba(5, 5, 5, 0.5)'; 
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
             for (let i = 0; i < particlesArray.length; i++) {
-                if (particlesArray[i].size > 0) {
-                    particlesArray[i].draw();
-                    particlesArray[i].update();
-                }
+                particlesArray[i].draw();
+                particlesArray[i].update();
             }
             requestAnimationFrame(animate);
         }
         
         animate();
 
-        // Trigger the explosion on click
+        // Trigger the assembly on click
         introContainer.addEventListener('click', () => {
-            if (isExploding) return;
-            isExploding = true;
-            clickHint.style.opacity = '0'; // Hide the prompt
+            if (isAssembling) return;
+            isAssembling = true;
+            clickHint.style.display = 'none'; // Instantly hide the text
 
-            // Let particles scatter for 1.2 seconds, then fade the black screen out
+            // Wait 2.5 seconds for the atoms to assemble into the name
             setTimeout(() => {
-                introContainer.style.opacity = '0';
+                introContainer.style.opacity = '0'; // Start fade out
                 
-                // Remove the container entirely so the user can click the website
+                // Remove from DOM after fade completes
                 setTimeout(() => {
                     introContainer.style.display = 'none';
                 }, 1000); 
-            }, 1200);
+            }, 2500);
         });
     </script>
 </body>
