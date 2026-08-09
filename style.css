@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Georgia', serif; /* Serif fonts are classic for journalism */
+    font-family: 'Georgia', serif; 
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--bg-color);
@@ -21,14 +21,14 @@ h1, h2, h3 {
     margin-bottom: 0.5rem;
 }
 
-h1 { font-size: 2.5rem; }
+h1 { font-size: 2.5rem; margin-bottom: 0; }
 h2 { font-size: 1.5rem; margin-top: 3rem; border-bottom: 2px solid #eee; padding-bottom: 0.5rem; }
 
 .subtitle {
     font-size: 1.2rem;
     color: #666;
     font-style: italic;
-    margin-top: -0.5rem;
+    margin-top: 0.5rem;
 }
 
 a {
@@ -40,13 +40,68 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Article Clips Formatting */
-.clip {
+/* Scrolling Navigation Tabs */
+.publication-tabs {
+    display: flex;
+    overflow-x: auto; 
+    white-space: nowrap; 
+    gap: 0.5rem;
     margin-bottom: 2rem;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
 }
 
-.clip h3 {
+.publication-tabs::-webkit-scrollbar { 
+    display: none; 
+}
+
+.publication-tabs a {
+    padding: 0.5rem 1rem;
+    background-color: #f4f4f4;
+    color: var(--text-color);
+    border-radius: 6px 6px 0 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.9rem;
+    border: 1px solid #ddd;
+    border-bottom: none;
+    transition: background-color 0.2s ease;
+}
+
+.publication-tabs a:hover {
+    background-color: #e0e0e0;
+    text-decoration: none;
+}
+
+.publication-tabs a.active {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+
+/* Article Clips with Images */
+.clip {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    align-items: flex-start;
+}
+
+.clip-img {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+    flex-shrink: 0; 
+    border: 1px solid #ddd;
+}
+
+.clip-content h3 {
+    margin-top: 0;
     margin-bottom: 0.2rem;
+    font-size: 1.2rem;
 }
 
 .meta {
@@ -57,6 +112,18 @@ a:hover {
 
 .description {
     margin: 0;
+}
+
+/* Mobile Adjustments for Articles */
+@media (max-width: 600px) {
+    .clip {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .clip-img {
+        width: 100%;
+        height: 180px;
+    }
 }
 
 /* Simple Button */
@@ -74,37 +141,42 @@ a:hover {
     text-decoration: none;
 }
 
-/* Navigation Tabs */
-.publication-tabs {
-    display: flex;
-    flex-wrap: wrap; /* Allows tabs to wrap neatly on mobile screens */
-    gap: 0.5rem;
-    margin-bottom: 2rem;
-    border-bottom: 2px solid #ccc;
-    padding-bottom: 0.5rem;
-    margin-top: 2rem;
+/* =========================================
+   PARTICLE INTRO STYLES
+   ========================================= */
+
+#intro-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    z-index: 9999;
+    transition: opacity 1s ease;
+    cursor: pointer;
 }
 
-.publication-tabs a {
-    padding: 0.5rem 1rem;
-    background-color: #f4f4f4;
-    color: var(--text-color);
-    border-radius: 6px 6px 0 0; /* Rounds the top corners like a file folder tab */
+#particle-canvas {
+    display: block;
+}
+
+#click-hint {
+    position: absolute;
+    bottom: 20%;
+    width: 100%;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
     font-family: 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 4px;
     font-size: 0.9rem;
-    border: 1px solid #ddd;
-    border-bottom: none;
-    transition: background-color 0.2s ease;
+    animation: pulse 2s infinite;
+    transition: opacity 0.3s;
+    pointer-events: none; /* Prevents text highlighting when clicking */
 }
 
-.publication-tabs a:hover {
-    background-color: #e0e0e0;
-    text-decoration: none;
-}
-
-/* Highlights the tab of the page you are currently on */
-.publication-tabs a.active {
-    background-color: var(--accent-color);
-    color: white;
-    border-color: var(--accent-color);
+@keyframes pulse {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0.3; }
 }
