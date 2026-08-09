@@ -3,18 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name | Science Journalist</title>
+    <title>Anirban | Science Journalist</title>
+    <meta name="description" content="Science and research journalism by Anirban. Featured in The Hindu, Science, Scientific American, and more.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- PARTICLE EXPLOSION INTRO -->
+    <div id="intro-container">
+        <canvas id="particle-canvas"></canvas>
+        <p id="click-hint">CLICK TO INITIATE</p>
+    </div>
+
     <header>
-        <h1>Your Name</h1>
+        <h1>Anirban</h1>
         <p class="subtitle">Science & Research Journalist</p>
         <p>I write about scientific breakthroughs, research, and discovery. My work has appeared in <em>The Hindu</em>, <em>Science</em>, <em>Scientific American</em>, <em>C&EN</em>, <em>The Scientist</em>, <em>Live Science</em>, and <em>Science News</em>.</p>
         <a href="#contact" class="btn">Get in touch</a>
     </header>
 
-    <!-- Publication Navigation Tabs -->
     <nav class="publication-tabs">
         <a href="index.html" class="active">Home</a>
         <a href="the-hindu.html">The Hindu</a>
@@ -31,18 +38,22 @@
             <h2>Featured Works</h2>
             
             <article class="clip">
-                <h3><a href="LINK_TO_YOUR_ARTICLE" target="_blank">The Title of Your Best Feature</a></h3>
-                <p class="meta">Published in <strong>Scientific American</strong> | October 2025</p>
-                <p class="description">A brief one-to-two sentence summary of what the piece is about and why it matters. Keep it punchy to hook the editor.</p>
+                <img src="https://via.placeholder.com/150" alt="Article thumbnail" class="clip-img">
+                <div class="clip-content">
+                    <h3><a href="#" target="_blank">The Title of Your Best Feature</a></h3>
+                    <p class="meta">Published in <strong>Scientific American</strong> | October 2025</p>
+                    <p class="description">A brief one-to-two sentence summary of what the piece is about and why it matters. Keep it punchy to hook the editor.</p>
+                </div>
             </article>
 
             <article class="clip">
-                <h3><a href="LINK_TO_YOUR_ARTICLE" target="_blank">Another Great Investigation</a></h3>
-                <p class="meta">Published in <strong>Science</strong> | August 2025</p>
-                <p class="description">A brief description of the reporting process or the impact the story had after publication.</p>
+                <img src="https://via.placeholder.com/150" alt="Article thumbnail" class="clip-img">
+                <div class="clip-content">
+                    <h3><a href="#" target="_blank">Another Great Investigation</a></h3>
+                    <p class="meta">Published in <strong>Science</strong> | August 2025</p>
+                    <p class="description">A brief description of the reporting process or the impact the story had after publication.</p>
+                </div>
             </article>
-            
-            <!-- Add more articles following the same structure -->
         </section>
     </main>
 
@@ -52,5 +63,108 @@
         <p>Signal: @yourusername (For secure tips)</p>
         <p>Twitter/X: <a href="https://twitter.com/yourhandle">@yourhandle</a></p>
     </footer>
+
+    <!-- PARTICLE EXPLOSION SCRIPT -->
+    <script>
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d', { willReadFrequently: true });
+        const introContainer = document.getElementById('intro-container');
+        const clickHint = document.getElementById('click-hint');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particlesArray = [];
+        let isExploding = false;
+
+        // Keep it centered if the window is resized
+        window.addEventListener('resize', () => {
+            if(!isExploding) {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                init();
+            }
+        });
+
+        class Particle {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.size = Math.random() * 2 + 1;
+                // Random velocities for the explosion
+                this.vx = (Math.random() - 0.5) * 20; 
+                this.vy = (Math.random() - 0.5) * 20;
+            }
+            draw() {
+                ctx.fillStyle = '#ffffff'; // White particles
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            update() {
+                if (isExploding) {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    this.size -= 0.04; // Gradually shrink into nothing
+                }
+            }
+        }
+
+        function init() {
+            particlesArray = [];
+            
+            // Draw the hidden text to extract pixel coordinates
+            ctx.fillStyle = 'white';
+            let fontSize = Math.min(window.innerWidth / 5, 140);
+            ctx.font = '900 ' + fontSize + 'px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('ANIRBAN', canvas.width / 2, canvas.height / 2);
+
+            const textCoordinates = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the solid block of text
+
+            // Map the text to atoms (sampling every 4th pixel to avoid lag)
+            for (let y = 0, y2 = textCoordinates.height; y < y2; y += 4) {
+                for (let x = 0, x2 = textCoordinates.width; x < x2; x += 4) {
+                    if (textCoordinates.data[(y * 4 * textCoordinates.width) + (x * 4) + 3] > 128) {
+                        particlesArray.push(new Particle(x, y));
+                    }
+                }
+            }
+        }
+
+        init();
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) {
+                if (particlesArray[i].size > 0) {
+                    particlesArray[i].draw();
+                    particlesArray[i].update();
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+        
+        animate();
+
+        // Trigger the explosion on click
+        introContainer.addEventListener('click', () => {
+            if (isExploding) return;
+            isExploding = true;
+            clickHint.style.opacity = '0'; // Hide the prompt
+
+            // Let particles scatter for 1.2 seconds, then fade the black screen out
+            setTimeout(() => {
+                introContainer.style.opacity = '0';
+                
+                // Remove the container entirely so the user can click the website
+                setTimeout(() => {
+                    introContainer.style.display = 'none';
+                }, 1000); 
+            }, 1200);
+        });
+    </script>
 </body>
 </html>
