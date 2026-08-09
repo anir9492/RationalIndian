@@ -184,3 +184,12 @@ a:hover {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
+
+/* =========================================
+   NEW: 8-BIT ATOM SPRITE DESIGN (INLINED)
+   ========================================= */
+:root {
+    /* Define our tiny 8-bit atom sprite as a CSS background.
+       This will be loaded as an image in the script. */
+    --atom-sprite-url: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAHklEQVR42mP8z8AARAyMjIwwADICAsg4mGAUAYsB/4EAnC3A8k2Y7wAAAAAElFTkSuQmCC');
+}
