@@ -308,7 +308,7 @@ input, select, textarea {
 
 	#overlay {
 		/* Deep navy blue tint with 60% opacity */
-		background-color: rgba(10, 15, 30, 0.6); 
+		background-color: rgba(10, 15, 30, 0.2); 
 		height: 100%;
 		left: 0;
 		position: fixed;
