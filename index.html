@@ -11,6 +11,30 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		
+		<style>
+			/* Turn off the template's default circle and icon for our custom logos */
+			#header nav a.custom-logo:before {
+				display: none !important; 
+			}
+			
+			/* Size the new logo images to perfectly match the old icons */
+			#header nav a.custom-logo img {
+				height: 2.5em;
+				width: 2.5em;
+				object-fit: contain; /* Ensures wide logos aren't stretched */
+				background-color: rgba(255, 255, 255, 0.8); /* Gives a slight white background so dark logos show up */
+				border-radius: 50%;
+				padding: 5px;
+				transition: all 0.2s ease-in-out;
+			}
+			
+			/* Recreate the "pop" hover effect */
+			#header nav a.custom-logo:hover img {
+				transform: scale(1.15);
+				background-color: #ffffff;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 		<div id="wrapper">
@@ -24,10 +48,12 @@
 						<p>Science Journalist &nbsp;&bull;&nbsp; Ex-Geneticist &nbsp;&bull;&nbsp; Storyteller</p>
 						<nav>
 							<ul>
-								<li><a href="YOUR_TWITTER_URL" class="icon brands fa-twitter" target="_blank"><span class="label">Twitter</span></a></li>
-								<li><a href="YOUR_LINKEDIN_URL" class="icon brands fa-linkedin-in" target="_blank"><span class="label">LinkedIn</span></a></li>
-								<li><a href="YOUR_PORTFOLIO_URL" class="icon solid fa-book" target="_blank"><span class="label">Portfolio</span></a></li>
-								<li><a href="mailto:YOUR_EMAIL_ADDRESS" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+								<li><a href="the-hindu.html" class="custom-logo"><img src="images/hindu.png" alt="The Hindu"></a></li>
+								<li><a href="scientific-american.html" class="custom-logo"><img src="images/sciam.png" alt="Scientific American"></a></li>
+								<li><a href="science.html" class="custom-logo"><img src="images/science.png" alt="Science"></a></li>
+								<li><a href="the-scientist.html" class="custom-logo"><img src="images/scientist.png" alt="The Scientist"></a></li>
+								<li><a href="live-science.html" class="custom-logo"><img src="images/livescience.png" alt="Live Science"></a></li>
+								<li><a href="science-news.html" class="custom-logo"><img src="images/sciencenews.png" alt="Science News"></a></li>
 							</ul>
 						</nav>
 					</header>
