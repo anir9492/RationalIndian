@@ -4,13 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Stories by Anirban Mukhopadhyay</title>
+<!-- Importing Google Fonts to match the Quanta Magazine typography -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,400&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
     /* Reset and Base Styles */
     * {
         box-sizing: border-box;
     }
     body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         color: #333;
         line-height: 1.5;
         margin: 0;
@@ -27,20 +32,29 @@
         text-align: center;
         margin-bottom: 50px;
     }
+    
     .author-header h1 {
-        font-size: 2.2rem;
-        margin-bottom: 10px;
-        font-weight: bold;
-        color: #222;
+        /* Matches the "Natalie Wolchover" font style */
+        font-family: 'Merriweather', serif;
+        font-weight: 900;
+        font-size: 2.6rem;
+        margin-bottom: 5px;
+        color: #111;
+        letter-spacing: -0.5px;
     }
+    
     .author-header p {
+        /* Matches the "Columnist" font style */
+        font-family: 'Merriweather', serif;
+        font-style: italic;
         color: #555;
-        font-size: 0.95rem;
+        font-size: 1rem;
         max-width: 750px;
         margin: 0 auto;
     }
+    
     .author-header a {
-        color: #0077b5; /* Linked blue color */
+        color: #0077b5;
         text-decoration: underline;
     }
 
@@ -48,7 +62,7 @@
     .article-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 40px 30px; /* row-gap column-gap */
+        gap: 40px 30px; 
     }
 
     /* Card Styling */
@@ -81,7 +95,7 @@
     .divider {
         width: 5px;
         height: 5px;
-        background-color: #0077b5; /* Blue square indicator */
+        background-color: #0077b5;
         display: inline-block;
     }
     .date {
@@ -90,17 +104,25 @@
 
     /* Typography inside Card */
     .card h2 {
-        font-size: 1.35rem;
-        margin: 0 0 8px 0;
-        line-height: 1.25;
+        /* Matches the article Hed font style */
+        font-family: 'Merriweather', serif;
+        font-weight: 700;
+        font-size: 1.45rem;
+        margin: 0 0 10px 0;
+        line-height: 1.3;
         color: #111;
     }
+    
     .card .excerpt {
+        /* Matches the article Dek font style */
+        font-family: 'Open Sans', sans-serif;
         font-size: 0.95rem;
-        color: #555;
+        color: #444;
         margin: 0 0 15px 0;
-        flex-grow: 1; /* Ensures author tag stays at the bottom if excerpt lengths vary */
+        flex-grow: 1;
+        line-height: 1.6;
     }
+    
     .card .author {
         font-size: 0.7rem;
         color: #888;
@@ -113,7 +135,7 @@
     /* Responsive Design for smaller screens */
     @media (max-width: 768px) {
         .article-grid {
-            grid-template-columns: 1fr; /* Stacks to 1 column on mobile */
+            grid-template-columns: 1fr;
         }
     }
 </style>
@@ -130,7 +152,7 @@
         <!-- 2-Column Grid Wrapper -->
         <main class="article-grid">
             
-            <!-- Article 1: Cats -->
+            <!-- Article 1 -->
             <article class="card">
                 <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&h=350&fit=crop" alt="Cat resting">
                 <div class="meta">
@@ -143,7 +165,7 @@
                 <p class="author">ANIRBAN MUKHOPADHYAY</p>
             </article>
 
-            <!-- Article 2: Deer -->
+            <!-- Article 2 -->
             <article class="card">
                 <img src="https://images.unsplash.com/photo-1484406593171-192400e52518?w=600&h=350&fit=crop" alt="Deer silhouette in a field">
                 <div class="meta">
@@ -156,7 +178,7 @@
                 <p class="author">ANIRBAN MUKHOPADHYAY</p>
             </article>
 
-            <!-- Article 3: Geometric Patterns -->
+            <!-- Article 3 -->
             <article class="card">
                 <img src="https://images.unsplash.com/photo-1517015098380-6923485ccbc0?w=600&h=350&fit=crop" alt="Geometric paper pattern">
                 <div class="meta">
@@ -169,7 +191,7 @@
                 <p class="author">ANIRBAN MUKHOPADHYAY</p>
             </article>
 
-            <!-- Article 4: Dinosaur -->
+            <!-- Article 4 -->
             <article class="card">
                 <img src="https://images.unsplash.com/photo-1596740698387-a25b30de4568?w=600&h=350&fit=crop" alt="Dinosaur models">
                 <div class="meta">
@@ -182,7 +204,7 @@
                 <p class="author">ANIRBAN MUKHOPADHYAY</p>
             </article>
 
-            <!-- Article 5: Dogs -->
+            <!-- Article 5 -->
             <article class="card">
                 <img src="https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?w=600&h=350&fit=crop" alt="Dog with a green toy">
                 <div class="meta">
