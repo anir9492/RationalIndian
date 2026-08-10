@@ -4,226 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stories by Anirban Mukhopadhyay | Scientific American</title>
-    
-    <!-- Clean, modern fonts to match the editorial style -->
-    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Helvetica+Neue:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* Base Reset */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: 'Open Sans', sans-serif;
-            color: #121212;
-            background-color: #ffffff;
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
-        }
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #121212; background-color: #fff; -webkit-font-smoothing: antialiased; }
         a { text-decoration: none; color: inherit; }
-        a:hover { color: #005587; } /* Scientific American Blue */
-
-        /* Header Navigation */
-        .site-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 40px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        .back-link {
-            font-weight: 600;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: #556B7D;
-        }
-        .back-link:hover { text-decoration: underline; }
-        
-        /* Main Layout */
-        .main-content {
-            max-width: 840px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        /* Author Profile Header */
-        .author-header {
-            margin-bottom: 50px;
-            padding-bottom: 30px;
-            border-bottom: 2px solid #121212;
-        }
-        .author-header h1 {
-            font-family: 'Georgia', serif;
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-        .author-header p {
-            font-size: 1.05rem;
-            color: #31313B;
-            line-height: 1.6;
-        }
-        .author-header a {
-            text-decoration: underline;
-            color: #005587;
-        }
-
-        /* Article List (The River) */
-        .article-item {
-            display: flex;
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-        .article-image {
-            flex: 0 0 45%; /* Image takes up 45% of the width */
-            max-width: 350px;
-        }
-        .article-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 2px;
-            object-fit: cover;
-            aspect-ratio: 16 / 9;
-        }
-        .article-text {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        /* Article Typography */
-        .kicker {
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: #D4441F; /* Burnt Orange */
-            margin-bottom: 10px;
-            letter-spacing: 0.05em;
-        }
-        .kicker span.date {
-            color: #556B7D;
-            margin-left: 10px;
-            padding-left: 10px;
-            border-left: 1px solid #ccc;
-        }
-        .article-title {
-            font-family: 'Georgia', serif;
-            font-size: 1.5rem;
-            line-height: 1.25;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-        .article-title:hover {
-            text-decoration: underline;
-        }
-        .article-dek {
-            font-size: 1rem;
-            color: #556B7D;
-            margin-bottom: 10px;
-        }
-        .article-author {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #31313B;
-        }
-
-        /* Mobile Responsiveness */
-        @media (max-width: 600px) {
-            .article-item {
-                flex-direction: column;
-                gap: 15px;
-            }
-            .article-image {
-                flex: 100%;
-                max-width: 100%;
-            }
-            .site-header {
-                padding: 15px 20px;
-            }
-        }
+        .header-bar { display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; border-bottom: 1px solid #e0e0e0; }
+        .header-logo { font-family: 'Georgia', serif; font-size: 1.5rem; font-weight: bold; }
+        .back-btn { font-size: 0.85rem; font-weight: bold; text-transform: uppercase; color: #00529C; }
+        .back-btn:hover { text-decoration: underline; }
+        .main-content { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .author-header { margin-bottom: 40px; }
+        .author-title { font-family: 'Georgia', serif; font-size: 2.5rem; font-weight: 700; margin: 0 0 15px 0; }
+        .author-bio { font-size: 1rem; line-height: 1.6; max-width: 800px; color: #121212; }
+        .author-bio a { color: #00529C; text-decoration: underline; }
+        .article-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 40px 30px; }
+        .article-card { display: flex; flex-direction: column; }
+        .article-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; margin-bottom: 15px; background: #eee; border-radius: 2px; }
+        .kicker-row { display: flex; align-items: center; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; }
+        .kicker { color: #121212; }
+        .date { color: #555; font-weight: normal; margin-left: 10px; padding-left: 10px; border-left: 1px solid #ccc; text-transform: none; font-size: 0.8rem;}
+        .article-title { font-family: 'Georgia', serif; font-size: 1.4rem; font-weight: 700; line-height: 1.25; margin: 0 0 10px 0; }
+        .article-title:hover { text-decoration: underline; }
+        .article-dek { font-size: 0.95rem; color: #444; line-height: 1.4; margin: 0 0 15px 0; }
+        .article-author { font-size: 0.85rem; color: #121212; margin-top: auto; }
+        @media(max-width: 768px){ .article-grid { grid-template-columns: 1fr; } .header-bar { padding: 15px 20px; } }
     </style>
 </head>
 <body>
-
-    <header class="site-header">
-        <a href="index.html" class="back-link">← Back to Portfolio</a>
-        <!-- You can link your scientific american logo image here if you want it in the top right -->
-        <div style="font-family: 'Georgia', serif; font-weight: bold; font-size: 1.2rem;">Scientific American</div>
+    <header class="header-bar">
+        <div class="header-logo">Scientific American</div>
+        <a href="index.html" class="back-btn">← Back to Portfolio</a>
     </header>
-
     <main class="main-content">
-        
-        <!-- Author Profile Section -->
         <section class="author-header">
-            <h1>Stories by Anirban Mukhopadhyay</h1>
-            <p><b>Anirban Mukhopadhyay</b> is an independent science journalist based in India. He has a Ph.D. in genetics from Delhi University and writes about science policy and cutting-edge biomedical research. Find him on X <a href="https://x.com/onipedia" target="_blank">@onipedia</a> and on <a href="https://www.linkedin.com/in/anirban-mukhopadhyay-929827370/?originalSubdomain=in" target="_blank">LinkedIn</a>.</p>
+            <h1 class="author-title">Stories by Anirban Mukhopadhyay</h1>
+            <p class="author-bio"><b>Anirban Mukhopadhyay</b> is an independent science journalist based in India. He has a Ph.D. in genetics from Delhi University and writes about science policy and cutting-edge biomedical research. Find him on X <a href="https://x.com/onipedia" target="_blank">@onipedia</a> and on <a href="https://www.linkedin.com/in/anirban-mukhopadhyay-929827370/?originalSubdomain=in" target="_blank">LinkedIn</a>.</p>
         </section>
-
-        <!-- Article List -->
-        <section class="article-list">
-
-            <!-- Article 1 -->
-            <article class="article-item">
-                <a href="https://www.scientificamerican.com/article/cats-unlike-dogs-and-toddlers-help-you-only-when-it-helps-them/" class="article-image" target="_blank">
-                    <img src="https://static.scientificamerican.com/dam/asset/b655057b-1a12-4e1b-857c-2a798a4b9189/saw070826Adva11.jpg?m=1779978059.041&w=450" alt="Close-up of a housecat’s head">
+        <section class="article-grid">
+            
+            <article class="article-card">
+                <a href="https://www.scientificamerican.com/article/cats-unlike-dogs-and-toddlers-help-you-only-when-it-helps-them/" target="_blank">
+                    <img class="article-img" src="https://static.scientificamerican.com/dam/asset/b655057b-1a12-4e1b-857c-2a798a4b9189/saw070826Adva11.jpg?m=1779978059.041&w=450" alt="Close-up of a housecat’s head">
                 </a>
-                <div class="article-text">
-                    <div class="kicker">Cognition <span class="date">June 10, 2026</span></div>
-                    <a href="https://www.scientificamerican.com/article/cats-unlike-dogs-and-toddlers-help-you-only-when-it-helps-them/" target="_blank">
-                        <h2 class="article-title">Science confirms: Cats help you only when there’s something in it for them</h2>
-                    </a>
-                    <p class="article-dek">Dogs spontaneously aid struggling humans the way young children do—whereas cats wait until they stand to benefit</p>
-                    <div class="article-author">Anirban Mukhopadhyay</div>
-                </div>
+                <div class="kicker-row"><span class="kicker">Cognition</span><span class="date">June 10, 2026</span></div>
+                <a href="https://www.scientificamerican.com/article/cats-unlike-dogs-and-toddlers-help-you-only-when-it-helps-them/" target="_blank">
+                    <h2 class="article-title">Science confirms: Cats help you only when there’s something in it for them</h2>
+                </a>
+                <p class="article-dek">Dogs spontaneously aid struggling humans the way young children do—whereas cats wait until they stand to benefit</p>
+                <div class="article-author">Anirban Mukhopadhyay</div>
             </article>
 
-            <!-- Article 2 -->
-            <article class="article-item">
-                <a href="https://www.scientificamerican.com/article/deer-may-see-hidden-glowing-signs-in-forests/" class="article-image" target="_blank">
-                    <img src="https://static.scientificamerican.com/dam/m/0a14062f0b20f330/original/Deer-RF-GettyImages-1372797758.jpg?m=1772655072.85&w=450" alt="Silhouette of a white-tailed deer">
+            <article class="article-card">
+                <a href="https://www.scientificamerican.com/article/deer-may-see-hidden-glowing-signs-in-forests/" target="_blank">
+                    <img class="article-img" src="https://static.scientificamerican.com/dam/m/0a14062f0b20f330/original/Deer-RF-GettyImages-1372797758.jpg?m=1772655072.85&w=450" alt="White-tailed deer">
                 </a>
-                <div class="article-text">
-                    <div class="kicker">Animals <span class="date">January 21, 2026</span></div>
-                    <a href="https://www.scientificamerican.com/article/deer-may-see-hidden-glowing-signs-in-forests/" target="_blank">
-                        <h2 class="article-title">The forest may be glowing—at least to deer</h2>
-                    </a>
-                    <p class="article-dek">Deer antler rubs and hoof scrapes change how parts of the forest reflect short-wavelength light, perhaps leaving a glowing signal</p>
-                    <div class="article-author">Anirban Mukhopadhyay</div>
-                </div>
+                <div class="kicker-row"><span class="kicker">Animals</span><span class="date">January 21, 2026</span></div>
+                <a href="https://www.scientificamerican.com/article/deer-may-see-hidden-glowing-signs-in-forests/" target="_blank">
+                    <h2 class="article-title">The forest may be glowing—at least to deer</h2>
+                </a>
+                <p class="article-dek">Deer antler rubs and hoof scrapes change how parts of the forest reflect short-wavelength light, perhaps leaving a glowing signal</p>
+                <div class="article-author">Anirban Mukhopadhyay</div>
             </article>
 
-            <!-- Article 3 -->
-            <article class="article-item">
-                <a href="https://www.scientificamerican.com/article/why-does-life-keep-evolving-these-geometric-patterns/" class="article-image" target="_blank">
-                    <img src="https://static.scientificamerican.com/dam/m/5e7c8055017e7837/original/sa0226Adva08.jpg?m=1767046920.289&w=450" alt="Close-up of mirror spider">
+            <article class="article-card">
+                <a href="https://www.scientificamerican.com/article/why-does-life-keep-evolving-these-geometric-patterns/" target="_blank">
+                    <img class="article-img" src="https://static.scientificamerican.com/dam/m/5e7c8055017e7837/original/sa0226Adva08.jpg?m=1767046920.289&w=450" alt="Mirror spider">
                 </a>
-                <div class="article-text">
-                    <div class="kicker">Science in Images <span class="date">January 5, 2026</span></div>
-                    <a href="https://www.scientificamerican.com/article/why-does-life-keep-evolving-these-geometric-patterns/" target="_blank">
-                        <h2 class="article-title">Why does life keep evolving these geometric patterns?</h2>
-                    </a>
-                    <p class="article-dek">A global catalog shows how creatures across the tree of life balance rigidity with flexibility in remarkably consistent ways</p>
-                    <div class="article-author">Anirban Mukhopadhyay</div>
-                </div>
+                <div class="kicker-row"><span class="kicker">Science in Images</span><span class="date">January 5, 2026</span></div>
+                <a href="https://www.scientificamerican.com/article/why-does-life-keep-evolving-these-geometric-patterns/" target="_blank">
+                    <h2 class="article-title">Why does life keep evolving these geometric patterns?</h2>
+                </a>
+                <p class="article-dek">A global catalog shows how creatures across the tree of life balance rigidity with flexibility in remarkably consistent ways</p>
+                <div class="article-author">Anirban Mukhopadhyay</div>
             </article>
 
-            <!-- Article 4 -->
-            <article class="article-item">
-                <a href="https://www.scientificamerican.com/article/nanotyrannus-isnt-a-juvenile-t-rex-its-a-separate-dinosaur/" class="article-image" target="_blank">
-                    <img src="https://static.scientificamerican.com/dam/m/226e8f30257fa6dc/original/Nanotyrannus-Paleo-Art.jpeg?m=1761835377.326&w=450" alt="Dinosaurs roaring">
+            <article class="article-card">
+                <a href="https://www.scientificamerican.com/article/nanotyrannus-isnt-a-juvenile-t-rex-its-a-separate-dinosaur/" target="_blank">
+                    <img class="article-img" src="https://static.scientificamerican.com/dam/m/226e8f30257fa6dc/original/Nanotyrannus-Paleo-Art.jpeg?m=1761835377.326&w=450" alt="Dueling Dinosaurs">
                 </a>
-                <div class="article-text">
-                    <div class="kicker">Paleontology <span class="date">October 30, 2025</span></div>
-                    <a href="https://www.scientificamerican.com/article/nanotyrannus-isnt-a-juvenile-t-rex-its-a-separate-dinosaur/" target="_blank">
-                        <h2 class="article-title">‘Dueling Dinosaurs’ Fossil Solves the Mystery of a ‘Mini T. rex’</h2>
-                    </a>
-                    <p class="article-dek">An analysis suggests Nanotyrannus is a separate, smaller dinosaur that lived alongside T. rex, settling a 30-year debate</p>
-                    <div class="article-author">Anirban Mukhopadhyay</div>
-                </div>
+                <div class="kicker-row"><span class="kicker">Paleontology</span><span class="date">October 30, 2025</span></div>
+                <a href="https://www.scientificamerican.com/article/nanotyrannus-isnt-a-juvenile-t-rex-its-a-separate-dinosaur/" target="_blank">
+                    <h2 class="article-title">‘Dueling Dinosaurs’ Fossil Solves the Mystery of a ‘Mini T. rex’</h2>
+                </a>
+                <p class="article-dek">An analysis suggests Nanotyrannus is a separate, smaller dinosaur that lived alongside T. rex, settling a 30-year debate</p>
+                <div class="article-author">Anirban Mukhopadhyay</div>
             </article>
 
         </section>
     </main>
-
 </body>
 </html>
