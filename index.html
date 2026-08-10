@@ -14,30 +14,38 @@
 		
 		<style>
 			/* Turn off the template's default circle and icon for our custom logos */
-    #header nav a.custom-logo:before {
-        display: none !important; 
-    }
-    
-    /* INCREASED LOGO SIZES */
-    #header nav a.custom-logo img {
-        height: 4.5em; /* Increased from 2.5em */
-        width: 4.5em;  /* Increased from 2.5em */
-        object-fit: contain; 
-        background-color: rgba(255, 255, 255, 0.8); 
-        border-radius: 50%;
-        padding: 8px; /* Slightly increased padding for the larger size */
-        transition: all 0.2s ease-in-out;
-        
-        /* This centers the larger logos nicely in the template's spacing */
-        vertical-align: middle; 
-    }
-    
-    /* Recreate the "pop" hover effect */
-    #header nav a.custom-logo:hover img {
-        transform: scale(1.15);
-        background-color: #ffffff;
-    }
-</style>
+			#header nav a.custom-logo:before {
+				display: none !important; 
+			}
+			
+			/* INCREASED LOGO SIZES */
+			#header nav a.custom-logo img {
+				height: 4.5em; /* Increased from 2.5em */
+				width: 4.5em;  /* Increased from 2.5em */
+				object-fit: contain; 
+				background-color: rgba(255, 255, 255, 0.8); 
+				border-radius: 50%;
+				padding: 8px; /* Slightly increased padding for the larger size */
+				transition: all 0.2s ease-in-out;
+				
+				/* This centers the larger logos nicely in the template's spacing */
+				vertical-align: middle; 
+			}
+			
+			/* Recreate the "pop" hover effect */
+			#header nav a.custom-logo:hover img {
+				transform: scale(1.15);
+				background-color: #ffffff;
+			}
+
+			/* Force the background to cover the full height on mobile devices ONLY */
+			@media screen and (max-width: 736px) {
+				#bg {
+					background-size: auto 100% !important;
+					background-position: left center !important;
+				}
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 		<div id="wrapper">
@@ -76,11 +84,3 @@
 		</script>
 	</body>
 </html>
-
-/* Force the background to cover the full height on mobile devices ONLY */
-    @media screen and (max-width: 736px) {
-        #bg {
-            background-size: auto 100% !important;
-            background-position: left center !important;
-        }
-    }
