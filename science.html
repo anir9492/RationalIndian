@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stories by Anirban Mukhopadhyay | Science</title>
+    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Open Sans', sans-serif; color: #121212; background-color: #ffffff; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        a { text-decoration: none; color: inherit; }
+        a:hover { color: #005587; }
+        .site-header { display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; border-bottom: 1px solid #e0e0e0; }
+        .back-link { font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: #556B7D; }
+        .back-link:hover { text-decoration: underline; }
+        .main-content { max-width: 840px; margin: 0 auto; padding: 40px 20px; }
+        .author-header { margin-bottom: 50px; padding-bottom: 30px; border-bottom: 2px solid #121212; }
+        .author-header h1 { font-family: 'Georgia', serif; font-size: 2.5rem; margin-bottom: 15px; font-weight: 700; }
+        .author-header p { font-size: 1.05rem; color: #31313B; line-height: 1.6; }
+        .author-header a { text-decoration: underline; color: #005587; }
+        .article-item { display: flex; gap: 30px; margin-bottom: 40px; }
+        .article-image { flex: 0 0 45%; max-width: 350px; }
+        .article-image img { width: 100%; height: auto; border-radius: 2px; object-fit: cover; aspect-ratio: 16 / 9; }
+        .article-text { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+        .kicker { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: #D4441F; margin-bottom: 10px; letter-spacing: 0.05em; }
+        .kicker span.date { color: #556B7D; margin-left: 10px; padding-left: 10px; border-left: 1px solid #ccc; }
+        .article-title { font-family: 'Georgia', serif; font-size: 1.5rem; line-height: 1.25; margin-bottom: 10px; font-weight: 700; }
+        .article-title:hover { text-decoration: underline; }
+        .article-dek { font-size: 1rem; color: #556B7D; margin-bottom: 10px; }
+        .article-author { font-size: 0.85rem; font-weight: 600; color: #31313B; }
+        @media (max-width: 600px) { .article-item { flex-direction: column; gap: 15px; } .article-image { flex: 100%; max-width: 100%; } .site-header { padding: 15px 20px; } }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <a href="index.html" class="back-link">← Back to Portfolio</a>
+        <div style="font-family: 'Georgia', serif; font-weight: bold; font-size: 1.2rem;">Science</div>
+    </header>
+    <main class="main-content">
+        <section class="author-header">
+            <h1>Stories by Anirban Mukhopadhyay</h1>
+            <p><b>Anirban Mukhopadhyay</b> is an independent science journalist based in India. He has a Ph.D. in genetics from Delhi University and writes about science policy and cutting-edge biomedical research. Find him on X <a href="https://x.com/onipedia" target="_blank">@onipedia</a> and on <a href="https://www.linkedin.com/in/anirban-mukhopadhyay-929827370/?originalSubdomain=in" target="_blank">LinkedIn</a>.</p>
+        </section>
+        <section class="article-list">
+            <article class="article-item">
+                <a href="#" class="article-image" target="_blank">
+                    <img src="images/bg.jpg" alt="Article Thumbnail">
+                </a>
+                <div class="article-text">
+                    <div class="kicker">Category <span class="date">Date Published</span></div>
+                    <a href="#" target="_blank">
+                        <h2 class="article-title">Your Science Article Headline Here</h2>
+                    </a>
+                    <p class="article-dek">A brief summary of your article published in Science.</p>
+                    <div class="article-author">Anirban Mukhopadhyay</div>
+                </div>
+            </article>
+        </section>
+    </main>
+</body>
+</html>
