@@ -1,97 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stories by Anirban Mukhopadhyay | Scientific American</title>
-    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Helvetica+Neue:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        * { box-sizing: border-box; }
-        body { margin: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #121212; background-color: #fff; -webkit-font-smoothing: antialiased; }
-        a { text-decoration: none; color: inherit; }
-        .header-bar { display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; border-bottom: 1px solid #e0e0e0; }
-        .header-logo { font-family: 'Georgia', serif; font-size: 1.5rem; font-weight: bold; }
-        .back-btn { font-size: 0.85rem; font-weight: bold; text-transform: uppercase; color: #00529C; }
-        .back-btn:hover { text-decoration: underline; }
-        .main-content { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-        .author-header { margin-bottom: 40px; }
-        .author-title { font-family: 'Georgia', serif; font-size: 2.5rem; font-weight: 700; margin: 0 0 15px 0; }
-        .author-bio { font-size: 1rem; line-height: 1.6; max-width: 800px; color: #121212; }
-        .author-bio a { color: #00529C; text-decoration: underline; }
-        .article-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 40px 30px; }
-        .article-card { display: flex; flex-direction: column; }
-        .article-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; margin-bottom: 15px; background: #eee; border-radius: 2px; }
-        .kicker-row { display: flex; align-items: center; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; }
-        .kicker { color: #121212; }
-        .date { color: #555; font-weight: normal; margin-left: 10px; padding-left: 10px; border-left: 1px solid #ccc; text-transform: none; font-size: 0.8rem;}
-        .article-title { font-family: 'Georgia', serif; font-size: 1.4rem; font-weight: 700; line-height: 1.25; margin: 0 0 10px 0; }
-        .article-title:hover { text-decoration: underline; }
-        .article-dek { font-size: 0.95rem; color: #444; line-height: 1.4; margin: 0 0 15px 0; }
-        .article-author { font-size: 0.85rem; color: #121212; margin-top: auto; }
-        @media(max-width: 768px){ .article-grid { grid-template-columns: 1fr; } .header-bar { padding: 15px 20px; } }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stories by Anirban Mukhopadhyay</title>
+<style>
+    /* Reset and Base Styles */
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: #333;
+        line-height: 1.5;
+        margin: 0;
+        padding: 40px 20px;
+        background-color: #fff;
+    }
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    /* Header Section */
+    .author-header {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    .author-header h1 {
+        font-size: 2.2rem;
+        margin-bottom: 10px;
+        font-weight: bold;
+        color: #222;
+    }
+    .author-header p {
+        color: #555;
+        font-size: 0.95rem;
+        max-width: 750px;
+        margin: 0 auto;
+    }
+    .author-header a {
+        color: #0077b5; /* Linked blue color */
+        text-decoration: underline;
+    }
+
+    /* Grid Layout */
+    .article-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 30px; /* row-gap column-gap */
+    }
+
+    /* Card Styling */
+    .card {
+        display: flex;
+        flex-direction: column;
+    }
+    .card img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        margin-bottom: 12px;
+    }
+    
+    /* Meta Data (Category & Date) */
+    .meta {
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        letter-spacing: 0.5px;
+    }
+    .category {
+        color: #000;
+    }
+    .divider {
+        width: 5px;
+        height: 5px;
+        background-color: #0077b5; /* Blue square indicator */
+        display: inline-block;
+    }
+    .date {
+        color: #777;
+    }
+
+    /* Typography inside Card */
+    .card h2 {
+        font-size: 1.35rem;
+        margin: 0 0 8px 0;
+        line-height: 1.25;
+        color: #111;
+    }
+    .card .excerpt {
+        font-size: 0.95rem;
+        color: #555;
+        margin: 0 0 15px 0;
+        flex-grow: 1; /* Ensures author tag stays at the bottom if excerpt lengths vary */
+    }
+    .card .author {
+        font-size: 0.7rem;
+        color: #888;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin: 0;
+        font-weight: bold;
+    }
+
+    /* Responsive Design for smaller screens */
+    @media (max-width: 768px) {
+        .article-grid {
+            grid-template-columns: 1fr; /* Stacks to 1 column on mobile */
+        }
+    }
+</style>
 </head>
 <body>
-    <header class="header-bar">
-        <div class="header-logo">Scientific American</div>
-        <a href="index.html" class="back-btn">← Back to Portfolio</a>
-    </header>
-    <main class="main-content">
-        <section class="author-header">
-            <h1 class="author-title">Stories by Anirban Mukhopadhyay</h1>
-            <p class="author-bio"><b>Anirban Mukhopadhyay</b> is an independent science journalist based in India. He has a Ph.D. in genetics from Delhi University and writes about science policy and cutting-edge biomedical research. Find him on X <a href="https://x.com/onipedia" target="_blank">@onipedia</a> and on <a href="https://www.linkedin.com/in/anirban-mukhopadhyay-929827370/?originalSubdomain=in" target="_blank">LinkedIn</a>.</p>
-        </section>
-        <section class="article-grid">
+
+    <div class="container">
+        <!-- Header -->
+        <header class="author-header">
+            <h1>Stories by Anirban Mukhopadhyay</h1>
+            <p>from Delhi University and writes about science policy and cutting-edge biomedical research. Find him on X <a href="#">@onipedia</a> and on <a href="#">LinkedIn</a>.</p>
+        </header>
+
+        <!-- 2-Column Grid Wrapper -->
+        <main class="article-grid">
             
-            <article class="article-card">
-                <a href="https://www.scientificamerican.com/article/cats-unlike-dogs-and-toddlers-help-you-only-when-it-helps-them/" target="_blank">
-                    <img class="article-img" src="https://static.scientificamerican.com/dam/asset/b655057b-1a12-4e1b-857c-2a798a4b9189/saw070826Adva11.jpg?m=1779978059.041&w=450" alt="Close-up of a housecat’s head">
-                </a>
-                <div class="kicker-row"><span class="kicker">Cognition</span><span class="date">June 10, 2026</span></div>
-                <a href="https://www.scientificamerican.com/article/cats-unlike-dogs-and-toddlers-help-you-only-when-it-helps-them/" target="_blank">
-                    <h2 class="article-title">Science confirms: Cats help you only when there’s something in it for them</h2>
-                </a>
-                <p class="article-dek">Dogs spontaneously aid struggling humans the way young children do—whereas cats wait until they stand to benefit</p>
-                <div class="article-author">Anirban Mukhopadhyay</div>
+            <!-- Article 1: Cats -->
+            <article class="card">
+                <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&h=350&fit=crop" alt="Cat resting">
+                <div class="meta">
+                    <span class="category">COGNITION</span>
+                    <span class="divider"></span>
+                    <span class="date">JUNE 10, 2026</span>
+                </div>
+                <h2>Science confirms: Cats help you only when there's something in it for them</h2>
+                <p class="excerpt">Dogs spontaneously aid struggling humans the way young children do—whereas cats wait until they stand to benefit</p>
+                <p class="author">ANIRBAN MUKHOPADHYAY</p>
             </article>
 
-            <article class="article-card">
-                <a href="https://www.scientificamerican.com/article/deer-may-see-hidden-glowing-signs-in-forests/" target="_blank">
-                    <img class="article-img" src="https://static.scientificamerican.com/dam/m/0a14062f0b20f330/original/Deer-RF-GettyImages-1372797758.jpg?m=1772655072.85&w=450" alt="White-tailed deer">
-                </a>
-                <div class="kicker-row"><span class="kicker">Animals</span><span class="date">January 21, 2026</span></div>
-                <a href="https://www.scientificamerican.com/article/deer-may-see-hidden-glowing-signs-in-forests/" target="_blank">
-                    <h2 class="article-title">The forest may be glowing—at least to deer</h2>
-                </a>
-                <p class="article-dek">Deer antler rubs and hoof scrapes change how parts of the forest reflect short-wavelength light, perhaps leaving a glowing signal</p>
-                <div class="article-author">Anirban Mukhopadhyay</div>
+            <!-- Article 2: Deer -->
+            <article class="card">
+                <img src="https://images.unsplash.com/photo-1484406593171-192400e52518?w=600&h=350&fit=crop" alt="Deer silhouette in a field">
+                <div class="meta">
+                    <span class="category">ANIMALS</span>
+                    <span class="divider"></span>
+                    <span class="date">JANUARY 21, 2026</span>
+                </div>
+                <h2>The forest may be glowing—at least to deer</h2>
+                <p class="excerpt">Deer antler rubs and hoof scrapes change how parts of the forest reflect short-wavelength light, perhaps leaving a glowing signal</p>
+                <p class="author">ANIRBAN MUKHOPADHYAY</p>
             </article>
 
-            <article class="article-card">
-                <a href="https://www.scientificamerican.com/article/why-does-life-keep-evolving-these-geometric-patterns/" target="_blank">
-                    <img class="article-img" src="https://static.scientificamerican.com/dam/m/5e7c8055017e7837/original/sa0226Adva08.jpg?m=1767046920.289&w=450" alt="Mirror spider">
-                </a>
-                <div class="kicker-row"><span class="kicker">Science in Images</span><span class="date">January 5, 2026</span></div>
-                <a href="https://www.scientificamerican.com/article/why-does-life-keep-evolving-these-geometric-patterns/" target="_blank">
-                    <h2 class="article-title">Why does life keep evolving these geometric patterns?</h2>
-                </a>
-                <p class="article-dek">A global catalog shows how creatures across the tree of life balance rigidity with flexibility in remarkably consistent ways</p>
-                <div class="article-author">Anirban Mukhopadhyay</div>
+            <!-- Article 3: Geometric Patterns -->
+            <article class="card">
+                <img src="https://images.unsplash.com/photo-1517015098380-6923485ccbc0?w=600&h=350&fit=crop" alt="Geometric paper pattern">
+                <div class="meta">
+                    <span class="category">SCIENCE IN IMAGES</span>
+                    <span class="divider"></span>
+                    <span class="date">JANUARY 5, 2026</span>
+                </div>
+                <h2>Why does life keep evolving these geometric patterns?</h2>
+                <p class="excerpt">A global catalog shows how creatures across the tree of life balance rigidity with flexibility in remarkably consistent ways</p>
+                <p class="author">ANIRBAN MUKHOPADHYAY</p>
             </article>
 
-            <article class="article-card">
-                <a href="https://www.scientificamerican.com/article/nanotyrannus-isnt-a-juvenile-t-rex-its-a-separate-dinosaur/" target="_blank">
-                    <img class="article-img" src="https://static.scientificamerican.com/dam/m/226e8f30257fa6dc/original/Nanotyrannus-Paleo-Art.jpeg?m=1761835377.326&w=450" alt="Dueling Dinosaurs">
-                </a>
-                <div class="kicker-row"><span class="kicker">Paleontology</span><span class="date">October 30, 2025</span></div>
-                <a href="https://www.scientificamerican.com/article/nanotyrannus-isnt-a-juvenile-t-rex-its-a-separate-dinosaur/" target="_blank">
-                    <h2 class="article-title">‘Dueling Dinosaurs’ Fossil Solves the Mystery of a ‘Mini T. rex’</h2>
-                </a>
-                <p class="article-dek">An analysis suggests Nanotyrannus is a separate, smaller dinosaur that lived alongside T. rex, settling a 30-year debate</p>
-                <div class="article-author">Anirban Mukhopadhyay</div>
+            <!-- Article 4: Dinosaur -->
+            <article class="card">
+                <img src="https://images.unsplash.com/photo-1596740698387-a25b30de4568?w=600&h=350&fit=crop" alt="Dinosaur models">
+                <div class="meta">
+                    <span class="category">PALEONTOLOGY</span>
+                    <span class="divider"></span>
+                    <span class="date">OCTOBER 30, 2025</span>
+                </div>
+                <h2>'Dueling Dinosaurs' Fossil Solves the Mystery of a 'Mini T. rex'</h2>
+                <p class="excerpt">An analysis suggests <i>Nanotyrannus</i> is a separate, smaller dinosaur that lived alongside <i>T. rex</i>, settling a 30-year debate</p>
+                <p class="author">ANIRBAN MUKHOPADHYAY</p>
             </article>
 
-        </section>
-    </main>
+            <!-- Article 5: Dogs -->
+            <article class="card">
+                <img src="https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?w=600&h=350&fit=crop" alt="Dog with a green toy">
+                <div class="meta">
+                    <span class="category">ANIMALS</span>
+                    <span class="divider"></span>
+                    <span class="date">SEPTEMBER 18, 2024</span>
+                </div>
+                <h2>Some Dogs Can Learn Categories like Human Toddlers Do</h2>
+                <p class="excerpt">These dogs can extend words to new objects based on function the way children do in early language learning</p>
+                <p class="author">ANIRBAN MUKHOPADHYAY</p>
+            </article>
+
+        </main>
+    </div>
+
 </body>
 </html>
