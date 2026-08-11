@@ -46,21 +46,29 @@
 			}
 
 			/* ==========================================================
-			   FIXES: ADD BACKGROUND IMAGE URL & PROPER SCREEN FILL
+			   FIX 1: BRING CONTENT TO THE FRONT SO IT IS CLICKABLE
+			   ========================================================== */
+			#main {
+				position: relative !important;
+				z-index: 10 !important;
+			}
+
+			/* ==========================================================
+			   FIX 2: FIX IMAGE PATH & PREVENT CLICKS ON OVERLAY
 			   ========================================================== */
 
-			/* Ensure the background image covers the screen cleanly without blue letterboxing */
 			#bg {
-				background-image: url('bg.jpg') !important; /* <--- THIS IS THE MISSING FIX */
+				/* Assuming bg.jpg is inside your 'images' folder. */
+				background-image: url('images/bg.jpg') !important; 
 				background-size: cover !important;
 				background-position: center center !important;
 				background-repeat: no-repeat !important;
 				animation: none !important;
 			}
 
-			/* Lighten the dark overlay slightly to prevent eye strain */
 			#overlay {
 				opacity: 0.35 !important;
+				pointer-events: none !important; /* <--- Lets clicks pass through the overlay */
 			}
 
 			/* Force the background to cover the full height on mobile devices ONLY */
