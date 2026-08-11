@@ -52,7 +52,7 @@
 			}
 
 			/* ==========================================================
-			   FIX: FORCE BG.JPG AND KILL THE TEMPLATE'S BLUE GRADIENT
+			   FIX: TARGET IMAGES/BG.JPG AND KILL THE TEMPLATE'S BLUE GRADIENT
 			   ========================================================== */
 
 			/* 1. Kill the template's default gradient pseudo-layers */
@@ -67,7 +67,7 @@
 				background-image: none !important;
 			}
 
-			/* 3. Apply your verbatim bg.jpg file and fit it to the screen */
+			/* 3. Point directly to images/bg.jpg and fit it to the screen */
 			#bg {
 				background-image: url('images/bg.jpg') !important; 
 				background-size: contain !important; /* Shows the entire image left to right */
@@ -123,13 +123,9 @@
 			</div>
 		</div>
 
-		<!-- Template Core Scripts (Required for layout states and link clicks) -->
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/main.js"></script>
+		<!-- Cleaned up: Removed broken JS files, kept only the preload fader -->
 		<script>
 			window.onload = function() { document.body.classList.remove('is-preload'); }
-			window.ontouchmove = function() { return false; }
-			window.onorientationchange = function() { document.body.scrollTop = 0; }
 		</script>
 	</body>
 </html>
