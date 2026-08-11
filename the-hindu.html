@@ -1,62 +1,278 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stories by Anirban Mukhopadhyay | The Hindu</title>
-    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Open Sans', sans-serif; color: #121212; background-color: #ffffff; line-height: 1.5; -webkit-font-smoothing: antialiased; }
-        a { text-decoration: none; color: inherit; }
-        a:hover { color: #005587; }
-        .site-header { display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; border-bottom: 1px solid #e0e0e0; }
-        .back-link { font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: #556B7D; }
-        .back-link:hover { text-decoration: underline; }
-        .main-content { max-width: 840px; margin: 0 auto; padding: 40px 20px; }
-        .author-header { margin-bottom: 50px; padding-bottom: 30px; border-bottom: 2px solid #121212; }
-        .author-header h1 { font-family: 'Georgia', serif; font-size: 2.5rem; margin-bottom: 15px; font-weight: 700; }
-        .author-header p { font-size: 1.05rem; color: #31313B; line-height: 1.6; }
-        .author-header a { text-decoration: underline; color: #005587; }
-        .article-item { display: flex; gap: 30px; margin-bottom: 40px; }
-        .article-image { flex: 0 0 45%; max-width: 350px; }
-        .article-image img { width: 100%; height: auto; border-radius: 2px; object-fit: cover; aspect-ratio: 16 / 9; }
-        .article-text { flex: 1; display: flex; flex-direction: column; justify-content: center; }
-        .kicker { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: #D4441F; margin-bottom: 10px; letter-spacing: 0.05em; }
-        .kicker span.date { color: #556B7D; margin-left: 10px; padding-left: 10px; border-left: 1px solid #ccc; }
-        .article-title { font-family: 'Georgia', serif; font-size: 1.5rem; line-height: 1.25; margin-bottom: 10px; font-weight: 700; }
-        .article-title:hover { text-decoration: underline; }
-        .article-dek { font-size: 1rem; color: #556B7D; margin-bottom: 10px; }
-        .article-author { font-size: 0.85rem; font-weight: 600; color: #31313B; }
-        @media (max-width: 600px) { .article-item { flex-direction: column; gap: 15px; } .article-image { flex: 100%; max-width: 100%; } .site-header { padding: 15px 20px; } }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Stories for The Hindu - Anirban Mukhopadhyay</title>
+<!-- Importing Google Fonts to match the Quanta Magazine typography -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,400&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+    /* Reset and Base Styles */
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: #333;
+        line-height: 1.5;
+        margin: 0;
+        padding: 40px 20px;
+        background-color: #fff;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* Header Section */
+    .author-header {
+        text-align: center;
+        margin-bottom: 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    /* Uploaded Logo Styling */
+    .mini-logo-img {
+        max-width: 250px;
+        height: auto;
+        margin-bottom: 25px;
+        display: block;
+    }
+    
+    .author-header h1 {
+        font-family: 'Merriweather', serif;
+        font-weight: 900;
+        font-size: 2.6rem;
+        margin-top: 0;
+        margin-bottom: 15px;
+        color: #111;
+        letter-spacing: -0.5px;
+    }
+    
+    .author-header p {
+        font-family: 'Merriweather', serif;
+        font-style: italic;
+        color: #555;
+        font-size: 1.05rem;
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.6;
+    }
+    
+    .author-header p a {
+        color: #0077b5;
+        text-decoration: underline;
+        font-style: normal;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 600;
+    }
+
+    /* Grid Layout - 3 Columns */
+    .article-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px 30px; 
+    }
+
+    /* Card Styling */
+    .card {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Interactive Image Link */
+    .image-link {
+        display: block;
+        text-decoration: none;
+    }
+    .card img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        margin-bottom: 15px;
+        background-color: #eaeaea; 
+        transition: opacity 0.2s ease;
+    }
+    .image-link:hover img {
+        opacity: 0.9; 
+    }
+    
+    /* Meta Data (Date Only) */
+    .meta {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.5px;
+    }
+    .date {
+        color: #777;
+    }
+
+    /* Interactive Text Link (Hed & Dek) */
+    .text-link {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        flex-grow: 1;
+        transition: transform 0.25s ease;
+        transform-origin: left center; 
+    }
+    
+    /* Hover Animation: Expand and Underline */
+    .text-link:hover {
+        transform: scale(1.02); 
+    }
+    .text-link:hover h2 {
+        text-decoration: underline;
+        text-decoration-color: #222;
+        text-underline-offset: 4px;
+        text-decoration-thickness: 2px;
+    }
+
+    /* Typography inside Card */
+    .card h2 {
+        font-family: 'Merriweather', serif;
+        font-weight: 700;
+        font-size: 1.3rem; 
+        margin: 0 0 10px 0;
+        line-height: 1.3;
+        color: #111;
+        transition: text-decoration 0.2s ease;
+    }
+    
+    .card .excerpt {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 0.95rem;
+        color: #444;
+        margin: 0 0 15px 0;
+        line-height: 1.6;
+    }
+
+    /* Responsive Design for smaller screens */
+    @media (max-width: 992px) {
+        .article-grid {
+            grid-template-columns: repeat(2, 1fr); 
+        }
+    }
+    @media (max-width: 768px) {
+        .article-grid {
+            grid-template-columns: 1fr; 
+        }
+    }
+</style>
 </head>
 <body>
-    <header class="site-header">
-        <a href="index.html" class="back-link">← Back to Portfolio</a>
-        <div style="font-family: 'Georgia', serif; font-weight: bold; font-size: 1.2rem;">The Hindu</div>
-    </header>
-    <main class="main-content">
-        <section class="author-header">
-            <h1>Stories by Anirban Mukhopadhyay</h1>
-            <p><b>Anirban Mukhopadhyay</b> is an independent science journalist based in India. He has a Ph.D. in genetics from Delhi University and writes about science policy and cutting-edge biomedical research. Find him on X <a href="https://x.com/onipedia" target="_blank">@onipedia</a> and on <a href="https://www.linkedin.com/in/anirban-mukhopadhyay-929827370/?originalSubdomain=in" target="_blank">LinkedIn</a>.</p>
-        </section>
-        <section class="article-list">
-            <!-- Article Template -->
-            <article class="article-item">
-                <a href="#" class="article-image" target="_blank">
-                    <img src="images/bg.jpg" alt="Article Thumbnail">
+
+    <div class="container">
+        <!-- Header -->
+        <header class="author-header">
+            <!-- Ensure you save your The Hindu logo in the same 'logos' folder -->
+            <img src="logos/thehindu-logo.png" alt="The Hindu" class="mini-logo-img">
+            
+            <h1>My stories for The Hindu.</h1>
+            <p>If you have a <em>The Hindu</em> subscription, please support the publication by reading these stories on their website via the image thumbnails. Otherwise, click any headline or excerpt below to read a full, unlocked version.<br><br>
+            Find him on X <a href="#">@onipedia</a> and on <a href="#">LinkedIn</a>.</p>
+        </header>
+
+        <!-- 3-Column Grid Wrapper -->
+        <main class="article-grid">
+            
+            <!-- Article 1 -->
+            <article class="card">
+                <a href="https://www.thehindu.com/sci-tech/science/kombucha-can-rebalance-gut-ecosystem-esp-in-people-with-obesity-study/article69694913.ece" target="_blank" class="image-link">
+                    <!-- Paste the correct image URL below -->
+                    <img src="PASTE_IMAGE_URL_HERE" alt="Thumbnail for Kombucha story">
                 </a>
-                <div class="article-text">
-                    <div class="kicker">Category <span class="date">Date Published</span></div>
-                    <a href="#" target="_blank">
-                        <h2 class="article-title">Your The Hindu Article Headline Here</h2>
-                    </a>
-                    <p class="article-dek">A brief summary of your article published in The Hindu.</p>
-                    <div class="article-author">Anirban Mukhopadhyay</div>
+                <div class="meta">
+                    <span class="date">PASTE_DATE_HERE</span>
                 </div>
+                <a href="unlocked-story-1.html" class="text-link">
+                    <h2>Kombucha can rebalance gut ecosystem in people with obesity: study</h2>
+                    <p class="excerpt">PASTE_DEK_HERE</p>
+                </a>
             </article>
-        </section>
-    </main>
+
+            <!-- Article 2 -->
+            <article class="card">
+                <a href="https://www.thehindu.com/sci-tech/science/technique-to-make-car-t-cells-in-vivo-could-transform-cancer-care/article69714559.ece" target="_blank" class="image-link">
+                    <img src="PASTE_IMAGE_URL_HERE" alt="Thumbnail for CAR T-cells story">
+                </a>
+                <div class="meta">
+                    <span class="date">PASTE_DATE_HERE</span>
+                </div>
+                <a href="unlocked-story-2.html" class="text-link">
+                    <h2>Technique to make CAR T-cells in vivo could transform cancer care</h2>
+                    <p class="excerpt">PASTE_DEK_HERE</p>
+                </a>
+            </article>
+
+            <!-- Article 3 -->
+            <article class="card">
+                <a href="https://www.thehindu.com/sci-tech/science/sperm-whale-clicks-have-complex-patterns-similar-to-human-speech/article70982438.ece" target="_blank" class="image-link">
+                    <img src="PASTE_IMAGE_URL_HERE" alt="Thumbnail for Sperm whale story">
+                </a>
+                <div class="meta">
+                    <span class="date">PASTE_DATE_HERE</span>
+                </div>
+                <a href="unlocked-story-3.html" class="text-link">
+                    <h2>Sperm whale ‘clicks’ have complex patterns similar to human speech</h2>
+                    <p class="excerpt">PASTE_DEK_HERE</p>
+                </a>
+            </article>
+
+            <!-- Article 4 -->
+            <article class="card">
+                <a href="https://www.thehindu.com/sci-tech/science/global-study-reveals-psychedelics-dissolve-brain-hierarchy/article70961615.ece" target="_blank" class="image-link">
+                    <img src="PASTE_IMAGE_URL_HERE" alt="Thumbnail for Psychedelics story">
+                </a>
+                <div class="meta">
+                    <span class="date">PASTE_DATE_HERE</span>
+                </div>
+                <a href="unlocked-story-4.html" class="text-link">
+                    <h2>Global study reveals how psychedelics dissolve the brain’s hierarchy</h2>
+                    <p class="excerpt">PASTE_DEK_HERE</p>
+                </a>
+            </article>
+
+            <!-- Article 5 -->
+            <article class="card">
+                <a href="https://www.thehindu.com/sci-tech/health/malarias-new-frontlines-vaccines-innovation-and-the-indian-endgame/article69872827.ece" target="_blank" class="image-link">
+                    <img src="PASTE_IMAGE_URL_HERE" alt="Thumbnail for Malaria story">
+                </a>
+                <div class="meta">
+                    <span class="date">PASTE_DATE_HERE</span>
+                </div>
+                <a href="unlocked-story-5.html" class="text-link">
+                    <h2>Malaria’s new frontlines: vaccines, innovation, and the Indian endgame</h2>
+                    <p class="excerpt">PASTE_DEK_HERE</p>
+                </a>
+            </article>
+
+            <!-- Article 6 -->
+            <article class="card">
+                <a href="https://www.thehindu.com/sci-tech/science/how-genetic-history-reveals-why-some-languages-are-so-unique/article71217585.ece" target="_blank" class="image-link">
+                    <img src="PASTE_IMAGE_URL_HERE" alt="Thumbnail for Genes and language story">
+                </a>
+                <div class="meta">
+                    <span class="date">PASTE_DATE_HERE</span>
+                </div>
+                <a href="unlocked-story-6.html" class="text-link">
+                    <h2>How people’s genes are revealing why some languages are so unique</h2>
+                    <p class="excerpt">PASTE_DEK_HERE</p>
+                </a>
+            </article>
+
+        </main>
+    </div>
+
 </body>
 </html>
