@@ -27,6 +27,27 @@
         margin: 0 auto;
     }
 
+    /* Top Navigation (Back Button) */
+    .top-nav {
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: flex-start;
+    }
+    .back-btn {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #555;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        transition: color 0.2s ease;
+    }
+    .back-btn:hover {
+        color: #0077b5;
+        text-decoration: underline;
+    }
+
     /* Header Section */
     .author-header {
         text-align: center;
@@ -173,6 +194,11 @@
 <body>
 
     <div class="container">
+        <!-- Back to Portfolio Navigation -->
+        <nav class="top-nav">
+            <a href="index.html" class="back-btn">&larr; Back to Portfolio</a>
+        </nav>
+
         <!-- Header -->
         <header class="author-header">
             <!-- Logo linked to a local folder. Create a "logos" folder and put your image inside. -->
