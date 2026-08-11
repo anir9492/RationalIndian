@@ -27,6 +27,27 @@
         margin: 0 auto;
     }
 
+    /* Top Navigation (Back Button) */
+    .top-nav {
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: flex-start;
+    }
+    .back-btn {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #555;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        transition: color 0.2s ease;
+    }
+    .back-btn:hover {
+        color: #0077b5;
+        text-decoration: underline;
+    }
+
     /* Header Section */
     .author-header {
         text-align: center;
@@ -173,9 +194,14 @@
 <body>
 
     <div class="container">
+        <!-- Back to Portfolio Navigation -->
+        <nav class="top-nav">
+            <a href="index.html" class="back-btn">&larr; Back to Portfolio</a>
+        </nav>
+
         <!-- Header -->
         <header class="author-header">
-            <!-- Ensure you save your The Hindu logo in the same 'logos' folder -->
+            <!-- Logo linked to a local folder. Create a "logos" folder and put your image inside. -->
             <img src="logos/thehindu-logo.png" alt="The Hindu" class="mini-logo-img">
             
             <h1>My stories for The Hindu.</h1>
@@ -186,88 +212,422 @@
         <!-- 3-Column Grid Wrapper -->
         <main class="article-grid">
             
-            <!-- Article 1 -->
+            <!-- Page 1 Stories -->
             <article class="card">
                 <a href="https://www.thehindu.com/sci-tech/science/kombucha-can-rebalance-gut-ecosystem-esp-in-people-with-obesity-study/article69694913.ece" target="_blank" class="image-link">
-                    <!-- Paste the correct image URL below -->
-                    <img src="PASTE_IMAGE_URL_HERE" alt="Thumbnail for Kombucha story">
+                    <img src="https://th-i.thgim.com/public/sci-tech/science/cgmnh9/article69694782.ece/alternates/FREE_615/duong-ngan-3KdzWXrOQgs-unsplash.jpg" alt="Kombucha can rebalance gut ecosystem in people with obesity: study">
                 </a>
                 <div class="meta">
-                    <span class="date">PASTE_DATE_HERE</span>
+                    <span class="date">Add Date Manually</span>
                 </div>
                 <a href="unlocked-story-1.html" class="text-link">
                     <h2>Kombucha can rebalance gut ecosystem in people with obesity: study</h2>
-                    <p class="excerpt">PASTE_DEK_HERE</p>
+                    <p class="excerpt">No single brand of kombucha can claim to be ‘good’ for all consumers across geographies.</p>
                 </a>
             </article>
 
-            <!-- Article 2 -->
             <article class="card">
                 <a href="https://www.thehindu.com/sci-tech/science/technique-to-make-car-t-cells-in-vivo-could-transform-cancer-care/article69714559.ece" target="_blank" class="image-link">
-                    <img src="PASTE_IMAGE_URL_HERE" alt="Thumbnail for CAR T-cells story">
+                    <img src="https://th-i.thgim.com/public/sci-tech/science/ogqtr9/article69714553.ece/alternates/FREE_615/national-institute-of-allergy-and-infectious-diseases-5v0UyRolNwg-unsplash.jpg" alt="Technique to make CAR T-cells in vivo could transform cancer care">
                 </a>
                 <div class="meta">
-                    <span class="date">PASTE_DATE_HERE</span>
+                    <span class="date">Add Date Manually</span>
                 </div>
                 <a href="unlocked-story-2.html" class="text-link">
                     <h2>Technique to make CAR T-cells in vivo could transform cancer care</h2>
-                    <p class="excerpt">PASTE_DEK_HERE</p>
+                    <p class="excerpt">A colorised scanning electron micrograph of a T cell.</p>
                 </a>
             </article>
 
-            <!-- Article 3 -->
             <article class="card">
-                <a href="https://www.thehindu.com/sci-tech/science/sperm-whale-clicks-have-complex-patterns-similar-to-human-speech/article70982438.ece" target="_blank" class="image-link">
-                    <img src="PASTE_IMAGE_URL_HERE" alt="Thumbnail for Sperm whale story">
+                <a href="https://www.thehindu.com/sci-tech/science/how-a-lung-gene-is-linked-to-post-covid-symptoms-as-per-genetics-study/article69697990.ece" target="_blank" class="image-link">
+                    <img src="https://th-i.thgim.com/public/incoming/6gqszk/article69698746.ece/alternates/FREE_615/PTI06_05_2025_000140A.jpg" alt="Lung gene linked to post-COVID symptoms, large genetics study says">
                 </a>
                 <div class="meta">
-                    <span class="date">PASTE_DATE_HERE</span>
+                    <span class="date">Add Date Manually</span>
                 </div>
                 <a href="unlocked-story-3.html" class="text-link">
-                    <h2>Sperm whale ‘clicks’ have complex patterns similar to human speech</h2>
-                    <p class="excerpt">PASTE_DEK_HERE</p>
+                    <h2>Lung gene linked to post-COVID symptoms, large genetics study says</h2>
+                    <p class="excerpt">Medical officials set up beds for COVID-19 patients amid an uptick in coronavirus infections, at the Ram Manohar Lohia Hospital, in New Delhi, on June 5.</p>
                 </a>
             </article>
 
-            <!-- Article 4 -->
             <article class="card">
-                <a href="https://www.thehindu.com/sci-tech/science/global-study-reveals-psychedelics-dissolve-brain-hierarchy/article70961615.ece" target="_blank" class="image-link">
-                    <img src="PASTE_IMAGE_URL_HERE" alt="Thumbnail for Psychedelics story">
+                <a href="https://www.thehindu.com/sci-tech/science/can-old-muscles-be-made-young-again-common-molecule-offers-clue/article69697042.ece" target="_blank" class="image-link">
+                    <img src="https://th-i.thgim.com/public/sci-tech/science/hze4r5/article69697041.ece/alternates/FREE_615/alan-calvert-DuEHkSHvXUQ-unsplash.jpg" alt="Common molecule offers clue to making old muscles young again">
                 </a>
                 <div class="meta">
-                    <span class="date">PASTE_DATE_HERE</span>
+                    <span class="date">Add Date Manually</span>
                 </div>
                 <a href="unlocked-story-4.html" class="text-link">
-                    <h2>Global study reveals how psychedelics dissolve the brain’s hierarchy</h2>
-                    <p class="excerpt">PASTE_DEK_HERE</p>
+                    <h2>Common molecule offers clue to making old muscles young again</h2>
+                    <p class="excerpt">Sarcopenia affects millions of people and contributes to frailty, slow recovery, and hospital readmissions in older adults.</p>
                 </a>
             </article>
 
-            <!-- Article 5 -->
+            <!-- Page 2 Stories -->
             <article class="card">
-                <a href="https://www.thehindu.com/sci-tech/health/malarias-new-frontlines-vaccines-innovation-and-the-indian-endgame/article69872827.ece" target="_blank" class="image-link">
-                    <img src="PASTE_IMAGE_URL_HERE" alt="Thumbnail for Malaria story">
+                <a href="https://www.thehindu.com/sci-tech/science/scientists-detect-early-brain-response-to-rhythm-in-preterm-babies/article70208316.ece" target="_blank" class="image-link">
+                    <img src="https://th-i.thgim.com/public/sci-tech/science/pwzsrn/article70208308.ece/alternates/FREE_615/FNIRS_head_Hitachi_ETG4000_2.jpg" alt="Scientists detect early brain response to rhythm in preterm babies">
                 </a>
                 <div class="meta">
-                    <span class="date">PASTE_DATE_HERE</span>
+                    <span class="date">Add Date Manually</span>
                 </div>
                 <a href="unlocked-story-5.html" class="text-link">
-                    <h2>Malaria’s new frontlines: vaccines, innovation, and the Indian endgame</h2>
-                    <p class="excerpt">PASTE_DEK_HERE</p>
+                    <h2>Scientists detect early brain response to rhythm in preterm babies</h2>
+                    <p class="excerpt">Researchers used functional near-infrared spectroscopy to record brain activity in premature infants as they slept.</p>
                 </a>
             </article>
 
-            <!-- Article 6 -->
             <article class="card">
-                <a href="https://www.thehindu.com/sci-tech/science/how-genetic-history-reveals-why-some-languages-are-so-unique/article71217585.ece" target="_blank" class="image-link">
-                    <img src="PASTE_IMAGE_URL_HERE" alt="Thumbnail for Genes and language story">
+                <a href="https://www.thehindu.com/sci-tech/science/new-study-finds-different-roots-for-early-and-late-autism-diagnoses/article70205183.ece" target="_blank" class="image-link">
+                    <img src="https://th-i.thgim.com/public/incoming/3ov8xy/article70206016.ece/alternates/FREE_615/iStock-2147620406.jpg" alt="New study finds different roots for early and late autism diagnoses">
                 </a>
                 <div class="meta">
-                    <span class="date">PASTE_DATE_HERE</span>
+                    <span class="date">Add Date Manually</span>
                 </div>
                 <a href="unlocked-story-6.html" class="text-link">
+                    <h2>New study finds different roots for early and late autism diagnoses</h2>
+                    <p class="excerpt">For representational purposes.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="https://www.thehindu.com/sci-tech/science/could-hidden-dental-bacteria-help-explain-sudden-and-deadly-heart-attacks/article70131209.ece" target="_blank" class="image-link">
+                    <img src="https://th-i.thgim.com/public/incoming/lrh98j/article70132744.ece/alternates/FREE_615/iStock-1343330943.jpg" alt="Could hidden dental bacteria help explain sudden and deadly heart attacks?">
+                </a>
+                <div class="meta">
+                    <span class="date">Add Date Manually</span>
+                </div>
+                <a href="unlocked-story-7.html" class="text-link">
+                    <h2>Could hidden dental bacteria help explain sudden and deadly heart attacks?</h2>
+                    <p class="excerpt">For representative purposes.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="https://www.thehindu.com/sci-tech/health/ageing-arteries-lingering-risks-covids-quiet-impact-on-heart-health/article70059900.ece" target="_blank" class="image-link">
+                    <img src="https://th-i.thgim.com/public/incoming/c0e3bk/article70060307.ece/alternates/FREE_615/IMG_Heart_2_1_PQCBDQLQ.jpg" alt="Ageing arteries, lingering risks: Covid’s quiet impact on heart health">
+                </a>
+                <div class="meta">
+                    <span class="date">Add Date Manually</span>
+                </div>
+                <a href="unlocked-story-8.html" class="text-link">
+                    <h2>Ageing arteries, lingering risks: Covid’s quiet impact on heart health</h2>
+                    <p class="excerpt">As arteries stiffen, the heart pumps harder, blood pressure rises, and the risk of heart attack, stroke, kidney disease, and dementia increases. Illustration used for representational purposes only</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="https://www.thehindu.com/sci-tech/science/uncovered-how-rna-amino-acids-may-have-linked-on-early-earth/article69998866.ece" target="_blank" class="image-link">
+                    <img src="https://th-i.thgim.com/public/sci-tech/science/8kkxkr/article69998862.ece/alternates/FREE_615/PDB_1obc_EBI.jpg" alt="Uncovered: how RNA, amino acids may have linked on early earth">
+                </a>
+                <div class="meta">
+                    <span class="date">Add Date Manually</span>
+                </div>
+                <a href="unlocked-story-9.html" class="text-link">
+                    <h2>Uncovered: how RNA, amino acids may have linked on early earth</h2>
+                    <p class="excerpt">If amino acids are imagined as the beads and RNA as the thread, enzymes like the one shown here (leucyl-tRNA synthetase) string them together.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="https://www.thehindu.com/sci-tech/science/research-shows-forgetting-may-be-natural-remembering-takes-work/article69978664.ece" target="_blank" class="image-link">
+                    <img src="https://th-i.thgim.com/public/sci-tech/science/fcvsq/article69978660.ece/alternates/FREE_615/tien-vu-ngoc-J3ju9yGUzh0-unsplash.jpg" alt="Research shows forgetting may be natural, remembering takes work">
+                </a>
+                <div class="meta">
+                    <span class="date">Add Date Manually</span>
+                </div>
+                <a href="unlocked-story-10.html" class="text-link">
+                    <h2>Research shows forgetting may be natural, remembering takes work</h2>
+                    <p class="excerpt">Memory may not be fixed or random but be shaped by experience and sustained by practice.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="https://www.thehindu.com/sci-tech/science/connexin-proteins-rally-arteries-to-nourish-brain-on-demand/article69927424.ece" target="_blank" class="image-link">
+                    <img src="https://th-i.thgim.com/public/sci-tech/science/aek14q/article69927418.ece/alternates/FREE_615/Cerebral_vascular_territories.jpg" alt="Connexin proteins rally arteries to nourish brain on demand">
+                </a>
+                <div class="meta">
+                    <span class="date">Add Date Manually</span>
+                </div>
+                <a href="unlocked-story-11.html" class="text-link">
+                    <h2>Connexin proteins rally arteries to nourish brain on demand</h2>
+                    <p class="excerpt">The anterior, middle, and posterior cerebral arteries respectively supply the yellow, red, and blue parts of the brain.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="https://www.thehindu.com/sci-tech/health/how-migration-to-urban-areas-is-expanding-waistlines-in-india/article69912662.ece" target="_blank" class="image-link">
+                    <img src="https://th-i.thgim.com/public/incoming/vi4c9y/article69912924.ece/alternates/FREE_615/_DSC8524.jpg" alt="How migration to urban areas is expanding waistlines in India">
+                </a>
+                <div class="meta">
+                    <span class="date">Add Date Manually</span>
+                </div>
+                <a href="unlocked-story-12.html" class="text-link">
+                    <h2>How migration to urban areas is expanding waistlines in India</h2>
+                    <p class="excerpt">The longer someone lives in a city, the higher their odds of obesity, a recent analysis has revealed. Pre-packaged and processed foods are everywhere, often replacing fresh meals in urban diets, especially for the poor, say experts. File photograph used for representational purposes only</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="https://www.thehindu.com/sci-tech/health/malarias-new-frontlines-vaccines-innovation-and-the-indian-endgame/article69872827.ece" target="_blank" class="image-link">
+                    <img src="https://th-i.thgim.com/public/incoming/xxd890/article69877017.ece/alternates/FREE_615/IMG_Nigeria_Malaria_Vacc_2_1_3CDN5225.jpg" alt="Malaria’s new frontlines: vaccines, innovation, and the Indian endgame">
+                </a>
+                <div class="meta">
+                    <span class="date">Add Date Manually</span>
+                </div>
+                <a href="unlocked-story-13.html" class="text-link">
+                    <h2>Malaria’s new frontlines: vaccines, innovation, and the Indian endgame</h2>
+                    <p class="excerpt">The R21/Matrix-M vaccine, developed by Oxford and the Serum Institute, showed up to 77% efficacy in Phase 3 trials winning World Health Organization (WHO) approval in 2023. File photograph</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="https://www.thehindu.com/sci-tech/science/science-retracts-nasa-arsenic-bacteria-paper-after-years-of-controversy/article69854105.ece" target="_blank" class="image-link">
+                    <img src="https://th-i.thgim.com/public/sci-tech/science/1bu4wp/article69854113.ece/alternates/FREE_615/Mono_Lake_1.JPG" alt="Science retracts NASA arsenic bacteria paper after years of controversy">
+                </a>
+                <div class="meta">
+                    <span class="date">Add Date Manually</span>
+                </div>
+                <a href="unlocked-story-14.html" class="text-link">
+                    <h2>Science retracts NASA arsenic bacteria paper after years of controversy</h2>
+                    <p class="excerpt">Limestone formations along the shores of Mono Lake.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="https://www.thehindu.com/sci-tech/science/consilient-evidence-links-lack-of-vitamin-d-to-neurodevelopmental-issues/article69845246.ece" target="_blank" class="image-link">
+                    <img src="https://th-i.thgim.com/public/sci-tech/science/qnuc77/article69845254.ece/alternates/FREE_615/yuri-li-p0hDztR46cw-unsplash.jpg" alt="Consilient evidence links lack of vitamin D to neurodevelopmental issues">
+                </a>
+                <div class="meta">
+                    <span class="date">Add Date Manually</span>
+                </div>
+                <a href="unlocked-story-15.html" class="text-link">
+                    <h2>Consilient evidence links lack of vitamin D to neurodevelopmental issues</h2>
+                    <p class="excerpt">Researchers measured vitamin D levels in dried blood spot samples from 88,764 individuals born between 1981 and 2005, part of a universal neonatal screening programme that stores nearly all newborns’ blood in the Danish Neonatal Screening Biobank.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="https://www.thehindu.com/sci-tech/science/bioemu-reveals-protein-choreography-in-biological-conditions/article69810588.ece" target="_blank" class="image-link">
+                    <img src="https://th-i.thgim.com/public/incoming/a7ylrm/article69269776.ece/alternates/FREE_615/IMG_BL2309_Quantum_Secon_2_1_3EDC3455.jpg" alt="BioEmu AI reveals protein choreography in biological conditions">
+                </a>
+                <div class="meta">
+                    <span class="date">Add Date Manually</span>
+                </div>
+                <a href="unlocked-story-16.html" class="text-link">
+                    <h2>BioEmu AI reveals protein choreography in biological conditions</h2>
+                    <p class="excerpt">BioEmu promises to be faster and cheaper than classical approaches at predicting protein function. Representative illustration.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="https://www.thehindu.com/sci-tech/health/lab-grown-cells-help-restore-insulin-in-people-with-type-1-diabetes/article69814405.ece" target="_blank" class="image-link">
+                    <img src="https://th-i.thgim.com/public/incoming/hzq7ry/article69826236.ece/alternates/FREE_615/IMG_iStock-1184019335_1_1_2ODKG7KR.jpg" alt="Lab-grown cells help restore insulin in people with type 1 diabetes">
+                </a>
+                <div class="meta">
+                    <span class="date">Add Date Manually</span>
+                </div>
+                <a href="unlocked-story-17.html" class="text-link">
+                    <h2>Lab-grown cells help restore insulin in people with type 1 diabetes</h2>
+                    <p class="excerpt">In Type 1 diabetes the immune system attacks the pancreas’s islets cells, which produce insulin and other hormones that regulate blood sugar. Without those cells, people rely on external insulin, adjusting doses by trial and error. Photograph used for representational purposes only</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="https://www.thehindu.com/sci-tech/science/large-genetic-map-of-indians-flags-hidden-disease-risks/article69735600.ece" target="_blank" class="image-link">
+                    <img src="https://th-i.thgim.com/public/todays-paper/tp-features/tp-sci-tech-and-agri/gnacd6/article69470101.ece/alternates/FREE_615/Snapshots_ShapeGCPE92MDK.3.jpg.jpg" alt="Large genetic map of Indians flags hidden disease risks">
+                </a>
+                <div class="meta">
+                    <span class="date">Add Date Manually</span>
+                </div>
+                <a href="unlocked-story-18.html" class="text-link">
+                    <h2>Large genetic map of Indians flags hidden disease risks</h2>
+                    <p class="excerpt">India’s population structure reflects long-standing practices of marriage within communities. Representative illustration.</p>
+                </a>
+            </article>
+
+            <!-- Page 3 Stories -->
+            <article class="card">
+                <a href="https://www.thehindu.com/sci-tech/science/how-genetic-history-reveals-why-some-languages-are-so-unique/article71217585.ece" target="_blank" class="image-link">
+                    <img src="https://th-i.thgim.com/public/news/b6r7ed/article71218689.ece/alternates/FREE_615/iStock-2236164423.jpg" alt="How people’s genes are revealing why some languages are so unique">
+                </a>
+                <div class="meta">
+                    <span class="date">Add Date Manually</span>
+                </div>
+                <a href="unlocked-story-19.html" class="text-link">
                     <h2>How people’s genes are revealing why some languages are so unique</h2>
-                    <p class="excerpt">PASTE_DEK_HERE</p>
+                    <p class="excerpt">Isolation allows languages to evolve independently, increasing the chances that they will grow more different over time.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="https://www.thehindu.com/sci-tech/science/finerenone-helps-slow-kidney-disease-in-patients-without-diabetes/article71192824.ece" target="_blank" class="image-link">
+                    <img src="https://th-i.thgim.com/public/incoming/esa1uc/article70833599.ece/alternates/FREE_615/2501_17_9_2025_12_53_49_4_DSC_8765.JPEG" alt="Finerenone helps slow kidney disease in patients without diabetes">
+                </a>
+                <div class="meta">
+                    <span class="date">Add Date Manually</span>
+                </div>
+                <a href="unlocked-story-20.html" class="text-link">
+                    <h2>Finerenone helps slow kidney disease in patients without diabetes</h2>
+                    <p class="excerpt">Patients receiving lifesaving dialysis treatment in the nephrology ward at Stanley Hospital.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="https://www.thehindu.com/sci-tech/science/sperm-whale-clicks-have-complex-patterns-similar-to-human-speech/article70982438.ece" target="_blank" class="image-link">
+                    <img src="https://th-i.thgim.com/public/sci-tech/science/rppsob/article70982417.ece/alternates/FREE_615/Mother_and_baby_sperm_whale.jpg" alt="Sperm whale ‘clicks’ have complex patterns similar to human speech">
+                </a>
+                <div class="meta">
+                    <span class="date">Add Date Manually</span>
+                </div>
+                <a href="unlocked-story-21.html" class="text-link">
+                    <h2>Sperm whale ‘clicks’ have complex patterns similar to human speech</h2>
+                    <p class="excerpt">A sperm whale and her calf are seen of the coast of Mauritius. The calf has remoras attached to its body.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="https://www.thehindu.com/sci-tech/science/constant-mechanical-force-may-be-why-heart-cancer-is-so-rare/article70968429.ece" target="_blank" class="image-link">
+                    <img src="https://th-i.thgim.com/public/incoming/6g7x4d/article70937415.ece/alternates/FREE_615/IMG_Heart_2_1_PQCBDQLQ.jpg" alt="Constant mechanical force may be why heart cancer is so rare">
+                </a>
+                <div class="meta">
+                    <span class="date">Add Date Manually</span>
+                </div>
+                <a href="unlocked-story-22.html" class="text-link">
+                    <h2>Constant mechanical force may be why heart cancer is so rare</h2>
+                    <p class="excerpt">Illustration of a human heart on a blue background</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="https://www.thehindu.com/sci-tech/science/global-study-reveals-psychedelics-dissolve-brain-hierarchy/article70961615.ece" target="_blank" class="image-link">
+                    <img src="https://th-i.thgim.com/public/sci-tech/science/tmxu22/article70961611.ece/alternates/FREE_615/Screenshot%202026-05-10%20at%2011.17.32%E2%80%AFAM.png" alt="Global study reveals how psychedelics dissolve the brain’s hierarchy">
+                </a>
+                <div class="meta">
+                    <span class="date">Add Date Manually</span>
+                </div>
+                <a href="unlocked-story-23.html" class="text-link">
+                    <h2>Global study reveals how psychedelics dissolve the brain’s hierarchy</h2>
+                    <p class="excerpt">The brain is a building with a strict chain of command. At the ‘bottom’ are frontline workers – the regions that handle raw sensory input. At the ‘top’ are the parts responsible for abstract thought, memory, and our internal sense of self. Usually, these two groups don’t talk to each other directly.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="https://www.thehindu.com/sci-tech/science/enhanced-car-t-therapy-clears-solid-tumours-by-finding-faint-targets/article70911314.ece" target="_blank" class="image-link">
+                    <img src="https://th-i.thgim.com/public/sci-tech/science/9f5ipq/article70911311.ece/alternates/FREE_615/national-institute-of-allergy-and-infectious-diseases-xfbF9jz7U7I-unsplash.jpg" alt="Enhanced CAR-T therapy clears solid tumours by finding ‘faint’ targets">
+                </a>
+                <div class="meta">
+                    <span class="date">Add Date Manually</span>
+                </div>
+                <a href="unlocked-story-24.html" class="text-link">
+                    <h2>Enhanced CAR-T therapy clears solid tumours by finding ‘faint’ targets</h2>
+                    <p class="excerpt">In CAR T-cell therapy, a patient’s T cells (one shown) are isolated, engineered to target specific cancer cells, then reinfused to mount their attack.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="https://www.thehindu.com/sci-tech/science/psychedelics-are-revealing-how-the-brain-builds-the-sense-of-self/article70826558.ece" target="_blank" class="image-link">
+                    <img src="https://th-i.thgim.com/public/sci-tech/science/730raq/article70826555.ece/alternates/FREE_615/national-cancer-institute-BDKid0yJcAk-unsplash1.jpg" alt="Psychedelics are revealing how the brain builds the sense of self">
+                </a>
+                <div class="meta">
+                    <span class="date">Add Date Manually</span>
+                </div>
+                <a href="unlocked-story-25.html" class="text-link">
+                    <h2>Psychedelics are revealing how the brain builds the sense of self</h2>
+                    <p class="excerpt">A head x-ray taken by a computer-assisted tomographic (CAT) scanner.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="https://www.thehindu.com/sci-tech/science/can-a-common-hospital-gas-help-fight-drug-resistant-pneumonia/article70607199.ece" target="_blank" class="image-link">
+                    <img src="https://th-i.thgim.com/public/sci-tech/science/c4uh9j/article70607194.ece/alternates/FREE_615/mufid-majnun-J12RfFH-2ZE-unsplash.jpg" alt="Can a common hospital gas help fight drug-resistant pneumonia?">
+                </a>
+                <div class="meta">
+                    <span class="date">Add Date Manually</span>
+                </div>
+                <a href="unlocked-story-26.html" class="text-link">
+                    <h2>Can a common hospital gas help fight drug-resistant pneumonia?</h2>
+                    <p class="excerpt">Doctors already use nitric acid at low doses to widen blood vessels in the lungs of patients with acute respiratory failure. Representative image.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="https://www.thehindu.com/sci-tech/science/large-genetic-study-finds-overlaps-between-schizophrenia-bone-health/article70521395.ece" target="_blank" class="image-link">
+                    <img src="https://th-i.thgim.com/public/sci-tech/science/cv4l1g/article70521390.ece/alternates/FREE_615/rohit-choudhari-seyqswzzbXw-unsplash.jpg" alt="Large genetic study finds overlaps between schizophrenia, bone health">
+                </a>
+                <div class="meta">
+                    <span class="date">Add Date Manually</span>
+                </div>
+                <a href="unlocked-story-27.html" class="text-link">
+                    <h2>Large genetic study finds overlaps between schizophrenia, bone health</h2>
+                    <p class="excerpt">Compared to the general population, people with schizophrenia are more likely to have weaker bones and to suffer fractures. Representative illustration.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="https://www.thehindu.com/sci-tech/science/microbe-might-spark-first-stages-of-ulcerative-colitis-new-study/article70452348.ece" target="_blank" class="image-link">
+                    <img src="https://th-i.thgim.com/public/sci-tech/science/6z0egg/article70452341.ece/alternates/FREE_615/Aeromonas_hydrophila.jpg" alt="Microbe might spark first stages of ulcerative colitis: new study">
+                </a>
+                <div class="meta">
+                    <span class="date">Add Date Manually</span>
+                </div>
+                <a href="unlocked-story-28.html" class="text-link">
+                    <h2>Microbe might spark first stages of ulcerative colitis: new study</h2>
+                    <p class="excerpt">Aeromonas hydrophila under a microscope. Representative image.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="https://www.thehindu.com/sci-tech/science/just-five-dna-letters-flip-chromatin-from-fluid-to-solid-like-state/article70432658.ece" target="_blank" class="image-link">
+                    <img src="https://th-i.thgim.com/public/sci-tech/science/gvz2j2/article70432674.ece/alternates/FREE_615/Nucleosome_1KX5_colour_coded.png" alt="Just five DNA letters flip chromatin from fluid to solid-like state">
+                </a>
+                <div class="meta">
+                    <span class="date">Add Date Manually</span>
+                </div>
+                <a href="unlocked-story-29.html" class="text-link">
+                    <h2>Just five DNA letters flip chromatin from fluid to solid-like state</h2>
+                    <p class="excerpt">The crystal structure of the nucleosome core particle. The view is from the top through the superhelical axis.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="https://www.thehindu.com/sci-tech/science/in-axolotls-and-flatworms-regeneration-is-a-body-wide-choreograph/article70424728.ece" target="_blank" class="image-link">
+                    <img src="https://th-i.thgim.com/public/sci-tech/science/1qhjxt/article70425066.ece/alternates/FREE_615/Planaria%201.jpg" alt="In axolotls and flatworms, regeneration is a body-wide choreograph">
+                </a>
+                <div class="meta">
+                    <span class="date">Add Date Manually</span>
+                </div>
+                <a href="unlocked-story-30.html" class="text-link">
+                    <h2>In axolotls and flatworms, regeneration is a body-wide choreograph</h2>
+                    <p class="excerpt">A close-up view of planarian flatworms.</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="https://www.thehindu.com/sci-tech/science/groundbreaking-new-brain-atlases-capture-development-in-motion/article70324446.ece" target="_blank" class="image-link">
+                    <img src="https://th-i.thgim.com/public/sci-tech/science/5wzgzr/article70324459.ece/alternates/FREE_615/bhaduri_012125_kolf2_2j_w8_base_panel_1_ctip2cy2_sox2cy3_cc3cy5_organoid1_region3-1638x1536.jpg" alt="How groundbreaking new brain atlases capture development in motion">
+                </a>
+                <div class="meta">
+                    <span class="date">Add Date Manually</span>
+                </div>
+                <a href="unlocked-story-31.html" class="text-link">
+                    <h2>How groundbreaking new brain atlases capture development in motion</h2>
+                    <p class="excerpt">An eight-week human cortical organoid with rosette structures (in pink and blue) surrounded by neuronal populations (green).</p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="https://www.thehindu.com/sci-tech/health/shorter-simpler-breast-cancer-treatment-where-evidence-meets-practice/article70197665.ece" target="_blank" class="image-link">
+                    <img src="https://th-i.thgim.com/public/incoming/hrvx2l/article70222940.ece/alternates/FREE_615/IMG_BREAST_CANCER_AWAREN_2_1_6RCVE714.jpg" alt="Shorter, simpler breast cancer treatment: where evidence meets practice">
+                </a>
+                <div class="meta">
+                    <span class="date">Add Date Manually</span>
+                </div>
+                <a href="unlocked-story-32.html" class="text-link">
+                    <h2>Shorter, simpler breast cancer treatment: where evidence meets practice</h2>
+                    <p class="excerpt">People taking part in a breast cancer awareness rally organised by a hospital in Vijayawada. Breast Cancer Awareness Month is observed annually in October.</p>
                 </a>
             </article>
 
