@@ -23,13 +23,15 @@
 			
 			/* INCREASED LOGO SIZES */
 			#header nav a.custom-logo img {
-				height: 4.5em; 
-				width: 4.5em;  
+				height: 4.5em; /* Increased from 2.5em */
+				width: 4.5em;  /* Increased from 2.5em */
 				object-fit: contain; 
 				background-color: rgba(255, 255, 255, 0.8); 
 				border-radius: 50%;
-				padding: 8px; 
+				padding: 8px; /* Slightly increased padding for the larger size */
 				transition: all 0.2s ease-in-out;
+				
+				/* This centers the larger logos nicely in the template's spacing */
 				vertical-align: middle; 
 			}
 			
@@ -40,87 +42,30 @@
 			}
 
 			/* ==========================================================
-			   CHALCHITRA NARRATIVE ZOOM & PAN ANIMATION
+			   CHALCHITRA NARRATIVE PAN & ZOOM (STOPS & LOCKS AT THE END)
 			   ========================================================== */
-			
-			/* Force background sizing baseline for the animation */
 			#bg {
 				background-position: 0% 50% !important;
 				background-size: 160% auto !important;
 			}
 
-			/* Keyframes: Starts zoomed in on the left (DNA/chemistry genesis), 
-			   pans smoothly across to the right ecosystem/wildlife sunrise, then settles. */
-			@keyframes chalchitraNarrative {
+			@keyframes chalchitraStop {
 				0% {
 					background-position: 0% 50%;
-					background-size: 160% auto;
-				}
-				65% {
-					background-position: 100% 50%;
-					background-size: 115% auto;
+					background-size: 160% auto; /* Starts focused on the left chemistry/DNA genesis */
 				}
 				100% {
-					background-position: 100% 50%;
-					background-size: cover;
+					background-position: 100% 50%; /* Pans across to reveal the full wildlife sunrise */
+					background-size: cover;        /* Locks in place completely (no repeating) */
 				}
 			}
 
-			/* Trigger animation as soon as the preloader lifts */
+			/* Runs once on load; 'forwards' ensures it stays locked at the end forever */
 			body:not(.is-preload) #bg {
-				animation: chalchitraNarrative 5.5s cubic-bezier(0.25, 1, 0.3, 1) forwards;
+				animation: chalchitraStop 5s cubic-bezier(0.25, 1, 0.3, 1) forwards !important;
 			}
 
-			/* ==========================================================
-			   SMOOTHER, FASTER HEADER & STAGGERED ICON POP-IN
-			   ========================================================== */
-
-			body:not(.is-preload) #header {
-				opacity: 0;
-				animation: smoothHeaderFade 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
-			}
-
-			@keyframes smoothHeaderFade {
-				0% {
-					opacity: 0;
-					transform: translateY(15px);
-				}
-				100% {
-					opacity: 1;
-					transform: translateY(0);
-				}
-			}
-
-			/* Staggered Pop-In for Magazine Icons */
-			body:not(.is-preload) #header nav ul li {
-				opacity: 0;
-				transform: scale(0.5) translateY(10px);
-				animation: iconPopIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-			}
-
-			body:not(.is-preload) #header nav ul li:nth-child(1) { animation-delay: 0.35s; }
-			body:not(.is-preload) #header nav ul li:nth-child(2) { animation-delay: 0.42s; }
-			body:not(.is-preload) #header nav ul li:nth-child(3) { animation-delay: 0.49s; }
-			body:not(.is-preload) #header nav ul li:nth-child(4) { animation-delay: 0.56s; }
-			body:not(.is-preload) #header nav ul li:nth-child(5) { animation-delay: 0.63s; }
-			body:not(.is-preload) #header nav ul li:nth-child(6) { animation-delay: 0.70s; }
-			body:not(.is-preload) #header nav ul li:nth-child(7) { animation-delay: 0.77s; }
-
-			@keyframes iconPopIn {
-				0% {
-					opacity: 0;
-					transform: scale(0.5) translateY(10px);
-				}
-				70% {
-					transform: scale(1.15) translateY(-2px); /* Deliberate organic pop/overshoot */
-				}
-				100% {
-					opacity: 1;
-					transform: scale(1) translateY(0);
-				}
-			}
-
-			/* Mobile layout stability */
+			/* Force the background to cover the full height on mobile devices ONLY */
 			@media screen and (max-width: 736px) {
 				#bg {
 					background-size: auto 100% !important;
