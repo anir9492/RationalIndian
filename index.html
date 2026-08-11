@@ -23,15 +23,13 @@
 			
 			/* INCREASED LOGO SIZES */
 			#header nav a.custom-logo img {
-				height: 4.5em; /* Increased from 2.5em */
-				width: 4.5em;  /* Increased from 2.5em */
+				height: 4.5em; 
+				width: 4.5em;  
 				object-fit: contain; 
 				background-color: rgba(255, 255, 255, 0.8); 
 				border-radius: 50%;
-				padding: 8px; /* Slightly increased padding for the larger size */
+				padding: 8px; 
 				transition: all 0.2s ease-in-out;
-				
-				/* This centers the larger logos nicely in the template's spacing */
 				vertical-align: middle; 
 			}
 			
@@ -42,26 +40,33 @@
 			}
 
 			/* ==========================================================
-			   FIXES: STATIC BACKGROUND (NO PANNING) & LIGHTER OVERLAY
+			   FIX: SHOW THE ENTIRE ARTWORK WITHOUT CROPPING OR PANNING
 			   ========================================================== */
-
-			/* 1. Completely disable background movement and panning */
-			#bg {
-				animation: none !important;
-				background-position: center center !important;
-				background-size: cover !important;
+			
+			/* Match page background to the dark sky of your artwork */
+			body, #wrapper {
+				background-color: #0c101d !important;
 			}
 
-			/* 2. Lighten the dark overlay to eliminate eye strain */
+			/* Force the full panoramic image to fit inside the view completely */
+			#bg {
+				background-size: contain !important;
+				background-position: center center !important;
+				background-repeat: no-repeat !important;
+				animation: none !important;
+			}
+
+			/* Lighten the dark overlay slightly to prevent eye strain */
 			#overlay {
 				opacity: 0.35 !important;
 			}
 
-			/* Force the background to cover the full height on mobile devices ONLY */
+			/* Mobile layout stability */
 			@media screen and (max-width: 736px) {
 				#bg {
-					background-size: auto 100% !important;
-					background-position: left center !important;
+					background-size: contain !important;
+					background-position: center center !important;
+					animation: none !important;
 				}
 			}
 		</style>
