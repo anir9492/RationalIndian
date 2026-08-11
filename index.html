@@ -52,25 +52,33 @@
 			}
 
 			/* ==========================================================
-			   FIX: SHOW WHOLE IMAGE & BLACK OUT THE BLUE GRADIENT
+			   FIX: FORCE BG.JPG AND KILL THE TEMPLATE'S BLUE GRADIENT
 			   ========================================================== */
 
-			/* Override the template's default blue gradient background */
-			body, #wrapper {
-				background: #000000 !important; 
+			/* 1. Kill the template's default gradient pseudo-layers */
+			#bg:before, #bg:after {
+				display: none !important;
+				animation: none !important;
 			}
 
+			/* 2. Remove default background images from body and wrapper */
+			body, #wrapper {
+				background-color: #000000 !important; 
+				background-image: none !important;
+			}
+
+			/* 3. Apply your verbatim bg.jpg file and fit it to the screen */
 			#bg {
 				background-image: url('images/bg.jpg') !important; 
-				background-size: contain !important; /* Forces the WHOLE image to fit on screen */
+				background-size: contain !important; /* Shows the entire image left to right */
 				background-position: center center !important;
 				background-repeat: no-repeat !important;
-				background-color: #000000 !important; /* Fills empty top/bottom space with black */
+				background-color: #000000 !important; /* Black letterboxing for empty top/bottom space */
 				animation: none !important;
 			}
 
 			#overlay {
-				opacity: 0.25 !important; /* Lightened slightly more so the contained image is bright */
+				opacity: 0.25 !important;
 				pointer-events: none !important; /* Lets clicks pass through to logos */
 			}
 
