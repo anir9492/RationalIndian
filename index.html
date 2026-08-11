@@ -46,11 +46,12 @@
 			}
 
 			/* ==========================================================
-			   FIXES: STATIC BACKGROUND & PROPER SCREEN FILL
+			   FIXES: ADD BACKGROUND IMAGE URL & PROPER SCREEN FILL
 			   ========================================================== */
 
 			/* Ensure the background image covers the screen cleanly without blue letterboxing */
 			#bg {
+				background-image: url('bg.jpg') !important; /* <--- THIS IS THE MISSING FIX */
 				background-size: cover !important;
 				background-position: center center !important;
 				background-repeat: no-repeat !important;
