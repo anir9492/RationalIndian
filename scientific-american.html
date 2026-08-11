@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stories by Anirban Mukhopadhyay</title>
+<title>My Stories for Scientific American - Anirban Mukhopadhyay</title>
 <!-- Importing Google Fonts to match the Quanta Magazine typography -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,14 +30,32 @@
     /* Header Section */
     .author-header {
         text-align: center;
-        margin-bottom: 50px;
+        margin-bottom: 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    /* Minimal SciAm Logo */
+    .mini-logo {
+        font-family: 'Merriweather', serif;
+        font-weight: 900;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: #000;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #000;
+        padding-bottom: 5px;
+        display: inline-block;
     }
     
     .author-header h1 {
         font-family: 'Merriweather', serif;
         font-weight: 900;
         font-size: 2.6rem;
-        margin-bottom: 5px;
+        margin-top: 0;
+        margin-bottom: 15px;
         color: #111;
         letter-spacing: -0.5px;
     }
@@ -46,9 +64,10 @@
         font-family: 'Merriweather', serif;
         font-style: italic;
         color: #555;
-        font-size: 1rem;
-        max-width: 750px;
+        font-size: 1.05rem;
+        max-width: 800px;
         margin: 0 auto;
+        line-height: 1.6;
     }
     
     .author-header a {
@@ -56,7 +75,7 @@
         text-decoration: underline;
     }
 
-    /* Grid Layout - Changed to 3 Columns */
+    /* Grid Layout - 3 Columns */
     .article-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -79,33 +98,23 @@
         height: auto;
         aspect-ratio: 16 / 9;
         object-fit: cover;
-        margin-bottom: 12px;
-        background-color: #eaeaea; /* Light gray background while images load/are empty */
+        margin-bottom: 15px;
+        background-color: #eaeaea; 
         transition: opacity 0.2s ease;
     }
     .image-link:hover img {
-        opacity: 0.9; /* Slight dim on image hover to indicate it's clickable */
+        opacity: 0.9; 
     }
     
-    /* Meta Data (Category & Date) */
+    /* Meta Data (Date Only) */
     .meta {
-        font-size: 0.7rem;
+        font-size: 0.75rem;
         font-weight: 700;
         text-transform: uppercase;
-        margin-bottom: 8px;
+        margin-bottom: 10px;
         display: flex;
         align-items: center;
-        gap: 8px;
         letter-spacing: 0.5px;
-    }
-    .category {
-        color: #000;
-    }
-    .divider {
-        width: 5px;
-        height: 5px;
-        background-color: #0077b5;
-        display: inline-block;
     }
     .date {
         color: #777;
@@ -118,12 +127,12 @@
         display: block;
         flex-grow: 1;
         transition: transform 0.25s ease;
-        transform-origin: left center; /* Ensures it scales out naturally */
+        transform-origin: left center; 
     }
     
     /* Hover Animation: Expand and Underline */
     .text-link:hover {
-        transform: scale(1.02); /* Subtle expand */
+        transform: scale(1.02); 
     }
     .text-link:hover h2 {
         text-decoration: underline;
@@ -136,7 +145,7 @@
     .card h2 {
         font-family: 'Merriweather', serif;
         font-weight: 700;
-        font-size: 1.3rem; /* Slightly reduced to fit 3-col better */
+        font-size: 1.3rem; 
         margin: 0 0 10px 0;
         line-height: 1.3;
         color: #111;
@@ -150,25 +159,16 @@
         margin: 0 0 15px 0;
         line-height: 1.6;
     }
-    
-    .card .author {
-        font-size: 0.7rem;
-        color: #888;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        margin: 0;
-        font-weight: bold;
-    }
 
     /* Responsive Design for smaller screens */
     @media (max-width: 992px) {
         .article-grid {
-            grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+            grid-template-columns: repeat(2, 1fr); 
         }
     }
     @media (max-width: 768px) {
         .article-grid {
-            grid-template-columns: 1fr; /* 1 column on mobile */
+            grid-template-columns: 1fr; 
         }
     }
 </style>
@@ -178,8 +178,11 @@
     <div class="container">
         <!-- Header -->
         <header class="author-header">
-            <h1>Stories by Anirban Mukhopadhyay</h1>
-            <p>from Delhi University and writes about science policy and cutting-edge biomedical research. Find him on X <a href="#">@onipedia</a> and on <a href="#">LinkedIn</a>.</p>
+            <!-- Minimal Scientific American Logo -->
+            <div class="mini-logo">Scientific American</div>
+            
+            <h1>My stories for Scientific American.</h1>
+            <p>If you have a <em>Scientific American</em> subscription, please support the publication by reading these stories on their website via the image thumbnails. Otherwise, click any headline or excerpt below to read a full, unlocked version.</p>
         </header>
 
         <!-- 3-Column Grid Wrapper -->
@@ -188,86 +191,71 @@
             <!-- Article 1 -->
             <article class="card">
                 <a href="https://www.scientificamerican.com/author/anirban-mukhopadhyay/" target="_blank" class="image-link">
-                    <img src="https://static.scientificamerican.com/dam/asset/b655057b-1a12-4e1b-857c-2a798a4b9189/saw070826Adva11.jpg?m=1779978059.041&w=450">
+                    <img src="https://static.scientificamerican.com/dam/asset/b655057b-1a12-4e1b-857c-2a798a4b9189/saw070826Adva11.jpg?m=1779978059.041&w=450" alt="Cat resting">
                 </a>
                 <div class="meta">
-                    <span class="category">COGNITION</span>
-                    <span class="divider"></span>
                     <span class="date">JUNE 10, 2026</span>
                 </div>
                 <a href="unlocked-cats-story.html" class="text-link">
                     <h2>Science confirms: Cats help you only when there's something in it for them</h2>
                     <p class="excerpt">Dogs spontaneously aid struggling humans the way young children do—whereas cats wait until they stand to benefit</p>
                 </a>
-                <p class="author">ANIRBAN MUKHOPADHYAY</p>
             </article>
 
             <!-- Article 2 -->
             <article class="card">
                 <a href="https://www.scientificamerican.com/author/anirban-mukhopadhyay/" target="_blank" class="image-link">
-                    <img src="https://static.scientificamerican.com/dam/m/0a14062f0b20f330/original/Deer-RF-GettyImages-1372797758.jpg?m=1772655072.85&w=450">
+                    <img src="https://static.scientificamerican.com/dam/m/0a14062f0b20f330/original/Deer-RF-GettyImages-1372797758.jpg?m=1772655072.85&w=450" alt="Deer in forest">
                 </a>
                 <div class="meta">
-                    <span class="category">ANIMALS</span>
-                    <span class="divider"></span>
                     <span class="date">JANUARY 21, 2026</span>
                 </div>
                 <a href="unlocked-deer-story.html" class="text-link">
                     <h2>The forest may be glowing—at least to deer</h2>
                     <p class="excerpt">Deer antler rubs and hoof scrapes change how parts of the forest reflect short-wavelength light, perhaps leaving a glowing signal</p>
                 </a>
-                <p class="author">ANIRBAN MUKHOPADHYAY</p>
             </article>
 
             <!-- Article 3 -->
             <article class="card">
                 <a href="https://www.scientificamerican.com/author/anirban-mukhopadhyay/" target="_blank" class="image-link">
-                    <img src="https://static.scientificamerican.com/dam/m/5e7c8055017e7837/original/sa0226Adva08.jpg?m=1767046920.289&w=450">
+                    <img src="https://static.scientificamerican.com/dam/m/5e7c8055017e7837/original/sa0226Adva08.jpg?m=1767046920.289&w=450" alt="Geometric patterns">
                 </a>
                 <div class="meta">
-                    <span class="category">SCIENCE IN IMAGES</span>
-                    <span class="divider"></span>
                     <span class="date">JANUARY 5, 2026</span>
                 </div>
                 <a href="unlocked-geometric-story.html" class="text-link">
                     <h2>Why does life keep evolving these geometric patterns?</h2>
                     <p class="excerpt">A global catalog shows how creatures across the tree of life balance rigidity with flexibility in remarkably consistent ways</p>
                 </a>
-                <p class="author">ANIRBAN MUKHOPADHYAY</p>
             </article>
 
             <!-- Article 4 -->
             <article class="card">
                 <a href="https://www.scientificamerican.com/author/anirban-mukhopadhyay/" target="_blank" class="image-link">
-                    <img src="https://static.scientificamerican.com/dam/m/226e8f30257fa6dc/original/Nanotyrannus-Paleo-Art.jpeg?m=1761835377.326&w=450">
+                    <img src="https://static.scientificamerican.com/dam/m/226e8f30257fa6dc/original/Nanotyrannus-Paleo-Art.jpeg?m=1761835377.326&w=450" alt="Dinosaurs">
                 </a>
                 <div class="meta">
-                    <span class="category">PALEONTOLOGY</span>
-                    <span class="divider"></span>
                     <span class="date">OCTOBER 30, 2025</span>
                 </div>
                 <a href="unlocked-dinosaur-story.html" class="text-link">
                     <h2>'Dueling Dinosaurs' Fossil Solves the Mystery of a 'Mini T. rex'</h2>
                     <p class="excerpt">An analysis suggests <i>Nanotyrannus</i> is a separate, smaller dinosaur that lived alongside <i>T. rex</i>, settling a 30-year debate</p>
                 </a>
-                <p class="author">ANIRBAN MUKHOPADHYAY</p>
             </article>
 
             <!-- Article 5 -->
             <article class="card">
                 <a href="https://www.scientificamerican.com/author/anirban-mukhopadhyay/" target="_blank" class="image-link">
-                    <img src="https://static.scientificamerican.com/dam/m/231f5f0b51e5dffb/original/Border-collier-holding-ball.jpg?m=1758207199.56&w=450">
+                    <img src="https://static.scientificamerican.com/dam/m/231f5f0b51e5dffb/original/Border-collier-holding-ball.jpg?m=1758207199.56&w=450" alt="Dog with toy">
                 </a>
                 <div class="meta">
-                    <span class="category">ANIMALS</span>
-                    <span class="divider"></span>
                     <span class="date">SEPTEMBER 18, 2024</span>
                 </div>
                 <a href="unlocked-dogs-story.html" class="text-link">
                     <h2>Some Dogs Can Learn Categories like Human Toddlers Do</h2>
                     <p class="excerpt">These dogs can extend words to new objects based on function the way children do in early language learning</p>
                 </a>
-                <p class="author">ANIRBAN MUKHOPADHYAY</p>
             </article>
 
         </main>
