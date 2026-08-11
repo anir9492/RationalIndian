@@ -21,7 +21,13 @@
 				display: none !important; 
 			}
 			
-			/* INCREASED LOGO SIZES */
+			/* INCREASED LOGO SIZES & CLICKABILITY FIX */
+			#header nav a.custom-logo {
+				position: relative;
+				z-index: 1000;
+				display: inline-block;
+			}
+
 			#header nav a.custom-logo img {
 				height: 4.5em; 
 				width: 4.5em;  
@@ -40,17 +46,12 @@
 			}
 
 			/* ==========================================================
-			   FIX: SHOW THE ENTIRE ARTWORK WITHOUT CROPPING OR PANNING
+			   FIXES: STATIC BACKGROUND & PROPER SCREEN FILL
 			   ========================================================== */
-			
-			/* Match page background to the dark sky of your artwork */
-			body, #wrapper {
-				background-color: #0c101d !important;
-			}
 
-			/* Force the full panoramic image to fit inside the view completely */
+			/* Ensure the background image covers the screen cleanly without blue letterboxing */
 			#bg {
-				background-size: contain !important;
+				background-size: cover !important;
 				background-position: center center !important;
 				background-repeat: no-repeat !important;
 				animation: none !important;
@@ -61,11 +62,11 @@
 				opacity: 0.35 !important;
 			}
 
-			/* Mobile layout stability */
+			/* Force the background to cover the full height on mobile devices ONLY */
 			@media screen and (max-width: 736px) {
 				#bg {
-					background-size: contain !important;
-					background-position: center center !important;
+					background-size: auto 100% !important;
+					background-position: left center !important;
 					animation: none !important;
 				}
 			}
@@ -101,6 +102,10 @@
 
 			</div>
 		</div>
+
+		<!-- Template Core Scripts (Required for layout states and link clicks) -->
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
 		<script>
 			window.onload = function() { document.body.classList.remove('is-preload'); }
 			window.ontouchmove = function() { return false; }
