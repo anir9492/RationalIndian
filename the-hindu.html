@@ -11,203 +11,101 @@
 
 <style>
     /* Reset and Base Styles */
-    * {
-        box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
     body {
         font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        color: #333;
-        line-height: 1.5;
-        margin: 0;
-        padding: 40px 20px;
-        background-color: #fff;
+        color: #333; line-height: 1.5; margin: 0; padding: 0 0 40px 0; background-color: #fff;
     }
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-    /* Top Navigation (Back Button) */
-    .top-nav {
-        margin-bottom: 30px;
+    /* New Centered Header with Left Back Button */
+    .site-header {
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 40px;
+        border-bottom: 1px solid #e0e0e0;
+        position: relative;
+        margin-bottom: 50px;
     }
     .back-btn {
+        position: absolute;
+        left: 40px;
         font-family: 'Open Sans', sans-serif;
         font-size: 0.9rem;
         font-weight: 600;
         color: #555;
         text-decoration: none;
-        display: inline-flex;
-        align-items: center;
         transition: color 0.2s ease;
     }
-    .back-btn:hover {
-        color: #0077b5;
-        text-decoration: underline;
-    }
-
-    /* Header Section */
-    .author-header {
-        text-align: center;
-        margin-bottom: 60px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+    .back-btn:hover { color: #0077b5; text-decoration: underline; }
     
-    /* Uploaded Logo Styling */
-    .mini-logo-img {
-        max-width: 250px;
-        height: auto;
-        margin-bottom: 25px;
+    .header-logo img {
+        height: 50px; /* Adjust size of header logo here */
+        width: auto;
         display: block;
-    }
-    
-    .author-header h1 {
-        font-family: 'Merriweather', serif;
-        font-weight: 900;
-        font-size: 2.6rem;
-        margin-top: 0;
-        margin-bottom: 15px;
-        color: #111;
-        letter-spacing: -0.5px;
-    }
-    
-    .author-header p {
-        font-family: 'Merriweather', serif;
-        font-style: italic;
-        color: #555;
-        font-size: 1.05rem;
-        max-width: 800px;
-        margin: 0 auto;
-        line-height: 1.6;
-    }
-    
-    .author-header p a {
-        color: #0077b5;
-        text-decoration: underline;
-        font-style: normal;
-        font-family: 'Open Sans', sans-serif;
-        font-weight: 600;
-    }
-
-    /* Grid Layout - 3 Columns */
-    .article-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 40px 30px; 
-    }
-
-    /* Card Styling */
-    .card {
-        display: flex;
-        flex-direction: column;
-    }
-
-    /* Interactive Image Link */
-    .image-link {
-        display: block;
-        text-decoration: none;
-    }
-    .card img {
-        width: 100%;
-        height: auto;
-        aspect-ratio: 16 / 9;
-        object-fit: cover;
-        margin-bottom: 15px;
-        background-color: #eaeaea; 
         transition: opacity 0.2s ease;
     }
-    .image-link:hover img {
-        opacity: 0.9; 
-    }
-    
-    /* Meta Data (Date Only) */
-    .meta {
-        font-size: 0.75rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        margin-bottom: 10px;
-        display: flex;
-        align-items: center;
-        letter-spacing: 0.5px;
-    }
-    .date {
-        color: #777;
-    }
+    .header-logo:hover img { opacity: 0.7; }
 
-    /* Interactive Text Link (Hed & Dek) */
-    .text-link {
-        text-decoration: none;
-        color: inherit;
-        display: block;
-        flex-grow: 1;
-        transition: transform 0.25s ease;
-        transform-origin: left center; 
-    }
-    
-    /* Hover Animation: Expand and Underline */
-    .text-link:hover {
-        transform: scale(1.02); 
-    }
-    .text-link:hover h2 {
-        text-decoration: underline;
-        text-decoration-color: #222;
-        text-underline-offset: 4px;
-        text-decoration-thickness: 2px;
-    }
-
-    /* Typography inside Card */
-    .card h2 {
+    /* Author Header Section */
+    .author-header { text-align: center; margin-bottom: 60px; }
+    .author-header h1 {
         font-family: 'Merriweather', serif;
-        font-weight: 700;
-        font-size: 1.3rem; 
-        margin: 0 0 10px 0;
-        line-height: 1.3;
-        color: #111;
-        transition: text-decoration 0.2s ease;
+        font-weight: 900; font-size: 2.6rem;
+        margin-top: 0; margin-bottom: 15px;
+        color: #111; letter-spacing: -0.5px;
     }
-    
-    .card .excerpt {
-        font-family: 'Open Sans', sans-serif;
-        font-size: 0.95rem;
-        color: #444;
-        margin: 0 0 15px 0;
-        line-height: 1.6;
+    .author-header p {
+        font-family: 'Merriweather', serif;
+        font-style: italic; color: #555;
+        font-size: 1.05rem; max-width: 800px;
+        margin: 0 auto 15px auto; line-height: 1.6;
     }
+    .author-header p.socials { font-style: normal; font-family: 'Open Sans', sans-serif; font-size: 1rem; }
+    .author-header a { color: #0077b5; text-decoration: underline; font-weight: 600; }
 
-    /* Responsive Design for smaller screens */
-    @media (max-width: 992px) {
-        .article-grid {
-            grid-template-columns: repeat(2, 1fr); 
-        }
+    /* Grid Layout */
+    .article-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 30px; }
+    .card { display: flex; flex-direction: column; }
+    .image-link { display: block; text-decoration: none; }
+    .card img {
+        width: 100%; height: auto; aspect-ratio: 16 / 9;
+        object-fit: cover; margin-bottom: 15px;
+        background-color: #eaeaea; transition: opacity 0.2s ease;
     }
-    @media (max-width: 768px) {
-        .article-grid {
-            grid-template-columns: 1fr; 
-        }
-    }
+    .image-link:hover img { opacity: 0.9; }
+    .meta { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; color: #777; letter-spacing: 0.5px; }
+    
+    /* Interactive Text Link */
+    .text-link { text-decoration: none; color: inherit; display: block; flex-grow: 1; transition: transform 0.25s ease; transform-origin: left center; }
+    .text-link:hover { transform: scale(1.02); }
+    .text-link:hover h2 { text-decoration: underline; text-decoration-color: #222; text-underline-offset: 4px; text-decoration-thickness: 2px; }
+    .card h2 { font-family: 'Merriweather', serif; font-weight: 700; font-size: 1.3rem; margin: 0 0 10px 0; line-height: 1.3; color: #111; transition: text-decoration 0.2s ease; }
+    .card .excerpt { font-family: 'Open Sans', sans-serif; font-size: 0.95rem; color: #444; margin: 0 0 15px 0; line-height: 1.6; }
+
+    /* Responsive */
+    @media (max-width: 992px) { .article-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) { .article-grid { grid-template-columns: 1fr; } .back-btn { position: relative; left: 0; margin-bottom: 15px; } .site-header { flex-direction: column; padding: 20px; } }
 </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Back to Portfolio Navigation -->
-        <nav class="top-nav">
-            <a href="index.html" class="back-btn">&larr; Back to Portfolio</a>
-        </nav>
+    <!-- Header with Logo -->
+    <header class="site-header">
+        <a href="index.html" class="back-btn">&larr; Back to Portfolio</a>
+        <a href="https://www.thehindu.com" target="_blank" class="header-logo">
+            <img src="logos/thehindu-logo.png" alt="The Hindu">
+        </a>
+    </header>
 
-        <!-- Header -->
-        <header class="author-header">
-            <!-- Logo linked to a local folder. Create a "logos" folder and put your image inside. -->
-            <img src="logos/thehindu-logo.png" alt="The Hindu" class="mini-logo-img">
-            
-            <h1>My stories for The Hindu.</h1>
-            <p>If you have a <em>The Hindu</em> subscription, please support the publication by reading these stories on their website via the image thumbnails. Otherwise, click any headline or excerpt below to read a full, unlocked version.<br><br>
-            Find him on X <a href="#">@onipedia</a> and on <a href="#">LinkedIn</a>.</p>
-        </header>
+    <div class="container">
+        <!-- Author Info -->
+        <section class="author-header">
+            <h1>My stories for The Hindu</h1>
+            <p>If you have a <em>The Hindu</em> subscription, please support the publication by reading these stories on their website via the image thumbnails. Otherwise, click any headline or excerpt below to read a full, unlocked PDF version. You can also click the header logo to read amazing stories on their main website.</p>
+            <p class="socials">Find me on X <a href="https://x.com/onipedia" target="_blank">@onipedia</a> and on <a href="https://www.linkedin.com/in/anirban-mukhopadhyay-929827370/?originalSubdomain=in" target="_blank">LinkedIn</a>.</p>
+        </section>
 
         <!-- 3-Column Grid Wrapper -->
         <main class="article-grid">
@@ -220,7 +118,7 @@
                 <div class="meta">
                     <span class="date">Add Date Manually</span>
                 </div>
-                <a href="unlocked-story-1.html" class="text-link">
+                <a href="pdfs/thehindu-story-1.pdf" target="_blank" class="text-link">
                     <h2>Kombucha can rebalance gut ecosystem in people with obesity: study</h2>
                     <p class="excerpt">No single brand of kombucha can claim to be ‘good’ for all consumers across geographies.</p>
                 </a>
@@ -233,7 +131,7 @@
                 <div class="meta">
                     <span class="date">Add Date Manually</span>
                 </div>
-                <a href="unlocked-story-2.html" class="text-link">
+                <a href="pdfs/thehindu-story-2.pdf" target="_blank" class="text-link">
                     <h2>Technique to make CAR T-cells in vivo could transform cancer care</h2>
                     <p class="excerpt">A colorised scanning electron micrograph of a T cell.</p>
                 </a>
@@ -246,7 +144,7 @@
                 <div class="meta">
                     <span class="date">Add Date Manually</span>
                 </div>
-                <a href="unlocked-story-3.html" class="text-link">
+                <a href="pdfs/thehindu-story-3.pdf" target="_blank" class="text-link">
                     <h2>Lung gene linked to post-COVID symptoms, large genetics study says</h2>
                     <p class="excerpt">Medical officials set up beds for COVID-19 patients amid an uptick in coronavirus infections, at the Ram Manohar Lohia Hospital, in New Delhi, on June 5.</p>
                 </a>
@@ -259,7 +157,7 @@
                 <div class="meta">
                     <span class="date">Add Date Manually</span>
                 </div>
-                <a href="unlocked-story-4.html" class="text-link">
+                <a href="pdfs/thehindu-story-4.pdf" target="_blank" class="text-link">
                     <h2>Common molecule offers clue to making old muscles young again</h2>
                     <p class="excerpt">Sarcopenia affects millions of people and contributes to frailty, slow recovery, and hospital readmissions in older adults.</p>
                 </a>
@@ -273,7 +171,7 @@
                 <div class="meta">
                     <span class="date">Add Date Manually</span>
                 </div>
-                <a href="unlocked-story-5.html" class="text-link">
+                <a href="pdfs/thehindu-story-5.pdf" target="_blank" class="text-link">
                     <h2>Scientists detect early brain response to rhythm in preterm babies</h2>
                     <p class="excerpt">Researchers used functional near-infrared spectroscopy to record brain activity in premature infants as they slept.</p>
                 </a>
@@ -286,7 +184,7 @@
                 <div class="meta">
                     <span class="date">Add Date Manually</span>
                 </div>
-                <a href="unlocked-story-6.html" class="text-link">
+                <a href="pdfs/thehindu-story-6.pdf" target="_blank" class="text-link">
                     <h2>New study finds different roots for early and late autism diagnoses</h2>
                     <p class="excerpt">For representational purposes.</p>
                 </a>
@@ -299,7 +197,7 @@
                 <div class="meta">
                     <span class="date">Add Date Manually</span>
                 </div>
-                <a href="unlocked-story-7.html" class="text-link">
+                <a href="pdfs/thehindu-story-7.pdf" target="_blank" class="text-link">
                     <h2>Could hidden dental bacteria help explain sudden and deadly heart attacks?</h2>
                     <p class="excerpt">For representative purposes.</p>
                 </a>
@@ -312,7 +210,7 @@
                 <div class="meta">
                     <span class="date">Add Date Manually</span>
                 </div>
-                <a href="unlocked-story-8.html" class="text-link">
+                <a href="pdfs/thehindu-story-8.pdf" target="_blank" class="text-link">
                     <h2>Ageing arteries, lingering risks: Covid’s quiet impact on heart health</h2>
                     <p class="excerpt">As arteries stiffen, the heart pumps harder, blood pressure rises, and the risk of heart attack, stroke, kidney disease, and dementia increases. Illustration used for representational purposes only</p>
                 </a>
@@ -325,7 +223,7 @@
                 <div class="meta">
                     <span class="date">Add Date Manually</span>
                 </div>
-                <a href="unlocked-story-9.html" class="text-link">
+                <a href="pdfs/thehindu-story-9.pdf" target="_blank" class="text-link">
                     <h2>Uncovered: how RNA, amino acids may have linked on early earth</h2>
                     <p class="excerpt">If amino acids are imagined as the beads and RNA as the thread, enzymes like the one shown here (leucyl-tRNA synthetase) string them together.</p>
                 </a>
@@ -338,7 +236,7 @@
                 <div class="meta">
                     <span class="date">Add Date Manually</span>
                 </div>
-                <a href="unlocked-story-10.html" class="text-link">
+                <a href="pdfs/thehindu-story-10.pdf" target="_blank" class="text-link">
                     <h2>Research shows forgetting may be natural, remembering takes work</h2>
                     <p class="excerpt">Memory may not be fixed or random but be shaped by experience and sustained by practice.</p>
                 </a>
@@ -351,7 +249,7 @@
                 <div class="meta">
                     <span class="date">Add Date Manually</span>
                 </div>
-                <a href="unlocked-story-11.html" class="text-link">
+                <a href="pdfs/thehindu-story-11.pdf" target="_blank" class="text-link">
                     <h2>Connexin proteins rally arteries to nourish brain on demand</h2>
                     <p class="excerpt">The anterior, middle, and posterior cerebral arteries respectively supply the yellow, red, and blue parts of the brain.</p>
                 </a>
@@ -364,7 +262,7 @@
                 <div class="meta">
                     <span class="date">Add Date Manually</span>
                 </div>
-                <a href="unlocked-story-12.html" class="text-link">
+                <a href="pdfs/thehindu-story-12.pdf" target="_blank" class="text-link">
                     <h2>How migration to urban areas is expanding waistlines in India</h2>
                     <p class="excerpt">The longer someone lives in a city, the higher their odds of obesity, a recent analysis has revealed. Pre-packaged and processed foods are everywhere, often replacing fresh meals in urban diets, especially for the poor, say experts. File photograph used for representational purposes only</p>
                 </a>
@@ -377,7 +275,7 @@
                 <div class="meta">
                     <span class="date">Add Date Manually</span>
                 </div>
-                <a href="unlocked-story-13.html" class="text-link">
+                <a href="pdfs/thehindu-story-13.pdf" target="_blank" class="text-link">
                     <h2>Malaria’s new frontlines: vaccines, innovation, and the Indian endgame</h2>
                     <p class="excerpt">The R21/Matrix-M vaccine, developed by Oxford and the Serum Institute, showed up to 77% efficacy in Phase 3 trials winning World Health Organization (WHO) approval in 2023. File photograph</p>
                 </a>
@@ -390,7 +288,7 @@
                 <div class="meta">
                     <span class="date">Add Date Manually</span>
                 </div>
-                <a href="unlocked-story-14.html" class="text-link">
+                <a href="pdfs/thehindu-story-14.pdf" target="_blank" class="text-link">
                     <h2>Science retracts NASA arsenic bacteria paper after years of controversy</h2>
                     <p class="excerpt">Limestone formations along the shores of Mono Lake.</p>
                 </a>
@@ -403,7 +301,7 @@
                 <div class="meta">
                     <span class="date">Add Date Manually</span>
                 </div>
-                <a href="unlocked-story-15.html" class="text-link">
+                <a href="pdfs/thehindu-story-15.pdf" target="_blank" class="text-link">
                     <h2>Consilient evidence links lack of vitamin D to neurodevelopmental issues</h2>
                     <p class="excerpt">Researchers measured vitamin D levels in dried blood spot samples from 88,764 individuals born between 1981 and 2005, part of a universal neonatal screening programme that stores nearly all newborns’ blood in the Danish Neonatal Screening Biobank.</p>
                 </a>
@@ -416,7 +314,7 @@
                 <div class="meta">
                     <span class="date">Add Date Manually</span>
                 </div>
-                <a href="unlocked-story-16.html" class="text-link">
+                <a href="pdfs/thehindu-story-16.pdf" target="_blank" class="text-link">
                     <h2>BioEmu AI reveals protein choreography in biological conditions</h2>
                     <p class="excerpt">BioEmu promises to be faster and cheaper than classical approaches at predicting protein function. Representative illustration.</p>
                 </a>
@@ -429,7 +327,7 @@
                 <div class="meta">
                     <span class="date">Add Date Manually</span>
                 </div>
-                <a href="unlocked-story-17.html" class="text-link">
+                <a href="pdfs/thehindu-story-17.pdf" target="_blank" class="text-link">
                     <h2>Lab-grown cells help restore insulin in people with type 1 diabetes</h2>
                     <p class="excerpt">In Type 1 diabetes the immune system attacks the pancreas’s islets cells, which produce insulin and other hormones that regulate blood sugar. Without those cells, people rely on external insulin, adjusting doses by trial and error. Photograph used for representational purposes only</p>
                 </a>
@@ -442,7 +340,7 @@
                 <div class="meta">
                     <span class="date">Add Date Manually</span>
                 </div>
-                <a href="unlocked-story-18.html" class="text-link">
+                <a href="pdfs/thehindu-story-18.pdf" target="_blank" class="text-link">
                     <h2>Large genetic map of Indians flags hidden disease risks</h2>
                     <p class="excerpt">India’s population structure reflects long-standing practices of marriage within communities. Representative illustration.</p>
                 </a>
@@ -456,7 +354,7 @@
                 <div class="meta">
                     <span class="date">Add Date Manually</span>
                 </div>
-                <a href="unlocked-story-19.html" class="text-link">
+                <a href="pdfs/thehindu-story-19.pdf" target="_blank" class="text-link">
                     <h2>How people’s genes are revealing why some languages are so unique</h2>
                     <p class="excerpt">Isolation allows languages to evolve independently, increasing the chances that they will grow more different over time.</p>
                 </a>
@@ -469,7 +367,7 @@
                 <div class="meta">
                     <span class="date">Add Date Manually</span>
                 </div>
-                <a href="unlocked-story-20.html" class="text-link">
+                <a href="pdfs/thehindu-story-20.pdf" target="_blank" class="text-link">
                     <h2>Finerenone helps slow kidney disease in patients without diabetes</h2>
                     <p class="excerpt">Patients receiving lifesaving dialysis treatment in the nephrology ward at Stanley Hospital.</p>
                 </a>
@@ -482,7 +380,7 @@
                 <div class="meta">
                     <span class="date">Add Date Manually</span>
                 </div>
-                <a href="unlocked-story-21.html" class="text-link">
+                <a href="pdfs/thehindu-story-21.pdf" target="_blank" class="text-link">
                     <h2>Sperm whale ‘clicks’ have complex patterns similar to human speech</h2>
                     <p class="excerpt">A sperm whale and her calf are seen of the coast of Mauritius. The calf has remoras attached to its body.</p>
                 </a>
@@ -495,7 +393,7 @@
                 <div class="meta">
                     <span class="date">Add Date Manually</span>
                 </div>
-                <a href="unlocked-story-22.html" class="text-link">
+                <a href="pdfs/thehindu-story-22.pdf" target="_blank" class="text-link">
                     <h2>Constant mechanical force may be why heart cancer is so rare</h2>
                     <p class="excerpt">Illustration of a human heart on a blue background</p>
                 </a>
@@ -508,7 +406,7 @@
                 <div class="meta">
                     <span class="date">Add Date Manually</span>
                 </div>
-                <a href="unlocked-story-23.html" class="text-link">
+                <a href="pdfs/thehindu-story-23.pdf" target="_blank" class="text-link">
                     <h2>Global study reveals how psychedelics dissolve the brain’s hierarchy</h2>
                     <p class="excerpt">The brain is a building with a strict chain of command. At the ‘bottom’ are frontline workers – the regions that handle raw sensory input. At the ‘top’ are the parts responsible for abstract thought, memory, and our internal sense of self. Usually, these two groups don’t talk to each other directly.</p>
                 </a>
@@ -521,7 +419,7 @@
                 <div class="meta">
                     <span class="date">Add Date Manually</span>
                 </div>
-                <a href="unlocked-story-24.html" class="text-link">
+                <a href="pdfs/thehindu-story-24.pdf" target="_blank" class="text-link">
                     <h2>Enhanced CAR-T therapy clears solid tumours by finding ‘faint’ targets</h2>
                     <p class="excerpt">In CAR T-cell therapy, a patient’s T cells (one shown) are isolated, engineered to target specific cancer cells, then reinfused to mount their attack.</p>
                 </a>
@@ -534,7 +432,7 @@
                 <div class="meta">
                     <span class="date">Add Date Manually</span>
                 </div>
-                <a href="unlocked-story-25.html" class="text-link">
+                <a href="pdfs/thehindu-story-25.pdf" target="_blank" class="text-link">
                     <h2>Psychedelics are revealing how the brain builds the sense of self</h2>
                     <p class="excerpt">A head x-ray taken by a computer-assisted tomographic (CAT) scanner.</p>
                 </a>
@@ -547,7 +445,7 @@
                 <div class="meta">
                     <span class="date">Add Date Manually</span>
                 </div>
-                <a href="unlocked-story-26.html" class="text-link">
+                <a href="pdfs/thehindu-story-26.pdf" target="_blank" class="text-link">
                     <h2>Can a common hospital gas help fight drug-resistant pneumonia?</h2>
                     <p class="excerpt">Doctors already use nitric acid at low doses to widen blood vessels in the lungs of patients with acute respiratory failure. Representative image.</p>
                 </a>
@@ -560,7 +458,7 @@
                 <div class="meta">
                     <span class="date">Add Date Manually</span>
                 </div>
-                <a href="unlocked-story-27.html" class="text-link">
+                <a href="pdfs/thehindu-story-27.pdf" target="_blank" class="text-link">
                     <h2>Large genetic study finds overlaps between schizophrenia, bone health</h2>
                     <p class="excerpt">Compared to the general population, people with schizophrenia are more likely to have weaker bones and to suffer fractures. Representative illustration.</p>
                 </a>
@@ -573,7 +471,7 @@
                 <div class="meta">
                     <span class="date">Add Date Manually</span>
                 </div>
-                <a href="unlocked-story-28.html" class="text-link">
+                <a href="pdfs/thehindu-story-28.pdf" target="_blank" class="text-link">
                     <h2>Microbe might spark first stages of ulcerative colitis: new study</h2>
                     <p class="excerpt">Aeromonas hydrophila under a microscope. Representative image.</p>
                 </a>
@@ -586,7 +484,7 @@
                 <div class="meta">
                     <span class="date">Add Date Manually</span>
                 </div>
-                <a href="unlocked-story-29.html" class="text-link">
+                <a href="pdfs/thehindu-story-29.pdf" target="_blank" class="text-link">
                     <h2>Just five DNA letters flip chromatin from fluid to solid-like state</h2>
                     <p class="excerpt">The crystal structure of the nucleosome core particle. The view is from the top through the superhelical axis.</p>
                 </a>
@@ -599,7 +497,7 @@
                 <div class="meta">
                     <span class="date">Add Date Manually</span>
                 </div>
-                <a href="unlocked-story-30.html" class="text-link">
+                <a href="pdfs/thehindu-story-30.pdf" target="_blank" class="text-link">
                     <h2>In axolotls and flatworms, regeneration is a body-wide choreograph</h2>
                     <p class="excerpt">A close-up view of planarian flatworms.</p>
                 </a>
@@ -612,7 +510,7 @@
                 <div class="meta">
                     <span class="date">Add Date Manually</span>
                 </div>
-                <a href="unlocked-story-31.html" class="text-link">
+                <a href="pdfs/thehindu-story-31.pdf" target="_blank" class="text-link">
                     <h2>How groundbreaking new brain atlases capture development in motion</h2>
                     <p class="excerpt">An eight-week human cortical organoid with rosette structures (in pink and blue) surrounded by neuronal populations (green).</p>
                 </a>
@@ -625,7 +523,7 @@
                 <div class="meta">
                     <span class="date">Add Date Manually</span>
                 </div>
-                <a href="unlocked-story-32.html" class="text-link">
+                <a href="pdfs/thehindu-story-32.pdf" target="_blank" class="text-link">
                     <h2>Shorter, simpler breast cancer treatment: where evidence meets practice</h2>
                     <p class="excerpt">People taking part in a breast cancer awareness rally organised by a hospital in Vijayawada. Breast Cancer Awareness Month is observed annually in October.</p>
                 </a>
