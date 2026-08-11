@@ -42,26 +42,17 @@
 			}
 
 			/* ==========================================================
-			   FIX: PAN ONCE FROM LEFT TO RIGHT, THEN STOP COMPLETELY
+			   FIXES: STATIC BACKGROUND (NO PANNING) & LIGHTER OVERLAY
 			   ========================================================== */
-			@keyframes singlePanStop {
-				0% {
-					background-position: left center;
-				}
-				100% {
-					background-position: right center;
-				}
-			}
 
+			/* 1. Completely disable background movement and panning */
 			#bg {
-				animation-name: singlePanStop !important;
-				animation-duration: 6s !important; /* Adjust time here if you want it faster or slower (e.g., 4s or 8s) */
-				animation-timing-function: ease-out !important;
-				animation-iteration-count: 1 !important;
-				animation-fill-mode: forwards !important;
+				animation: none !important;
+				background-position: center center !important;
+				background-size: cover !important;
 			}
 
-			/* Lighten the dark overlay slightly to prevent eye strain */
+			/* 2. Lighten the dark overlay to eliminate eye strain */
 			#overlay {
 				opacity: 0.35 !important;
 			}
@@ -71,7 +62,6 @@
 				#bg {
 					background-size: auto 100% !important;
 					background-position: left center !important;
-					animation: none !important;
 				}
 			}
 		</style>
