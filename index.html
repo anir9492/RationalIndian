@@ -42,19 +42,28 @@
 			}
 
 			/* ==========================================================
-			   CUSTOM FIXES: LIGHTEN OVERLAY & STOP BACKGROUND PANNING
+			   FIX: PAN ONCE FROM LEFT TO RIGHT, THEN STOP COMPLETELY
 			   ========================================================== */
-
-			/* 1. Lighten the dark overlay to eliminate eye strain 
-			      (Change opacity from 0.35 to 0.5 if you want it slightly darker) */
-			#overlay {
-				opacity: 0.35 !important;
+			@keyframes singlePanStop {
+				0% {
+					background-position: left center;
+				}
+				100% {
+					background-position: right center;
+				}
 			}
 
-			/* 2. Stop the background image from panning continuously or repeating */
 			#bg {
+				animation-name: singlePanStop !important;
+				animation-duration: 6s !important; /* Adjust time here if you want it faster or slower (e.g., 4s or 8s) */
+				animation-timing-function: ease-out !important;
 				animation-iteration-count: 1 !important;
 				animation-fill-mode: forwards !important;
+			}
+
+			/* Lighten the dark overlay slightly to prevent eye strain */
+			#overlay {
+				opacity: 0.35 !important;
 			}
 
 			/* Force the background to cover the full height on mobile devices ONLY */
@@ -62,6 +71,7 @@
 				#bg {
 					background-size: auto 100% !important;
 					background-position: left center !important;
+					animation: none !important;
 				}
 			}
 		</style>
