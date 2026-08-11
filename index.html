@@ -45,37 +45,40 @@
 				background-color: #ffffff;
 			}
 
-			/* ==========================================================
-			   FIX 1: BRING CONTENT TO THE FRONT SO IT IS CLICKABLE
-			   ========================================================== */
+			/* BRING CONTENT TO THE FRONT SO IT IS CLICKABLE */
 			#main {
 				position: relative !important;
 				z-index: 10 !important;
 			}
 
 			/* ==========================================================
-			   FIX 2: FIX IMAGE PATH & PREVENT CLICKS ON OVERLAY
+			   FIX: SHOW WHOLE IMAGE & BLACK OUT THE BLUE GRADIENT
 			   ========================================================== */
 
+			/* Override the template's default blue gradient background */
+			body, #wrapper {
+				background: #000000 !important; 
+			}
+
 			#bg {
-				/* Assuming bg.jpg is inside your 'images' folder. */
 				background-image: url('images/bg.jpg') !important; 
-				background-size: cover !important;
+				background-size: contain !important; /* Forces the WHOLE image to fit on screen */
 				background-position: center center !important;
 				background-repeat: no-repeat !important;
+				background-color: #000000 !important; /* Fills empty top/bottom space with black */
 				animation: none !important;
 			}
 
 			#overlay {
-				opacity: 0.35 !important;
-				pointer-events: none !important; /* <--- Lets clicks pass through the overlay */
+				opacity: 0.25 !important; /* Lightened slightly more so the contained image is bright */
+				pointer-events: none !important; /* Lets clicks pass through to logos */
 			}
 
-			/* Force the background to cover the full height on mobile devices ONLY */
+			/* Mobile layout stability */
 			@media screen and (max-width: 736px) {
 				#bg {
-					background-size: auto 100% !important;
-					background-position: left center !important;
+					background-size: contain !important;
+					background-position: center center !important;
 					animation: none !important;
 				}
 			}
