@@ -52,7 +52,7 @@
 			}
 
 			/* ==========================================================
-			   FIX: TARGET IMAGES/BG.JPG AND KILL THE TEMPLATE'S BLUE GRADIENT
+			   FIX: RESET CONTAINER SIZE AND ANIMATE PAN & STOP
 			   ========================================================== */
 
 			/* 1. Kill the template's default gradient pseudo-layers */
@@ -61,20 +61,36 @@
 				animation: none !important;
 			}
 
-			/* 2. Remove default background images from body and wrapper */
 			body, #wrapper {
 				background-color: #000000 !important; 
 				background-image: none !important;
 			}
 
-			/* 3. Point directly to images/bg.jpg and fit it to the screen */
+			/* 2. Lock the container to exactly the screen size and Pan */
 			#bg {
+				/* Reset Aerial's crazy 300% width hack */
+				position: fixed !important;
+				top: 0 !important;
+				left: 0 !important;
+				width: 100vw !important;
+				height: 100vh !important;
+				transform: none !important; 
+
+				/* Load the image */
 				background-image: url('images/bg.jpg') !important; 
-				background-size: contain !important; /* Shows the entire image left to right */
-				background-position: center center !important;
+				background-color: #000000 !important; 
+				
+				/* Fit image vertically, let it stretch horizontally */
+				background-size: auto 100% !important; 
 				background-repeat: no-repeat !important;
-				background-color: #000000 !important; /* Black letterboxing for empty top/bottom space */
-				animation: none !important;
+
+				/* Smooth pan from left to right, locking at the end */
+				animation: panAndStop 12s ease-out forwards !important;
+			}
+
+			@keyframes panAndStop {
+				0% { background-position: left center; }
+				100% { background-position: right center; }
 			}
 
 			#overlay {
@@ -82,11 +98,11 @@
 				pointer-events: none !important; /* Lets clicks pass through to logos */
 			}
 
-			/* Mobile layout stability */
+			/* Mobile layout stability - keeps it static and covers the screen */
 			@media screen and (max-width: 736px) {
 				#bg {
-					background-size: contain !important;
-					background-position: center center !important;
+					background-size: cover !important;
+					background-position: right center !important;
 					animation: none !important;
 				}
 			}
@@ -123,9 +139,11 @@
 			</div>
 		</div>
 
-		<!-- Cleaned up: Removed broken JS files, kept only the preload fader -->
+		<!-- Scripts: Removed the 404 broken template scripts, kept the essential fader -->
 		<script>
 			window.onload = function() { document.body.classList.remove('is-preload'); }
+			window.ontouchmove = function() { return false; }
+			window.onorientationchange = function() { document.body.scrollTop = 0; }
 		</script>
 	</body>
 </html>
