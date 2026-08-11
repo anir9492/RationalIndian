@@ -41,28 +41,10 @@
 				background-color: #ffffff;
 			}
 
-			/* ==========================================================
-			   CHALCHITRA NARRATIVE PAN & ZOOM (STOPS & LOCKS AT THE END)
-			   ========================================================== */
+			/* Stop the background from looping/panning continuously once fully appeared */
 			#bg {
-				background-position: 0% 50% !important;
-				background-size: 160% auto !important;
-			}
-
-			@keyframes chalchitraStop {
-				0% {
-					background-position: 0% 50%;
-					background-size: 160% auto; /* Starts focused on the left chemistry/DNA genesis */
-				}
-				100% {
-					background-position: 100% 50%; /* Pans across to reveal the full wildlife sunrise */
-					background-size: cover;        /* Locks in place completely (no repeating) */
-				}
-			}
-
-			/* Runs once on load; 'forwards' ensures it stays locked at the end forever */
-			body:not(.is-preload) #bg {
-				animation: chalchitraStop 5s cubic-bezier(0.25, 1, 0.3, 1) forwards !important;
+				animation-iteration-count: 1 !important;
+				animation-fill-mode: forwards !important;
 			}
 
 			/* Force the background to cover the full height on mobile devices ONLY */
@@ -70,7 +52,6 @@
 				#bg {
 					background-size: auto 100% !important;
 					background-position: left center !important;
-					animation: none !important;
 				}
 			}
 		</style>
