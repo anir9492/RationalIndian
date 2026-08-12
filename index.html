@@ -47,9 +47,10 @@
 			}
 
 			/* ==========================================================
-			   HOVER TOOLTIPS FOR PUBLICATION LOGOS (FIXED PLACEMENT)
+			   HOVER TOOLTIPS FOR PUBLICATION LOGOS & SATELLITE BADGES
 			   ========================================================== */
-			#header nav a.custom-logo::after {
+			#header nav a.custom-logo::after,
+			.social-badge::after {
 				content: attr(data-label) !important; 
 				position: absolute !important;
 				top: 100% !important; 
@@ -75,17 +76,24 @@
 				margin-top: 15px !important; 
 			}
 
-			#header nav a.custom-logo:hover::after {
+			#header nav a.custom-logo:hover::after,
+			.social-badge:hover::after {
 				opacity: 1 !important;
 				visibility: visible !important;
 				transform: translate(-50%, 5px) !important; 
 			}
 
 			/* ==========================================================
-			   MODERN HEADSHOT WITH ENHANCED LENSING EFFECT
+			   MODERN HEADSHOT WITH SATELLITE BADGES
 			   ========================================================== */
-			#header .headshot {
+			.headshot-wrapper {
+				position: relative;
+				display: inline-block;
 				margin-bottom: 1.5rem;
+			}
+
+			#header .headshot {
+				margin-bottom: 0;
 			}
 			
 			#header .headshot img {
@@ -104,14 +112,49 @@
 			}
 			
 			#header .headshot img:hover {
-				transform: translateY(-2px);
 				opacity: 1;
 				backdrop-filter: blur(0px); 
 				-webkit-backdrop-filter: blur(0px);
 			}
 
+			/* Satellite Badges (LinkedIn / Scholar) */
+			.social-badge {
+				position: absolute;
+				bottom: 5%;
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				background: rgba(0, 0, 0, 0.65); /* Dark frosted glass */
+				backdrop-filter: blur(6px) saturate(120%);
+				-webkit-backdrop-filter: blur(6px) saturate(120%);
+				border: 1px solid rgba(255, 255, 255, 0.25);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: #fff !important;
+				text-decoration: none !important;
+				transition: all 0.3s ease;
+				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+				z-index: 20;
+			}
+
+			.social-badge:hover {
+				background: rgba(255, 255, 255, 0.2);
+				border-color: rgba(255, 255, 255, 0.8);
+				transform: translateY(-3px) scale(1.1);
+			}
+
+			.badge-scholar { left: -10px; }
+			.badge-linkedin { right: -10px; }
+
+			.social-badge svg {
+				width: 18px;
+				height: 18px;
+				fill: currentColor;
+			}
+
 			/* ==========================================================
-			   CONTACT BUTTON (TOP LEFT CORNER WITH SUBTLE GLASS EFFECT)
+			   CONTACT BUTTON (TOP LEFT CORNER)
 			   ========================================================== */
 			.contact-btn {
 				position: absolute;
@@ -149,12 +192,12 @@
 			   ========================================================== */
 			#toast-notification {
 				position: absolute;
-				top: 78px; /* Sits directly beneath the contact button */
-				left: 40px; /* Aligns left edge with the button */
+				top: 78px; 
+				left: 40px; 
 				background: rgba(20, 20, 20, 0.95);
 				color: #fff;
 				padding: 10px 18px;
-				border-radius: 16px; /* Squircle shape */
+				border-radius: 16px; 
 				font-family: 'Source Sans Pro', sans-serif;
 				font-size: 0.8rem;
 				font-weight: 600;
@@ -165,7 +208,6 @@
 				box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 				border: 1px solid rgba(255, 255, 255, 0.1);
 				
-				/* Hidden state */
 				opacity: 0;
 				visibility: hidden;
 				transform: translateY(-10px);
@@ -173,12 +215,11 @@
 				z-index: 10000;
 			}
 
-			/* The little triangle pointer pointing up to the button */
 			#toast-notification::before {
 				content: '';
 				position: absolute;
 				top: -6px;
-				left: 25px; /* Points directly under the 'Contact' text */
+				left: 25px; 
 				width: 0;
 				height: 0;
 				border-left: 6px solid transparent;
@@ -198,7 +239,7 @@
 				justify-content: center;
 				width: 18px;
 				height: 18px;
-				background-color: #4CAF50; /* Green tick background */
+				background-color: #4CAF50; 
 				border-radius: 50%;
 			}
 			
@@ -216,7 +257,6 @@
 			/* ==========================================================
 			   FIX: RESET CONTAINER SIZE AND ANIMATE PAN & STOP
 			   ========================================================== */
-
 			#bg:before, #bg:after {
 				display: none !important;
 				animation: none !important;
@@ -266,14 +306,25 @@
 					width: 115px; 
 					height: 115px;
 				}
+				.social-badge {
+					width: 34px;
+					height: 34px;
+				}
 			}
 
 			@media screen and (max-width: 736px) {
 				#header .headshot img {
 					width: 100px;
 					height: 100px;
-					margin-bottom: 1rem;
 				}
+				
+				.social-badge {
+					width: 32px;
+					height: 32px;
+					bottom: 0;
+				}
+				.badge-scholar { left: -5px; }
+				.badge-linkedin { right: -5px; }
 
 				#header h1 { font-size: 2.2rem; }
 				
@@ -311,14 +362,14 @@
 				}
 				
 				#toast-notification {
-					top: 60px; /* Adjust dropdown position for mobile */
+					top: 60px; 
 					left: 20px;
 					padding: 8px 14px;
 					font-size: 0.75rem;
 				}
 				
 				#toast-notification::before {
-					left: 20px; /* Adjust pointer for mobile */
+					left: 20px; 
 				}
 			}
 		</style>
@@ -332,7 +383,7 @@
 				<!-- Contact Button -->
 				<a href="mailto:anir.deskspace@gmail.com" class="contact-btn" id="contactBtn">Contact</a>
 
-				<!-- Toast Notification (Squircle Comic Bubble) -->
+				<!-- Toast Notification -->
 				<div id="toast-notification">
 					<div class="toast-tick">
 						<svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -343,8 +394,21 @@
 				<!-- Header -->
 					<header id="header">
 						
-						<div class="headshot">
-							<img src="images/headshot.png" alt="Anirban Mukhopadhyay">
+						<!-- Headshot Container with Satellite Badges -->
+						<div class="headshot-wrapper">
+							<!-- Google Scholar Badge -->
+							<a href="YOUR_GOOGLE_SCHOLAR_LINK_HERE" target="_blank" class="social-badge badge-scholar" data-label="Google Scholar">
+								<svg viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72l5 2.73 5-2.73v3.72z"/></svg>
+							</a>
+							
+							<div class="headshot">
+								<img src="images/headshot.png" alt="Anirban Mukhopadhyay">
+							</div>
+
+							<!-- LinkedIn Badge -->
+							<a href="YOUR_LINKEDIN_LINK_HERE" target="_blank" class="social-badge badge-linkedin" data-label="LinkedIn">
+								<svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+							</a>
 						</div>
 
 						<h1>Anirban Mukhopadhyay</h1>
@@ -380,7 +444,7 @@
 			/* ==========================================================
 			   COPY TO CLIPBOARD & TOAST NOTIFICATION SCRIPT
 			   ========================================================== */
-			document.getElementById('contactBtn').addEventListener('click', function() {
+			document.getElementById('contactBtn').addEventListener('click', function(e) {
 				// 1. Set the email address to copy
 				const emailToCopy = "anir.deskspace@gmail.com"; 
 
