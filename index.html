@@ -111,6 +111,40 @@
 				-webkit-backdrop-filter: blur(0px);
 			}
 
+			/* ==========================================================
+			   CONTACT BUTTON (TOP LEFT CORNER WITH SUBTLE GLASS EFFECT)
+			   ========================================================== */
+			.contact-btn {
+				position: absolute;
+				top: 30px;
+				left: 40px;
+				z-index: 1000;
+				padding: 8px 24px;
+				border-radius: 30px; 
+				border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle outline */
+				
+				/* Subtle Frosted Glass Effect */
+				background: rgba(255, 255, 255, 0.05); 
+				backdrop-filter: blur(4px) saturate(120%);
+				-webkit-backdrop-filter: blur(4px) saturate(120%);
+				
+				color: #ffffff !important;
+				font-size: 0.75rem;
+				font-weight: 600;
+				letter-spacing: 0.1em;
+				text-transform: uppercase;
+				text-decoration: none !important;
+				
+				transition: all 0.3s ease;
+				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+			}
+
+			.contact-btn:hover {
+				background: rgba(255, 255, 255, 0.15); 
+				border-color: rgba(255, 255, 255, 0.8);
+				transform: translateY(-2px);
+			}
+
 			/* BRING CONTENT TO THE FRONT SO IT IS CLICKABLE */
 			#main {
 				position: relative !important;
@@ -212,6 +246,14 @@
 					width: 3.5em;  
 					padding: 6px; 
 				}
+
+				/* Shrink and tuck the contact button on mobile */
+				.contact-btn {
+					top: 20px;
+					left: 20px;
+					padding: 6px 16px;
+					font-size: 0.65rem;
+				}
 			}
 		</style>
 	</head>
@@ -220,6 +262,9 @@
 			<div id="bg"></div>
 			<div id="overlay"></div>
 			<div id="main">
+
+				<!-- Contact Button -->
+				<a href="mailto:your.email@example.com" class="contact-btn">Contact</a>
 
 				<!-- Header -->
 					<header id="header">
@@ -234,7 +279,7 @@
 							Science Journalist &nbsp;&bull;&nbsp; 
 							Storyteller &nbsp;&bull;&nbsp; 
 							ex-Geneticist
-						</p></b>
+						</b></p>
 						
 						<nav>
 							<ul>
