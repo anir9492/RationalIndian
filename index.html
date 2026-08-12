@@ -46,27 +46,63 @@
 			}
 
 			/* ==========================================================
-			   MODERN HEADSHOT (CIRCULAR)
+			   HOVER TOOLTIPS FOR PUBLICATION LOGOS
+			   ========================================================== */
+			#header nav a.custom-logo::after {
+				content: attr(data-label); /* Pulls the name from the HTML tag */
+				position: absolute;
+				bottom: -20px; 
+				left: 50%;
+				transform: translateX(-50%);
+				color: rgba(255, 255, 255, 0.95);
+				font-size: 0.7rem;
+				font-weight: 600;
+				letter-spacing: 0.05em;
+				white-space: nowrap;
+				background: rgba(0, 0, 0, 0.7); /* Dark pill background */
+				padding: 4px 10px;
+				border-radius: 12px;
+				opacity: 0;
+				visibility: hidden;
+				transition: all 0.25s ease;
+				pointer-events: none; /* Prevents mouse interference */
+				box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+			}
+
+			#header nav a.custom-logo:hover::after {
+				opacity: 1;
+				visibility: visible;
+				bottom: -35px; /* Creates a smooth drop-down motion */
+			}
+
+			/* ==========================================================
+			   MODERN HEADSHOT WITH ENHANCED LENSING EFFECT
 			   ========================================================== */
 			#header .headshot {
 				margin-bottom: 1.5rem;
 			}
 			
 			#header .headshot img {
-				width: 135px; /* Slightly increased size */
+				width: 135px;
 				height: 135px;
 				object-fit: cover;
-				border-radius: 50%; /* Perfect circle */
-				box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45); /* Soft, borderless shadow to blend with background */
+				border-radius: 50%; 
+				box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45); 
 
+				/* Enhancing the glass/lens effect */
+				background: rgba(255, 255, 255, 0.03); /* Faint physical glass tint */
+				backdrop-filter: blur(4px) saturate(120%); /* Blurs and boosts colors behind it */
+				-webkit-backdrop-filter: blur(4px) saturate(120%); /* Safari support */
 				opacity: 0.95;
-
+				
 				transition: all 0.25s ease;
 			}
 			
 			#header .headshot img:hover {
 				transform: translateY(-2px);
 				opacity: 1;
+				backdrop-filter: blur(0px); /* Clears the glass when hovered */
+				-webkit-backdrop-filter: blur(0px);
 			}
 
 			/* BRING CONTENT TO THE FRONT SO IT IS CLICKABLE */
@@ -92,7 +128,6 @@
 
 			/* 2. Lock the container to exactly the screen size and Pan */
 			#bg {
-				/* Reset Aerial's crazy 300% width hack */
 				position: fixed !important;
 				top: 0 !important;
 				left: 0 !important;
@@ -100,11 +135,8 @@
 				height: 100vh !important;
 				transform: none !important; 
 
-				/* Load the image */
 				background-image: url('images/bg.jpg') !important; 
 				background-color: #000000 !important; 
-				
-				/* Fit image vertically, let it stretch horizontally */
 				background-size: auto 100% !important; 
 				background-repeat: no-repeat !important;
 
@@ -118,16 +150,61 @@
 			}
 
 			#overlay {
-				opacity: 0.15 !important; /* Lowered from 0.25 to let background colors shine through more */
-				pointer-events: none !important; /* Lets clicks pass through to logos */
+				opacity: 0.15 !important;
+				pointer-events: none !important; 
 			}
 
-			/* Mobile layout stability - keeps it static and covers the screen */
-			@media screen and (max-width: 736px) {
+			/* ==========================================================
+			   RESPONSIVE DESIGN: IPAD / TABLET (Max Width: 1024px)
+			   ========================================================== */
+			@media screen and (max-width: 1024px) {
 				#bg {
-					background-size: cover !important;
-					background-position: right center !important;
-					animation: none !important;
+					background-size: cover !important; 
+					background-position: center center !important; 
+					animation: none !important; 
+				}
+				#header .headshot img {
+					width: 115px; 
+					height: 115px;
+				}
+			}
+
+			/* ==========================================================
+			   RESPONSIVE DESIGN: MOBILE PHONE (Max Width: 736px)
+			   ========================================================== */
+			@media screen and (max-width: 736px) {
+				#header .headshot img {
+					width: 100px;
+					height: 100px;
+					margin-bottom: 1rem;
+				}
+
+				#header h1 { font-size: 2.2rem; }
+				
+				#header p {
+					font-size: 0.9rem;
+					line-height: 1.5;
+					padding: 0 10px;
+				}
+
+				#header nav ul {
+					display: flex !important;
+					flex-wrap: wrap !important;
+					justify-content: center !important;
+					gap: 15px 12px !important; /* Extra vertical gap to account for tooltips */
+					margin: 0 !important;
+					padding: 0 15px !important;
+				}
+				
+				#header nav ul li {
+					display: block !important;
+					margin: 0 !important; 
+				}
+
+				#header nav a.custom-logo img {
+					height: 3.5em; 
+					width: 3.5em;  
+					padding: 6px; 
 				}
 			}
 		</style>
@@ -142,7 +219,6 @@
 					<header id="header">
 						
 						<div class="headshot">
-							<!-- Ensure your image is a square aspect ratio so it circles perfectly -->
 							<img src="images/headshot.png" alt="Anirban Mukhopadhyay">
 						</div>
 
@@ -150,32 +226,28 @@
 						
 						<p>
 							Science Journalist &nbsp;&bull;&nbsp; 
-							Ex-Geneticist &nbsp;&bull;&nbsp; 
-							Storyteller
+							Storyteller &nbsp;&bull;&nbsp; 
+							Ex-Geneticist
 						</p>
 						
 						<nav>
+							<!-- Added data-label for the hover tooltips and reordered exactly as requested -->
 							<ul>
-								<li><a href="the-hindu.html" class="custom-logo"><img src="images/hindu.png" alt="The Hindu"></a></li>
-								<li><a href="scientific-american.html" class="custom-logo"><img src="images/sciam.png" alt="Scientific American"></a></li>
-								<li><a href="science.html" class="custom-logo"><img src="images/science.png" alt="Science"></a></li>
-								<li><a href="cen.html" class="custom-logo"><img src="images/cen.png" alt="C&EN"></a></li>
-								<li><a href="the-scientist.html" class="custom-logo"><img src="images/scientist.png" alt="The Scientist"></a></li>
-								<li><a href="live-science.html" class="custom-logo"><img src="images/livescience.png" alt="Live Science"></a></li>
-								<li><a href="science-news.html" class="custom-logo"><img src="images/sciencenews.png" alt="Science News"></a></li>
+								<li><a href="the-hindu.html" class="custom-logo" data-label="The Hindu"><img src="images/hindu.png" alt="The Hindu"></a></li>
+								<li><a href="cen.html" class="custom-logo" data-label="C&EN"><img src="images/cen.png" alt="C&EN"></a></li>
+								<li><a href="the-scientist.html" class="custom-logo" data-label="The Scientist"><img src="images/scientist.png" alt="The Scientist"></a></li>
+								<li><a href="scientific-american.html" class="custom-logo" data-label="Scientific American"><img src="images/sciam.png" alt="Scientific American"></a></li>
+								<li><a href="science.html" class="custom-logo" data-label="Science"><img src="images/science.png" alt="Science"></a></li>
+								<li><a href="live-science.html" class="custom-logo" data-label="Live Science"><img src="images/livescience.png" alt="Live Science"></a></li>
+								<li><a href="science-news.html" class="custom-logo" data-label="Science News"><img src="images/sciencenews.png" alt="Science News"></a></li>
 							</ul>
 						</nav>
 					</header>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<span class="copyright">&copy; Anirban Mukhopadhyay. Design: <a href="http://html5up.net">HTML5 UP</a>.</span>
-					</footer>
-
 			</div>
 		</div>
 
-		<!-- Scripts: Removed the 404 broken template scripts, kept the essential fader -->
+		<!-- Scripts -->
 		<script>
 			window.onload = function() { document.body.classList.remove('is-preload'); }
 			window.ontouchmove = function() { return false; }
