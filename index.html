@@ -16,31 +16,41 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		
 		<style>
-			/* Turn off the template's default circle and icon for our custom logos */
+			/* ==========================================================
+			   BACKGROUND OVERRIDE
+			   Relying on main.css for the animation math, just updating the image
+			   ========================================================== */
+			#bg {
+				background-image: url('images/bg_2.jpg') !important;
+			}
+
+			/* ==========================================================
+			   PUBLICATION ICONS
+			   Sized to match the original template's font-awesome icons
+			   ========================================================== */
 			#header nav a.custom-logo:before {
 				display: none !important; 
 			}
 			
-			/* INCREASED LOGO SIZES & CLICKABILITY FIX */
 			#header nav a.custom-logo {
 				position: relative;
 				z-index: 1000;
 				display: inline-block;
-				text-decoration: none !important;
+				border-bottom: none !important;
 			}
 
 			#header nav a.custom-logo img {
-				height: 4.5em; 
-				width: 4.5em;   
+				/* Matches the 2.5em dimensions of the original a:before elements */
+				height: 2.5em; 
+				width: 2.5em;   
 				object-fit: contain; 
 				background-color: rgba(255, 255, 255, 0.8); 
 				border-radius: 50%;
-				padding: 8px; 
+				padding: 6px; 
 				transition: all 0.2s ease-in-out;
 				vertical-align: middle; 
 			}
 			
-			/* Recreate the "pop" hover effect */
 			#header nav a.custom-logo:hover img {
 				transform: scale(1.15);
 				background-color: #ffffff;
@@ -102,12 +112,10 @@
 				object-fit: cover;
 				border-radius: 50%; 
 				box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45); 
-
 				background: rgba(255, 255, 255, 0.03); 
 				backdrop-filter: blur(4px) saturate(120%); 
 				-webkit-backdrop-filter: blur(4px) saturate(120%); 
 				opacity: 0.95;
-				
 				transition: all 0.25s ease;
 			}
 			
@@ -117,7 +125,6 @@
 				-webkit-backdrop-filter: blur(0px);
 			}
 
-			/* Satellite Badges (LinkedIn / Scholar) */
 			.social-badge {
 				position: absolute;
 				bottom: 5%;
@@ -164,11 +171,9 @@
 				padding: 8px 24px;
 				border-radius: 30px; 
 				border: 1px solid rgba(255, 255, 255, 0.3); 
-				
 				background: rgba(255, 255, 255, 0.05); 
 				backdrop-filter: blur(4px) saturate(120%);
 				-webkit-backdrop-filter: blur(4px) saturate(120%);
-				
 				color: #ffffff !important;
 				font-size: 0.75rem;
 				font-weight: 600;
@@ -176,7 +181,6 @@
 				text-transform: uppercase;
 				text-decoration: none !important;
 				cursor: pointer;
-				
 				transition: all 0.3s ease;
 				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 			}
@@ -188,7 +192,7 @@
 			}
 
 			/* ==========================================================
-			   TOAST NOTIFICATION (SQUIRCLE COMIC BUBBLE)
+			   TOAST NOTIFICATION
 			   ========================================================== */
 			#toast-notification {
 				position: absolute;
@@ -207,7 +211,6 @@
 				gap: 10px;
 				box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 				border: 1px solid rgba(255, 255, 255, 0.1);
-				
 				opacity: 0;
 				visibility: hidden;
 				transform: translateY(-10px);
@@ -255,47 +258,9 @@
 			}
 
 			/* ==========================================================
-			   BACKGROUND FIX: SMOOTH CONTINUOUS PANNING ANIMATION
-			   ========================================================== */
-			body, #wrapper {
-				background-color: #000000 !important; 
-				background-image: none !important;
-			}
-
-			#bg {
-				position: fixed !important;
-				top: 0 !important;
-				left: 0 !important;
-				height: 100% !important;
-				/* Creating extra width so the background has space to pan horizontally smoothly */
-				width: 300% !important; 
-				background-image: url('images/bg.jpg') !important; 
-				background-color: #000000 !important; 
-				background-size: auto 100% !important; 
-				background-repeat: repeat-x !important;
-				animation: bgPan 40s linear infinite !important;
-			}
-
-			@keyframes bgPan {
-				0% { transform: translate3d(0, 0, 0); }
-				100% { transform: translate3d(-50%, 0, 0); }
-			}
-
-			#overlay {
-				opacity: 0.15 !important;
-				pointer-events: none !important; 
-			}
-
-			/* ==========================================================
-			   RESPONSIVE DESIGN
+			   RESPONSIVE DESIGN (Only for Headshot & Badges)
 			   ========================================================== */
 			@media screen and (max-width: 1024px) {
-				#bg {
-					background-size: cover !important; 
-					background-position: center center !important; 
-					animation: none !important; 
-					width: 100% !important;
-				}
 				#header .headshot img {
 					width: 115px; 
 					height: 115px;
@@ -319,41 +284,9 @@
 				}
 				.badge-scholar { left: -5px; }
 				.badge-linkedin { right: -5px; }
-
-				#header h1 { font-size: 2.2rem; }
 				
 				#header p {
-					font-size: 0.9rem;
-					line-height: 1.5;
 					padding: 0 10px;
-				}
-
-				/* Restoring clean inline layout blocks for mobile icons instead of breaking flex */
-				#header nav {
-					margin: 1.2em 0 0 0 !important;
-				}
-
-				#header nav ul {
-					display: block !important;
-					text-align: center !important;
-					margin: 0 !important;
-					padding: 0 !important;
-				}
-				
-				#header nav li {
-					display: inline-block !important;
-					margin: 4px 6px !important; 
-					height: auto !important;
-					width: auto !important;
-					line-height: normal !important;
-					animation: none !important;
-					opacity: 1 !important;
-				}
-
-				#header nav a.custom-logo img {
-					height: 3.2em; 
-					width: 3.2em;  
-					padding: 5px; 
 				}
 
 				.contact-btn {
