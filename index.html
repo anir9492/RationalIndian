@@ -46,16 +46,18 @@
 			}
 
 			/* ==========================================================
-			   MODERN HEADSHOT
+			   MODERN HEADSHOT (CIRCULAR)
 			   ========================================================== */
 			#header .headshot {
 				margin-bottom: 1.5rem;
 			}
 			
 			#header .headshot img {
-				width: 120px;
-				height: 120px;
+				width: 135px; /* Slightly increased size */
+				height: 135px;
 				object-fit: cover;
+				border-radius: 50%; /* Perfect circle */
+				box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45); /* Soft, borderless shadow to blend with background */
 
 				opacity: 0.95;
 
@@ -116,7 +118,7 @@
 			}
 
 			#overlay {
-				opacity: 0.25 !important;
+				opacity: 0.15 !important; /* Lowered from 0.25 to let background colors shine through more */
 				pointer-events: none !important; /* Lets clicks pass through to logos */
 			}
 
@@ -140,6 +142,7 @@
 					<header id="header">
 						
 						<div class="headshot">
+							<!-- Ensure your image is a square aspect ratio so it circles perfectly -->
 							<img src="images/headshot.png" alt="Anirban Mukhopadhyay">
 						</div>
 
