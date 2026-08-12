@@ -45,6 +45,26 @@
 				background-color: #ffffff;
 			}
 
+			/* ==========================================================
+			   MODERN PROFILE PICTURE STYLING
+			   ========================================================== */
+			.profile-pic {
+				width: 130px;       /* Prominent, clean size */
+				height: 130px;
+				border-radius: 50%; /* Perfect circle */
+				object-fit: cover;  /* Ensures face isn't stretched */
+				margin: 0 auto 20px auto; /* Centers image and gives breathing room */
+				display: block;     
+				border: 3px solid rgba(255, 255, 255, 0.75); /* Matches logo aesthetic */
+				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);  /* Soft shadow depth */
+				transition: transform 0.3s ease, border-color 0.3s ease;
+			}
+
+			.profile-pic:hover {
+				transform: scale(1.05);
+				border-color: rgba(255, 255, 255, 1);
+			}
+
 			/* BRING CONTENT TO THE FRONT SO IT IS CLICKABLE */
 			#main {
 				position: relative !important;
@@ -116,6 +136,9 @@
 
 				<!-- Header -->
 					<header id="header">
+						<!-- Circular Headshot -->
+						<img src="images/profile.jpg" alt="Anirban Mukhopadhyay" class="profile-pic">
+
 						<h1>Anirban Mukhopadhyay</h1>
 						<p>Science Journalist &nbsp;&bull;&nbsp; Ex-Geneticist &nbsp;&bull;&nbsp; Storyteller</p>
 						<nav>
