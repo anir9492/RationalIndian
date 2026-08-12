@@ -75,7 +75,16 @@
         background-color: #eaeaea; transition: opacity 0.2s ease;
     }
     .image-link:hover img { opacity: 0.9; }
+    
     .meta { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; color: #777; letter-spacing: 0.5px; }
+    
+    /* NEW: Global Blue Standing Dash for the date */
+    .meta .date {
+        border-left: 3px solid #0077b5;
+        padding-left: 8px;
+        display: inline-block;
+        line-height: 1.1;
+    }
     
     /* Interactive Text Link */
     .text-link { text-decoration: none; color: inherit; display: block; flex-grow: 1; transition: transform 0.25s ease; transform-origin: left center; }
@@ -85,8 +94,36 @@
     .card .excerpt { font-family: 'Open Sans', sans-serif; font-size: 0.95rem; color: #444; margin: 0 0 15px 0; line-height: 1.6; }
 
     /* Responsive */
-    @media (max-width: 992px) { .article-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 768px) { .article-grid { grid-template-columns: 1fr; } .back-btn { position: relative; left: 0; margin-bottom: 15px; } .site-header { flex-direction: column; padding: 20px; } }
+    @media (max-width: 992px) { 
+        .article-grid { grid-template-columns: repeat(2, 1fr); } 
+    }
+    
+    @media (max-width: 768px) { 
+        .article-grid { grid-template-columns: 1fr; gap: 35px; } 
+        
+        /* Mobile Header Reorder */
+        .site-header { 
+            flex-direction: column; 
+            padding: 20px; 
+            align-items: center; /* Centers items by default */
+        } 
+        .header-logo {
+            order: -1; /* Forces the logo to the very top */
+            margin-bottom: 20px;
+        }
+        .back-btn { 
+            position: relative; 
+            left: 0; 
+            margin-bottom: 0; 
+            align-self: flex-start; /* Snaps the back button to the left side */
+        } 
+
+        /* Mobile Card Structure Tightening (Scientific American Style) */
+        .card img { margin-bottom: 12px; }
+        .meta { margin-bottom: 6px; font-size: 0.7rem; }
+        .card h2 { font-size: 1.2rem; margin-bottom: 6px; }
+        .card .excerpt { font-size: 0.95rem; }
+    }
 </style>
 </head>
 <body>
