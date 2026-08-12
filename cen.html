@@ -41,7 +41,7 @@
     .back-btn:hover { color: #0077b5; text-decoration: underline; }
     
     .header-logo img {
-        height: 50px; /* Adjust size of header logo here */
+        height: 55px; /* Boxy logo size adjustment */
         width: auto;
         display: block;
         transition: opacity 0.2s ease;
@@ -69,12 +69,12 @@
     .article-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 30px; }
     .card { display: flex; flex-direction: column; }
     .image-link { display: block; text-decoration: none; }
-    .card img {
+    .card img, .card video {
         width: 100%; height: auto; aspect-ratio: 16 / 9;
         object-fit: cover; margin-bottom: 15px;
         background-color: #eaeaea; transition: opacity 0.2s ease;
     }
-    .image-link:hover img { opacity: 0.9; }
+    .image-link:hover img, .image-link:hover video { opacity: 0.9; }
     .meta { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; color: #777; letter-spacing: 0.5px; }
     
     /* Interactive Text Link */
@@ -110,26 +110,217 @@
         <!-- 3-Column Grid Wrapper -->
         <main class="article-grid">
             
-            <!-- Article 1 (Replace with your actual C&EN article details) -->
+            <!-- Article 1 -->
             <article class="card">
-                <!-- Link to the main C&EN website for the image click -->
-                <a href="https://cen.acs.org" target="_blank" class="image-link">
-                    <img src="images/bg.jpg" alt="Article Thumbnail">
+                <a href="https://cen.acs.org/materials/biobased-materials/snails-use-chemistry-modify-mucus/104/web/2026/08" target="_blank" class="image-link">
+                    <img src="https://s7d1.scene7.com/is/image/CENODS/NEWS--role-of-Ca-in-snail-mucus---563448?$responsive$&qlt=90,0&resMode=sharp2&fmt=webp&op_sharpen=1" alt="How snails use chemistry to modify their mucus materials">
                 </a>
                 <div class="meta">
-                    <span class="date">DATE PUBLISHED</span>
+                    <span class="date">AUGUST 7, 2026</span>
                 </div>
-                <!-- Link to your PDF for the text click -->
                 <a href="pdfs/cen-story-1.pdf" target="_blank" class="text-link">
-                    <h2>Your C&EN Article Headline Here</h2>
-                    <p class="excerpt">A brief summary of your article published in Chemical & Engineering News.</p>
+                    <h2>How snails use chemistry to modify their mucus materials</h2>
+                    <p class="excerpt">Mineral chemistry, protein networks, and physical processing help generate everything from soft gels to mineral-reinforced structures.</p>
                 </a>
             </article>
-            
-            <!-- You can copy and paste the <article class="card"> block above to add more stories! -->
+
+            <!-- Article 2 -->
+            <article class="card">
+                <a href="https://cen.acs.org/synthesis/direct-sugar-chemistry-streamlines-drug-synthesis/104/web/2026/07" target="_blank" class="image-link">
+                    <img src="https://s7d1.scene7.com/is/image/CENODS/News--New-shortcuts-around-carbohydrate-chemistry-s-biggest-bottleneck---538657?$responsive$&qlt=90,0&resMode=sharp2&fmt=webp&op_sharpen=1" alt="Direct sugar chemistry streamlines C-aryl glycoside synthesis">
+                </a>
+                <div class="meta">
+                    <span class="date">JULY 23, 2026</span>
+                </div>
+                <a href="pdfs/cen-story-2.pdf" target="_blank" class="text-link">
+                    <h2>Direct sugar chemistry streamlines C-aryl glycoside synthesis</h2>
+                    <p class="excerpt">New methods offer simpler routes to diabetes drugs and other carbohydrate-derived medicines.</p>
+                </a>
+            </article>
+
+            <!-- Article 3 -->
+            <article class="card">
+                <a href="https://cen.acs.org/biological-chemistry/proteomics/chemistry-reveals-brains-dont-decay/104/web/2026/07" target="_blank" class="image-link">
+                    <img src="https://s7d1.scene7.com/is/image/CENODS/News--Why-some-ancient-brains-survive-for-thousands-of-years---535349-1?$responsive$&qlt=90,0&resMode=sharp2&fmt=webp&op_sharpen=1" alt="Chemistry reveals why some brains don’t decay after burial">
+                </a>
+                <div class="meta">
+                    <span class="date">JULY 16, 2026</span>
+                </div>
+                <a href="pdfs/cen-story-3.pdf" target="_blank" class="text-link">
+                    <h2>Chemistry reveals why some brains don’t decay after burial</h2>
+                    <p class="excerpt">Waterlogged, oxygen-poor conditions prevent destructive oxidation and stabilize certain proteins.</p>
+                </a>
+            </article>
+
+            <!-- Article 4 -->
+            <article class="card">
+                <a href="https://cen.acs.org/pharmaceuticals/drug-delivery/hormonal-cycles-affect-intranasal-medicines-brain/104/web/2026/06" target="_blank" class="image-link">
+                    <img src="https://s7d1.scene7.com/is/image/CENODS/NEWS--Hormonal-Cycles-Might-Affect-How-Intranasal-Medicines-Reach-the-Brain---504548?$responsive$&qlt=90,0&resMode=sharp2&fmt=webp&op_sharpen=1" alt="Hormonal cycles might affect how intranasal medicines reach the brain">
+                </a>
+                <div class="meta">
+                    <span class="date">JUNE 16, 2026</span>
+                </div>
+                <a href="pdfs/cen-story-4.pdf" target="_blank" class="text-link">
+                    <h2>Hormonal cycles might affect how intranasal medicines reach the brain</h2>
+                    <p class="excerpt">Mouse and human data hint that biological differences may shape drug bioavailability in ways clinical trials often overlook.</p>
+                </a>
+            </article>
+
+            <!-- Article 5 -->
+            <article class="card">
+                <a href="https://cen.acs.org/materials/electronic-materials/optical-communication-light-ceramic/104/web/2026/05" target="_blank" class="image-link">
+                    <img src="https://s7d1.scene7.com/is/image/CENODS/Transparent-ceramics-for-communication---475000?$responsive$&qlt=90,0&resMode=sharp2&fmt=webp&op_sharpen=1" alt="Simple chemistry converts glass to a ceramic suited to long-distance optical communication">
+                </a>
+                <div class="meta">
+                    <span class="date">MAY 27, 2026</span>
+                </div>
+                <a href="pdfs/cen-story-5.pdf" target="_blank" class="text-link">
+                    <h2>Simple chemistry converts glass to a ceramic suited to long-distance optical communication</h2>
+                    <p class="excerpt">The material is made through a gentle crystallization process that avoids the extreme sintering traditionally needed for light-converting ceramics.</p>
+                </a>
+            </article>
+
+            <!-- Article 6 -->
+            <article class="card">
+                <a href="https://cen.acs.org/policy/us-visa-restriction-stem-research-innovation-patent/104/web/2026/05" target="_blank" class="image-link">
+                    <img src="https://s7d1.scene7.com/is/image/CENODS/Feature--How-Visa-Policy-Is-Reshaping-US-Chemistry---341753?$responsive$&qlt=90,0&resMode=sharp2&fmt=webp&op_sharpen=1" alt="As visa rules tighten, impacts to researchers and US science escalate">
+                </a>
+                <div class="meta">
+                    <span class="date">MAY 5, 2026</span>
+                </div>
+                <a href="pdfs/cen-story-6.pdf" target="_blank" class="text-link">
+                    <h2>As visa rules tighten, impacts to researchers and US science escalate</h2>
+                    <p class="excerpt">New restrictions are increasingly squeezing international researchers in the US and threatening the country’s long-term scientific competitiveness, analysts say.</p>
+                </a>
+            </article>
+
+            <!-- Article 7 -->
+            <article class="card">
+                <a href="https://cen.acs.org/biological-chemistry/biochemistry/metal-enrichment-scorpions-claws-stingers/104/web/2026/04" target="_blank" class="image-link">
+                    <img src="https://cen.acs.org/content/dam/cen/104/04/29/WEB/NEWS--How-Scorpions-Tune-Their-Weapons-with-Metals---440148.jpg" alt="Metal trade-offs shape how scorpions arm themselves">
+                </a>
+                <div class="meta">
+                    <span class="date">APRIL 29, 2026</span>
+                </div>
+                <a href="pdfs/cen-story-7.pdf" target="_blank" class="text-link">
+                    <h2>Metal trade-offs shape how scorpions arm themselves</h2>
+                    <p class="excerpt">Differences in zinc, manganese, and iron enrichment across species suggest material properties are tuned to behavior.</p>
+                </a>
+            </article>
+
+            <!-- Article 8 -->
+            <article class="card">
+                <a href="https://cen.acs.org/analytical-chemistry/diagnostics/bacterial-breath-detection-13c-enriched-metabolites-ndir/104/web/2026/04" target="_blank" class="image-link">
+                    <img src="https://s7d1.scene7.com/is/image/CENODS/News--Detecting-infections-on-the-breath-and-antibiotic-response-in-real-time---403495?$responsive$&qlt=90,0&resMode=sharp2&fmt=webp&op_sharpen=1" alt="A breath test reveals infections deep inside tissues">
+                </a>
+                <div class="meta">
+                    <span class="date">APRIL 7, 2026</span>
+                </div>
+                <a href="pdfs/cen-story-8.pdf" target="_blank" class="text-link">
+                    <h2>A breath test reveals infections deep inside tissues</h2>
+                    <p class="excerpt">Bacteria turn sugars labeled with carbon-13 into detectable carbon dioxide, quickly identifying infections in mice.</p>
+                </a>
+            </article>
+
+            <!-- Article 9 -->
+            <article class="card">
+                <a href="https://cen.acs.org/materials/electronic-materials/biomaterials-piezoelectric-sugars-saccharides/104/web/2026/02" target="_blank" class="image-link">
+                    <img src="https://cen.acs.org/content/dam/cen/104/02/06/WEB/Sugar-based-Piezoelectric-Materials---341151.jpg" alt="Making piezoelectrics from sugar">
+                </a>
+                <div class="meta">
+                    <span class="date">FEBRUARY 6, 2026</span>
+                </div>
+                <a href="pdfs/cen-story-9.pdf" target="_blank" class="text-link">
+                    <h2>Making piezoelectrics from sugar</h2>
+                    <p class="excerpt">By probing piezoelectric behavior in monosaccharide crystals, researchers reveal how molecular orientation drives electrical response.</p>
+                </a>
+            </article>
+
+            <!-- Article 10 -->
+            <article class="card">
+                <a href="https://cen.acs.org/materials/Organic-crystals-autonomously-repair-fractures/103/web/2025/12" target="_blank" class="image-link">
+                    <video src="https://s7d1.scene7.com/is/content/CENODS/296600-cryo-video?ext=.mp4" autoplay loop muted playsinline alt="Organic crystals autonomously repair fractures at ultralow temperatures"></video>
+                </a>
+                <div class="meta">
+                    <span class="date">DECEMBER 19, 2025</span>
+                </div>
+                <a href="pdfs/cen-story-10.pdf" target="_blank" class="text-link">
+                    <h2>Organic crystals autonomously repair fractures at ultralow temperatures</h2>
+                    <p class="excerpt">Self-healing at 77 K reveals a crystal-based mechanism that does not rely on molecular diffusion.</p>
+                </a>
+            </article>
+
+            <!-- Article 11 -->
+            <article class="card">
+                <a href="https://cen.acs.org/pharmaceuticals/drug-discovery/vancomycin-derivative-targets-Gram-negative-bacteria/103/web/2025/12" target="_blank" class="image-link">
+                    <img src="https://s7d1.scene7.com/is/image/CENODS/Modified-vancomycin-targets-Gram-negative-bacteria---267138?$responsive$&qlt=90,0&resMode=sharp2&fmt=webp&op_sharpen=1" alt="Quinoline tag helps vancomycin breach gram-negative defenses">
+                </a>
+                <div class="meta">
+                    <span class="date">DECEMBER 9, 2025</span>
+                </div>
+                <a href="pdfs/cen-story-11.pdf" target="_blank" class="text-link">
+                    <h2>Quinoline tag helps vancomycin breach gram-negative defenses</h2>
+                    <p class="excerpt">The work reveals how tiny structural shifts can deliver outsize biological effects.</p>
+                </a>
+            </article>
+
+            <!-- Article 12 -->
+            <article class="card">
+                <a href="https://cen.acs.org/materials/electronic-materials/Metal-ions-turn-DNA-3/103/web/2025/10" target="_blank" class="image-link">
+                    <img src="https://s7d1.scene7.com/is/image/CENODS/Metal-mediated-DNA-memory-device---217644?$responsive$&qlt=90,0&resMode=sharp2&fmt=webp&op_sharpen=1" alt="Metal ions turn DNA into a 3-state memory device">
+                </a>
+                <div class="meta">
+                    <span class="date">OCTOBER 20, 2025</span>
+                </div>
+                <a href="pdfs/cen-story-12.pdf" target="_blank" class="text-link">
+                    <h2>Metal ions turn DNA into a 3-state memory device</h2>
+                    <p class="excerpt">By shuttling silver and mercury between binding sites in DNA, scientists make the molecule switch conductance levels like a tiny electronic transistor.</p>
+                </a>
+            </article>
+
+            <!-- Article 13 -->
+            <article class="card">
+                <a href="https://cen.acs.org/materials/molecular-machines/Visible-light-powers-molecular-motors/103/web/2025/10" target="_blank" class="image-link">
+                    <img src="https://s7d1.scene7.com/is/image/CENODS/Molecular-motors-run-on-visible-light---192853-1?$responsive$&qlt=90,0&resMode=sharp2&fmt=webp&op_sharpen=1" alt="Visible light powers molecular motors, easing key barrier">
+                </a>
+                <div class="meta">
+                    <span class="date">OCTOBER 6, 2025</span>
+                </div>
+                <a href="pdfs/cen-story-13.pdf" target="_blank" class="text-link">
+                    <h2>Visible light powers molecular motors, easing key barrier</h2>
+                    <p class="excerpt">Quantum dots let rotary motors spin under gentler light than ultraviolet.</p>
+                </a>
+            </article>
+
+            <!-- Article 14 -->
+            <article class="card">
+                <a href="https://cen.acs.org/materials/inorganic-chemistry/Manganese-edges-realm-noble-metal/103/web/2025/09" target="_blank" class="image-link">
+                    <img src="https://s7d1.scene7.com/is/image/CENODS/An-inexpensive-manganese-photocatalyst---165687?$responsive$&qlt=90,0&resMode=sharp2&fmt=webp&op_sharpen=1" alt="Manganese edges into the realm of noble-metal photochemistry">
+                </a>
+                <div class="meta">
+                    <span class="date">SEPTEMBER 9, 2025</span>
+                </div>
+                <a href="pdfs/cen-story-14.pdf" target="_blank" class="text-link">
+                    <h2>Manganese edges into the realm of noble-metal photochemistry</h2>
+                    <p class="excerpt">Pairing manganese with an off-the-shelf ligand yields a low-cost complex that mimics precious-metal photocatalysts.</p>
+                </a>
+            </article>
+
+            <!-- Article 15 -->
+            <article class="card">
+                <a href="https://cen.acs.org/analytical-chemistry/imaging/Nanoprobe-achieves-sharper-MRIs-inner/103/web/2025/09" target="_blank" class="image-link">
+                    <img src="https://s7d1.scene7.com/is/image/CENODS/CPG-news--MRI-contrast-for-ears---158100?$responsive$&qlt=90,0&resMode=sharp2&fmt=webp&op_sharpen=1" alt="Nanoprobe achieves sharper MRIs of the inner ear">
+                </a>
+                <div class="meta">
+                    <span class="date">SEPTEMBER 3, 2025</span>
+                </div>
+                <a href="pdfs/cen-story-15.pdf" target="_blank" class="text-link">
+                    <h2>Nanoprobe achieves sharper MRIs of the inner ear</h2>
+                    <p class="excerpt">A first-of-its-kind contrast crosses the blood-labyrinth barrier to reach the inner ear, offering prolonged imaging in mice.</p>
+                </a>
+            </article>
 
         </main>
     </div>
-
 </body>
 </html>
