@@ -26,6 +26,7 @@
 				position: relative;
 				z-index: 1000;
 				display: inline-block;
+				text-decoration: none !important;
 			}
 
 			#header nav a.custom-logo img {
@@ -46,33 +47,38 @@
 			}
 
 			/* ==========================================================
-			   HOVER TOOLTIPS FOR PUBLICATION LOGOS
+			   HOVER TOOLTIPS FOR PUBLICATION LOGOS (FIXED PLACEMENT)
 			   ========================================================== */
 			#header nav a.custom-logo::after {
-				content: attr(data-label); /* Pulls the name from the HTML tag */
-				position: absolute;
-				bottom: -20px; 
-				left: 50%;
-				transform: translateX(-50%);
-				color: rgba(255, 255, 255, 0.95);
-				font-size: 0.7rem;
-				font-weight: 600;
-				letter-spacing: 0.05em;
-				white-space: nowrap;
-				background: rgba(0, 0, 0, 0.7); /* Dark pill background */
-				padding: 4px 10px;
-				border-radius: 12px;
-				opacity: 0;
-				visibility: hidden;
-				transition: all 0.25s ease;
-				pointer-events: none; /* Prevents mouse interference */
-				box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+				content: attr(data-label) !important; 
+				position: absolute !important;
+				top: 100% !important; /* Anchors exactly to the bottom of the logo container */
+				bottom: auto !important; /* Overrides conflicting template rules */
+				left: 50% !important;
+				transform: translate(-50%, -10px) !important; /* Starts slightly hidden upwards */
+				height: auto !important; /* Prevents vertical stretching */
+				width: auto !important;
+				color: rgba(255, 255, 255, 0.95) !important;
+				font-size: 0.7rem !important;
+				font-weight: 600 !important;
+				line-height: 1 !important;
+				letter-spacing: 0.05em !important;
+				white-space: nowrap !important;
+				background: rgba(0, 0, 0, 0.75) !important; 
+				padding: 6px 12px !important;
+				border-radius: 12px !important;
+				opacity: 0 !important;
+				visibility: hidden !important;
+				transition: all 0.25s ease !important;
+				pointer-events: none !important; 
+				box-shadow: 0 4px 10px rgba(0,0,0,0.3) !important;
+				margin-top: 15px !important; /* Pushes it safely below the scaled-up logo */
 			}
 
 			#header nav a.custom-logo:hover::after {
-				opacity: 1;
-				visibility: visible;
-				bottom: -35px; /* Creates a smooth drop-down motion */
+				opacity: 1 !important;
+				visibility: visible !important;
+				transform: translate(-50%, 5px) !important; /* Drops down smoothly into view */
 			}
 
 			/* ==========================================================
@@ -90,9 +96,9 @@
 				box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45); 
 
 				/* Enhancing the glass/lens effect */
-				background: rgba(255, 255, 255, 0.03); /* Faint physical glass tint */
-				backdrop-filter: blur(4px) saturate(120%); /* Blurs and boosts colors behind it */
-				-webkit-backdrop-filter: blur(4px) saturate(120%); /* Safari support */
+				background: rgba(255, 255, 255, 0.03); 
+				backdrop-filter: blur(4px) saturate(120%); 
+				-webkit-backdrop-filter: blur(4px) saturate(120%); 
 				opacity: 0.95;
 				
 				transition: all 0.25s ease;
@@ -101,7 +107,7 @@
 			#header .headshot img:hover {
 				transform: translateY(-2px);
 				opacity: 1;
-				backdrop-filter: blur(0px); /* Clears the glass when hovered */
+				backdrop-filter: blur(0px); 
 				-webkit-backdrop-filter: blur(0px);
 			}
 
@@ -191,7 +197,7 @@
 					display: flex !important;
 					flex-wrap: wrap !important;
 					justify-content: center !important;
-					gap: 15px 12px !important; /* Extra vertical gap to account for tooltips */
+					gap: 15px 12px !important; 
 					margin: 0 !important;
 					padding: 0 15px !important;
 				}
@@ -231,7 +237,6 @@
 						</p>
 						
 						<nav>
-							<!-- Added data-label for the hover tooltips and reordered exactly as requested -->
 							<ul>
 								<li><a href="the-hindu.html" class="custom-logo" data-label="The Hindu"><img src="images/hindu.png" alt="The Hindu"></a></li>
 								<li><a href="cen.html" class="custom-logo" data-label="C&EN"><img src="images/cen.png" alt="C&EN"></a></li>
