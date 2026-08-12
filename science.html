@@ -51,8 +51,10 @@
     }
     
     .header-logo img {
-        height: 50px; /* Adjust size of header logo here */
-        width: auto;
+        height: 50px;
+        width: 180px; /* Creates a uniform invisible box width */
+        object-fit: contain; /* The magic trick: scales the image to fit the box perfectly without distorting */
+        object-position: center; /* Ensures the logo stays perfectly centered in its box */
         display: block;
         transition: opacity 0.2s ease;
     }
@@ -124,7 +126,10 @@
             margin: 0;
         }
         .header-logo img {
-            height: 35px; /* Slightly smaller logo for mobile */
+            height: 35px; 
+            width: 130px; /* Scaled down invisible box for mobile */
+            object-fit: contain;
+            object-position: center;
         }
         .back-btn { 
             position: absolute; 
