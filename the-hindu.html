@@ -99,30 +99,40 @@
     }
     
     @media (max-width: 768px) { 
-        .article-grid { grid-template-columns: 1fr; gap: 35px; } 
+        /* Enforce Scientific American 2-column style on mobile */
+        .article-grid { grid-template-columns: repeat(2, 1fr); gap: 25px 15px; } 
         
-        /* Mobile Header Reorder */
+        /* Mobile Header Reorder - Centered Back Button ABOVE Logo */
         .site-header { 
             flex-direction: column; 
-            padding: 20px; 
-            align-items: center; /* Centers items by default */
+            padding: 20px 15px; 
+            align-items: center; 
+            margin-bottom: 30px;
         } 
         .header-logo {
-            order: -1; /* Forces the logo to the very top */
-            margin-bottom: 20px;
+            margin-bottom: 0;
+            margin-top: 15px; /* Spacing between the text link and logo */
+        }
+        .header-logo img {
+            height: 40px; /* Slightly smaller logo for mobile */
         }
         .back-btn { 
             position: relative; 
-            left: 0; 
+            left: auto; /* Reset desktop absolute positioning */
             margin-bottom: 0; 
-            align-self: flex-start; /* Snaps the back button to the left side */
+            align-self: center; /* Forces it to perfectly center */
         } 
 
         /* Mobile Card Structure Tightening (Scientific American Style) */
-        .card img { margin-bottom: 12px; }
-        .meta { margin-bottom: 6px; font-size: 0.7rem; }
-        .card h2 { font-size: 1.2rem; margin-bottom: 6px; }
-        .card .excerpt { font-size: 0.95rem; }
+        .card img { margin-bottom: 10px; }
+        .meta { margin-bottom: 5px; font-size: 0.65rem; }
+        /* Reduce headline size so it fits beautifully side-by-side in 2 columns */
+        .card h2 { font-size: 0.95rem; margin-bottom: 6px; }
+        .card .excerpt { font-size: 0.85rem; line-height: 1.4; }
+        
+        /* Adjust top titles for mobile */
+        .author-header h1 { font-size: 2rem; }
+        .author-header p { font-size: 0.95rem; }
     }
 </style>
 </head>
@@ -144,7 +154,7 @@
             <p class="socials">Find me on X <a href="https://x.com/onipedia" target="_blank">@onipedia</a> and on <a href="https://www.linkedin.com/in/anirban-mukhopadhyay-929827370/?originalSubdomain=in" target="_blank">LinkedIn</a>.</p>
         </section>
 
-        <!-- 3-Column Grid Wrapper -->
+        <!-- 3-Column Desktop / 2-Column Mobile Grid Wrapper -->
         <main class="article-grid">
             
             <!-- Page 1 Stories -->
