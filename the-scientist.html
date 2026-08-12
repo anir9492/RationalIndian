@@ -18,7 +18,7 @@
     }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-    /* New Centered Header with Left Back Button */
+    /* Centered Header with Left Back Button */
     .site-header {
         display: flex;
         justify-content: center;
@@ -28,17 +28,26 @@
         position: relative;
         margin-bottom: 50px;
     }
+    
+    /* Sleek Home Button Styling */
     .back-btn {
         position: absolute;
         left: 40px;
-        font-family: 'Open Sans', sans-serif;
-        font-size: 0.9rem;
-        font-weight: 600;
         color: #555;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         text-decoration: none;
-        transition: color 0.2s ease;
+        transition: color 0.2s ease, transform 0.2s ease;
     }
-    .back-btn:hover { color: #0077b5; text-decoration: underline; }
+    .back-btn:hover { 
+        color: #0077b5; 
+        transform: scale(1.1);
+    }
+    .home-icon {
+        width: 24px;
+        height: 24px;
+    }
     
     .header-logo img {
         height: 50px; /* Adjust size of header logo here */
@@ -75,7 +84,16 @@
         background-color: #eaeaea; transition: opacity 0.2s ease;
     }
     .image-link:hover img { opacity: 0.9; }
+    
     .meta { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; color: #777; letter-spacing: 0.5px; }
+
+    /* Global Blue Standing Dash for the date */
+    .meta .date {
+        border-left: 3px solid #0077b5;
+        padding-left: 8px;
+        display: inline-block;
+        line-height: 1.1;
+    }
     
     /* Interactive Text Link */
     .text-link { text-decoration: none; color: inherit; display: block; flex-grow: 1; transition: transform 0.25s ease; transform-origin: left center; }
@@ -85,15 +103,61 @@
     .card .excerpt { font-family: 'Open Sans', sans-serif; font-size: 0.95rem; color: #444; margin: 0 0 15px 0; line-height: 1.6; }
 
     /* Responsive */
-    @media (max-width: 992px) { .article-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 768px) { .article-grid { grid-template-columns: 1fr; } .back-btn { position: relative; left: 0; margin-bottom: 15px; } .site-header { flex-direction: column; padding: 20px; } }
+    @media (max-width: 992px) { 
+        .article-grid { grid-template-columns: repeat(2, 1fr); } 
+    }
+    
+    @media (max-width: 768px) { 
+        /* Mobile 2-Column Grid (Scientific American Style) */
+        .article-grid { grid-template-columns: repeat(2, 1fr); gap: 25px 15px; } 
+        
+        /* Mobile Horizontal Header */
+        .site-header { 
+            flex-direction: row; 
+            padding: 15px 20px; 
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+        } 
+        .header-logo {
+            margin: 0;
+        }
+        .header-logo img {
+            height: 35px; /* Slightly smaller logo for mobile */
+        }
+        .back-btn { 
+            position: absolute; 
+            left: 20px; 
+            margin: 0; 
+        }
+        .home-icon {
+            width: 22px;
+            height: 22px;
+        }
+
+        /* Mobile Card Structure Tightening */
+        .card img { margin-bottom: 10px; }
+        .meta { margin-bottom: 5px; font-size: 0.65rem; }
+        .card h2 { font-size: 0.95rem; margin-bottom: 6px; }
+        .card .excerpt { font-size: 0.85rem; line-height: 1.4; }
+        
+        /* Adjust top titles for mobile */
+        .author-header h1 { font-size: 2rem; }
+        .author-header p { font-size: 0.95rem; }
+    }
 </style>
 </head>
 <body>
 
     <!-- Header with Logo -->
     <header class="site-header">
-        <a href="index.html" class="back-btn">&larr; Back to Portfolio</a>
+        <a href="index.html" class="back-btn" aria-label="Back to Portfolio">
+            <!-- Modern SVG Home Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="home-icon">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+        </a>
         <a href="https://www.the-scientist.com" target="_blank" class="header-logo">
             <img src="logos/the-scientist-logo.png" alt="The Scientist">
         </a>
