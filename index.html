@@ -46,23 +46,29 @@
 			}
 
 			/* ==========================================================
-			   MODERN PROFILE PICTURE STYLING
+			   MODERN HEADSHOT
 			   ========================================================== */
-			.profile-pic {
-				width: 130px;       /* Prominent, clean size */
-				height: 130px;
-				border-radius: 50%; /* Perfect circle */
-				object-fit: cover;  /* Ensures face isn't stretched */
-				margin: 0 auto 20px auto; /* Centers image and gives breathing room */
-				display: block;     
-				border: 3px solid rgba(255, 255, 255, 0.75); /* Matches logo aesthetic */
-				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);  /* Soft shadow depth */
-				transition: transform 0.3s ease, border-color 0.3s ease;
+			#header .headshot {
+				margin-bottom: 1.5rem;
 			}
+			
+			#header .headshot img {
+				width: 120px;
+				height: 120px;
+				object-fit: cover;
 
-			.profile-pic:hover {
-				transform: scale(1.05);
-				border-color: rgba(255, 255, 255, 1);
+				border-radius: 22px; /* Change to 50% if you want a circle */
+
+				box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+
+				opacity: 0.95;
+
+				transition: all 0.25s ease;
+			}
+			
+			#header .headshot img:hover {
+				transform: translateY(-2px);
+				opacity: 1;
 			}
 
 			/* BRING CONTENT TO THE FRONT SO IT IS CLICKABLE */
@@ -136,11 +142,19 @@
 
 				<!-- Header -->
 					<header id="header">
-						<!-- Circular Headshot -->
-						<img src="images/profile.jpg" alt="Anirban Mukhopadhyay" class="profile-pic">
+						
+						<div class="headshot">
+							<img src="images/headshot.jpg" alt="Anirban Mukhopadhyay">
+						</div>
 
 						<h1>Anirban Mukhopadhyay</h1>
-						<p>Science Journalist &nbsp;&bull;&nbsp; Ex-Geneticist &nbsp;&bull;&nbsp; Storyteller</p>
+						
+						<p>
+							Science Journalist &nbsp;&bull;&nbsp; 
+							Ex-Geneticist &nbsp;&bull;&nbsp; 
+							Storyteller
+						</p>
+						
 						<nav>
 							<ul>
 								<li><a href="the-hindu.html" class="custom-logo"><img src="images/hindu.png" alt="The Hindu"></a></li>
