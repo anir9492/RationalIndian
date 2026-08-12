@@ -31,7 +31,7 @@
 
 			#header nav a.custom-logo img {
 				height: 4.5em; 
-				width: 4.5em;  
+				width: 4.5em;   
 				object-fit: contain; 
 				background-color: rgba(255, 255, 255, 0.8); 
 				border-radius: 50%;
@@ -124,7 +124,7 @@
 				width: 40px;
 				height: 40px;
 				border-radius: 50%;
-				background: rgba(0, 0, 0, 0.65); /* Dark frosted glass */
+				background: rgba(0, 0, 0, 0.65);
 				backdrop-filter: blur(6px) saturate(120%);
 				-webkit-backdrop-filter: blur(6px) saturate(120%);
 				border: 1px solid rgba(255, 255, 255, 0.25);
@@ -255,13 +255,8 @@
 			}
 
 			/* ==========================================================
-			   FIX: RESET CONTAINER SIZE AND ANIMATE PAN & STOP
+			   BACKGROUND FIX: SMOOTH CONTINUOUS PANNING ANIMATION
 			   ========================================================== */
-			#bg:before, #bg:after {
-				display: none !important;
-				animation: none !important;
-			}
-
 			body, #wrapper {
 				background-color: #000000 !important; 
 				background-image: none !important;
@@ -271,21 +266,19 @@
 				position: fixed !important;
 				top: 0 !important;
 				left: 0 !important;
-				width: 100vw !important;
-				height: 100vh !important;
-				transform: none !important; 
-
+				height: 100% !important;
+				/* Creating extra width so the background has space to pan horizontally smoothly */
+				width: 300% !important; 
 				background-image: url('images/bg.jpg') !important; 
 				background-color: #000000 !important; 
 				background-size: auto 100% !important; 
-				background-repeat: no-repeat !important;
-
-				animation: panAndStop 12s ease-out forwards !important;
+				background-repeat: repeat-x !important;
+				animation: bgPan 40s linear infinite !important;
 			}
 
-			@keyframes panAndStop {
-				0% { background-position: left center; }
-				100% { background-position: right center; }
+			@keyframes bgPan {
+				0% { transform: translate3d(0, 0, 0); }
+				100% { transform: translate3d(-50%, 0, 0); }
 			}
 
 			#overlay {
@@ -301,6 +294,7 @@
 					background-size: cover !important; 
 					background-position: center center !important; 
 					animation: none !important; 
+					width: 100% !important;
 				}
 				#header .headshot img {
 					width: 115px; 
@@ -334,24 +328,32 @@
 					padding: 0 10px;
 				}
 
+				/* Restoring clean inline layout blocks for mobile icons instead of breaking flex */
+				#header nav {
+					margin: 1.2em 0 0 0 !important;
+				}
+
 				#header nav ul {
-					display: flex !important;
-					flex-wrap: wrap !important;
-					justify-content: center !important;
-					gap: 15px 12px !important; 
+					display: block !important;
+					text-align: center !important;
 					margin: 0 !important;
-					padding: 0 15px !important;
+					padding: 0 !important;
 				}
 				
-				#header nav ul li {
-					display: block !important;
-					margin: 0 !important; 
+				#header nav li {
+					display: inline-block !important;
+					margin: 4px 6px !important; 
+					height: auto !important;
+					width: auto !important;
+					line-height: normal !important;
+					animation: none !important;
+					opacity: 1 !important;
 				}
 
 				#header nav a.custom-logo img {
-					height: 3.5em; 
-					width: 3.5em;  
-					padding: 6px; 
+					height: 3.2em; 
+					width: 3.2em;  
+					padding: 5px; 
 				}
 
 				.contact-btn {
@@ -445,17 +447,12 @@
 			   COPY TO CLIPBOARD & TOAST NOTIFICATION SCRIPT
 			   ========================================================== */
 			document.getElementById('contactBtn').addEventListener('click', function(e) {
-				// 1. Set the email address to copy
 				const emailToCopy = "anir.deskspace@gmail.com"; 
 
-				// 2. Copy to clipboard
 				navigator.clipboard.writeText(emailToCopy).then(function() {
-					
-					// 3. Trigger the Toast Notification
 					const toast = document.getElementById('toast-notification');
 					toast.classList.add('show');
 					
-					// 4. Hide it automatically after 3.5 seconds
 					setTimeout(function() {
 						toast.classList.remove('show');
 					}, 3500); 
