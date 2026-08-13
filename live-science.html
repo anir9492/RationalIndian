@@ -49,11 +49,13 @@
         height: 24px;
     }
     
+    /* LIVE SCIENCE LOGO FIX - Auto-crops the white space */
     .header-logo img {
-        height: 50px;
-        width: 180px; /* Creates a uniform invisible box width */
-        object-fit: contain; /* The magic trick: scales the image to fit the box perfectly without distorting */
-        object-position: center; /* Ensures the logo stays perfectly centered in its box */
+        height: 75px; /* Larger vertical allowance */
+        width: 280px; /* Wide invisible bounding box */
+        /* object-fit: cover forces the image to fill the box, automatically cropping out the massive white space at the top and bottom of the JPG */
+        object-fit: cover; 
+        object-position: center; 
         display: block;
         transition: opacity 0.2s ease;
     }
@@ -124,12 +126,15 @@
         .header-logo {
             margin: 0;
         }
+        
+        /* LIVE SCIENCE LOGO MOBILE FIX */
         .header-logo img {
-            height: 35px; 
-            width: 130px; /* Scaled down invisible box for mobile */
-            object-fit: contain;
+            height: 45px; 
+            width: 180px; 
+            object-fit: cover; /* Same cropping trick for mobile */
             object-position: center;
         }
+        
         .back-btn { 
             position: absolute; 
             left: 20px; 
@@ -164,7 +169,8 @@
             </svg>
         </a>
         <a href="https://www.livescience.com" target="_blank" class="header-logo">
-            <img src="logos/live-science-logo.png" alt="Live Science">
+            <!-- Update the file extension to .jpg to match your attached file if needed -->
+            <img src="logos/live-science-logo.jpg" alt="Live Science">
         </a>
     </header>
 
@@ -302,5 +308,43 @@
 
         </main>
     </div>
+
+    <!-- Automatic Chronological Sorting Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 1. Select the container holding all the articles
+            const grid = document.querySelector('.article-grid');
+            
+            if (grid) {
+                // 2. Select all the individual article cards and turn them into an Array
+                const cards = Array.from(grid.querySelectorAll('.card'));
+
+                // 3. Sort the array of cards
+                cards.sort((a, b) => {
+                    // Extract the date text from each card
+                    const dateStrA = a.querySelector('.date').textContent.trim();
+                    const dateStrB = b.querySelector('.date').textContent.trim();
+
+                    // Helper function to safely parse dates
+                    const parseDate = (dateStr) => {
+                        const parsed = Date.parse(dateStr);
+                        // If the date is invalid (like "ADD DATE MANUALLY"), assign it a value of 0 
+                        // This forces it to the very bottom of the descending list
+                        return isNaN(parsed) ? 0 : parsed;
+                    };
+
+                    const dateA = parseDate(dateStrA);
+                    const dateB = parseDate(dateStrB);
+
+                    // Sort in descending order (Newest first)
+                    return dateB - dateA;
+                });
+
+                // 4. Append the sorted cards back into the grid container
+                cards.forEach(card => grid.appendChild(card));
+            }
+        });
+    </script>
+
 </body>
 </html>
