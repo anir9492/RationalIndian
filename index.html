@@ -12,8 +12,8 @@
 		<meta http-equiv="Pragma" content="no-cache" />
 		<meta http-equiv="Expires" content="0" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<!-- Bumped version to 1.6 to bypass mobile cache -->
-		<link rel="stylesheet" href="assets/css/main.css?v=1.6" />
+		<!-- Bumped version to 1.7 to bypass mobile cache -->
+		<link rel="stylesheet" href="assets/css/main.css?v=1.7" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		
 		<style>
@@ -80,79 +80,73 @@
 			}
 
 			#header nav a.custom-logo img {
-				height: 3.85em; /* Increased size */
-				width: 3.85em;   /* Increased size */
+				height: 3.85em; 
+				width: 3.85em;   
 				object-fit: contain; 
 				background-color: rgba(255, 255, 255, 0.8); 
 				border-radius: 50%;
-				padding: 3px; /* Decreased white border */
+				padding: 3px; 
 				transition: all 0.2s ease-in-out;
 				vertical-align: middle; 
 			}
 			
 			/* ==========================================================
-			   HOVER TOOLTIPS & ANIMATIONS (Restricted to non-touch devices)
+			   HOVER TOOLTIPS & ANIMATIONS
 			   ========================================================== */
-			/* 
-			   Wrapping the hover effects in this media query prevents mobile devices 
-			   from getting "stuck" in the hover state when hitting the back button. 
-			*/
-			@media (hover: hover) {
-				/* Stop the original template from physically expanding the box on hover */
-				#header nav a.custom-logo:hover {
-					font-size: 1em !important; 
-				}
+			/* Stop the original template from physically expanding the box on hover */
+			#header nav a.custom-logo:hover {
+				font-size: 1em !important; 
+			}
 
-				#header nav a.custom-logo:hover img {
-					transform: scale(1.15);
-					background-color: #ffffff;
-				}
+			#header nav a.custom-logo:hover img {
+				transform: scale(1.15);
+				background-color: #ffffff;
+			}
 
-				#header nav a.custom-logo::after,
-				.social-badge::after {
-					content: attr(data-label) !important; 
-					position: absolute !important;
-					top: 100% !important; 
-					bottom: auto !important; 
-					left: 50% !important;
-					transform: translate(-50%, -10px) !important; 
-					height: auto !important; 
-					width: auto !important;
-					color: rgba(255, 255, 255, 0.95) !important;
-					font-size: 0.7rem !important;
-					font-weight: 600 !important;
-					line-height: 1 !important;
-					letter-spacing: 0.05em !important;
-					white-space: nowrap !important;
-					background: rgba(0, 0, 0, 0.75) !important; 
-					padding: 6px 12px !important;
-					border-radius: 12px !important;
-					opacity: 0 !important;
-					visibility: hidden !important;
-					transition: all 0.25s ease !important;
-					pointer-events: none !important; 
-					box-shadow: 0 4px 10px rgba(0,0,0,0.3) !important;
-					margin-top: 15px !important; 
-				}
+			#header nav a.custom-logo::after,
+			.social-badge::after {
+				content: attr(data-label) !important; 
+				position: absolute !important;
+				top: 100% !important; 
+				bottom: auto !important; 
+				left: 50% !important;
+				transform: translate(-50%, -10px) !important; 
+				height: auto !important; 
+				width: auto !important;
+				color: rgba(255, 255, 255, 0.95) !important;
+				font-size: 0.7rem !important;
+				font-weight: 600 !important;
+				line-height: 1 !important;
+				letter-spacing: 0.05em !important;
+				white-space: nowrap !important;
+				background: rgba(0, 0, 0, 0.75) !important; 
+				padding: 6px 12px !important;
+				border-radius: 12px !important;
+				opacity: 0 !important;
+				visibility: hidden !important;
+				transition: all 0.25s ease !important;
+				pointer-events: none !important; 
+				box-shadow: 0 4px 10px rgba(0,0,0,0.3) !important;
+				margin-top: 15px !important; 
+			}
 
-				#header nav a.custom-logo:hover::after,
-				.social-badge:hover::after {
-					opacity: 1 !important;
-					visibility: visible !important;
-					transform: translate(-50%, 5px) !important; 
-				}
+			#header nav a.custom-logo:hover::after,
+			.social-badge:hover::after {
+				opacity: 1 !important;
+				visibility: visible !important;
+				transform: translate(-50%, 5px) !important; 
+			}
 
-				.social-badge:hover {
-					background: rgba(255, 255, 255, 0.2);
-					border-color: rgba(255, 255, 255, 0.8);
-					transform: translateY(-3px) scale(1.1);
-				}
+			.social-badge:hover {
+				background: rgba(255, 255, 255, 0.2);
+				border-color: rgba(255, 255, 255, 0.8);
+				transform: translateY(-3px) scale(1.1);
+			}
 
-				.contact-btn:hover {
-					background: rgba(255, 255, 255, 0.15); 
-					border-color: rgba(255, 255, 255, 0.8);
-					transform: translateY(-2px);
-				}
+			.contact-btn:hover {
+				background: rgba(255, 255, 255, 0.15); 
+				border-color: rgba(255, 255, 255, 0.8);
+				transform: translateY(-2px);
 			}
 
 			/* ==========================================================
@@ -342,6 +336,11 @@
 				
 				#header p {
 					padding: 0 10px;
+				}
+				
+				/* Give the mobile icons breathing room between the top and bottom rows */
+				#header nav li {
+					margin: 12px 6px !important;
 				}
 
 				/* Boost the magazine icons to be larger on mobile */
