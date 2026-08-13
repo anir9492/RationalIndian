@@ -12,8 +12,8 @@
 		<meta http-equiv="Pragma" content="no-cache" />
 		<meta http-equiv="Expires" content="0" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<!-- Bumped version to 2.4 to bypass mobile cache -->
-		<link rel="stylesheet" href="assets/css/main.css?v=2.4" />
+		<!-- Bumped version to 2.5 to bypass mobile cache -->
+		<link rel="stylesheet" href="assets/css/main.css?v=2.5" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		
 		<style>
@@ -52,11 +52,10 @@
 				100% { background-position: right center; }
 			}
 
-			/* Mobile Background Panning Animation */
+			/* Mobile Background Panning Animation (FIXED DIRECTION) */
 			@keyframes panMobile {
-				0% { background-position: center bottom; }
-				/* Stops near the top to perfectly frame your UI inside the dark negative space */
-				100% { background-position: center 15%; } 
+				0% { background-position: center bottom; } /* Starts cleanly at the T-Rex floor */
+				100% { background-position: center top; }  /* Pulls image down to park the dark void behind your UI */
 			}
 
 			/* ==========================================================
@@ -359,10 +358,10 @@
 				   ---------------------------------------------------- */
 				#bg {
 					background-image: url('images/bgm.png') !important; 
-					/* Forces the image height to be 125% of the screen so it has room to pan vertically */
-					background-size: auto 125% !important; 
-					/* Replaces the horizontal pan with the custom bottom-to-top animation */
-					animation: panMobile 18s ease-out forwards !important;
+					/* Increased to 135% to give the pan more vertical runway */
+					background-size: auto 135% !important; 
+					/* Explicit keyword panning so browsers don't calculate backward */
+					animation: panMobile 15s ease-out forwards !important;
 				}
 
 				#header .headshot img {
