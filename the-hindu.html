@@ -49,9 +49,12 @@
         height: 24px;
     }
     
+    /* THE HINDU LOGO FIX */
     .header-logo img {
-        height: 50px; /* Adjust size of header logo here */
-        width: auto;
+        height: 75px; /* Significantly larger height for wide newspaper logos */
+        width: 260px; /* Invisible bounding box to allow horizontal stretching */
+        object-fit: contain; 
+        object-position: center; 
         display: block;
         transition: opacity 0.2s ease;
     }
@@ -122,9 +125,15 @@
         .header-logo {
             margin: 0;
         }
+        
+        /* THE HINDU LOGO MOBILE FIX */
         .header-logo img {
-            height: 35px; /* Slightly smaller logo for mobile */
+            height: 45px; 
+            width: 180px; 
+            object-fit: contain;
+            object-position: center;
         }
+        
         .back-btn { 
             position: absolute; 
             left: 20px; 
@@ -595,6 +604,42 @@
 
         </main>
     </div>
+
+    <!-- Automatic Chronological Sorting Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 1. Select the container holding all the articles
+            const grid = document.querySelector('.article-grid');
+            
+            // 2. Select all the individual article cards and turn them into an Array
+            const cards = Array.from(grid.querySelectorAll('.card'));
+
+            // 3. Sort the array of cards
+            cards.sort((a, b) => {
+                // Extract the date text from each card
+                const dateStrA = a.querySelector('.date').textContent.trim();
+                const dateStrB = b.querySelector('.date').textContent.trim();
+
+                // Helper function to safely parse dates
+                const parseDate = (dateStr) => {
+                    const parsed = Date.parse(dateStr);
+                    // If the date is invalid (like "Add Date Manually"), assign it a value of 0 
+                    // This forces it to the very bottom of the descending list
+                    return isNaN(parsed) ? 0 : parsed;
+                };
+
+                const dateA = parseDate(dateStrA);
+                const dateB = parseDate(dateStrB);
+
+                // Sort in descending order (Newest first)
+                return dateB - dateA;
+            });
+
+            // 4. Append the sorted cards back into the grid container
+            // (Appending an existing element automatically moves it from its old position to the new one)
+            cards.forEach(card => grid.appendChild(card));
+        });
+    </script>
 
 </body>
 </html>
