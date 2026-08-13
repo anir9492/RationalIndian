@@ -12,8 +12,8 @@
 		<meta http-equiv="Pragma" content="no-cache" />
 		<meta http-equiv="Expires" content="0" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<!-- Bumped version to 2.2 to bypass mobile cache -->
-		<link rel="stylesheet" href="assets/css/main.css?v=2.2" />
+		<!-- Bumped version to 2.4 to bypass mobile cache -->
+		<link rel="stylesheet" href="assets/css/main.css?v=2.4" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		
 		<style>
@@ -24,6 +24,7 @@
 				background-color: #000000 !important; 
 			}
 
+			/* Desktop Background (Landscape) */
 			#bg {
 				position: fixed !important;
 				top: 0 !important;
@@ -49,6 +50,13 @@
 			@keyframes panAndStop {
 				0% { background-position: left center; }
 				100% { background-position: right center; }
+			}
+
+			/* Mobile Background Panning Animation */
+			@keyframes panMobile {
+				0% { background-position: center bottom; }
+				/* Stops near the top to perfectly frame your UI inside the dark negative space */
+				100% { background-position: center 15%; } 
 			}
 
 			/* ==========================================================
@@ -346,9 +354,15 @@
 			}
 
 			@media screen and (max-width: 736px) {
-				/* Slow down the panning animation specifically for mobile screens */
+				/* ----------------------------------------------------
+				   MOBILE BACKGROUND OVERRIDE (Your New AI Image!)
+				   ---------------------------------------------------- */
 				#bg {
-					animation-duration: 25s !important;
+					background-image: url('images/bgm.png') !important; 
+					/* Forces the image height to be 125% of the screen so it has room to pan vertically */
+					background-size: auto 125% !important; 
+					/* Replaces the horizontal pan with the custom bottom-to-top animation */
+					animation: panMobile 18s ease-out forwards !important;
 				}
 
 				#header .headshot img {
