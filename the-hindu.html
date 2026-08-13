@@ -49,12 +49,14 @@
         height: 24px;
     }
     
-    /* THE HINDU LOGO FIX */
+    /* CLEAN LOGO CSS (For tightly cropped images) */
+    .header-logo {
+        display: inline-block;
+    }
     .header-logo img {
-        height: 75px; /* Significantly larger height for wide newspaper logos */
-        width: 260px; /* Invisible bounding box to allow horizontal stretching */
+        height: 75px; /* Gives the crest a great size without shrinking the text */
+        width: auto; /* Lets the width scale naturally based on the image shape */
         object-fit: contain; 
-        object-position: center; 
         display: block;
         transition: opacity 0.2s ease;
     }
@@ -126,12 +128,10 @@
             margin: 0;
         }
         
-        /* THE HINDU LOGO MOBILE FIX */
+        /* CLEAN MOBILE LOGO CSS */
         .header-logo img {
             height: 45px; 
-            width: 180px; 
-            object-fit: contain;
-            object-position: center;
+            width: auto;
         }
         
         .back-btn { 
