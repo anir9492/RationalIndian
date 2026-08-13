@@ -12,8 +12,8 @@
 		<meta http-equiv="Pragma" content="no-cache" />
 		<meta http-equiv="Expires" content="0" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<!-- Bumped version to 1.6 to bypass mobile cache -->
-		<link rel="stylesheet" href="assets/css/main.css?v=1.6" />
+		<!-- Bumped version to 1.8 to bypass mobile cache -->
+		<link rel="stylesheet" href="assets/css/main.css?v=1.8" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		
 		<style>
@@ -91,68 +91,78 @@
 			}
 			
 			/* ==========================================================
-			   HOVER TOOLTIPS & ANIMATIONS (Restricted to non-touch devices)
+			   HOVER EFFECTS (Pop-ups restored universally)
 			   ========================================================== */
-			/* 
-			   Wrapping the hover effects in this media query prevents mobile devices 
-			   from getting "stuck" in the hover state when hitting the back button. 
-			*/
-			@media (hover: hover) {
-				/* Stop the original template from physically expanding the box on hover */
-				#header nav a.custom-logo:hover {
-					font-size: 1em !important; 
-				}
+			
+			/* Stop the original template from physically expanding the box on hover */
+			#header nav a.custom-logo:hover {
+				font-size: 1em !important; 
+			}
 
-				#header nav a.custom-logo:hover img {
-					transform: scale(1.15);
-					background-color: #ffffff;
-				}
+			#header nav a.custom-logo:hover img {
+				transform: scale(1.15);
+				background-color: #ffffff;
+			}
 
-				#header nav a.custom-logo::after,
-				.social-badge::after {
-					content: attr(data-label) !important; 
-					position: absolute !important;
-					top: 100% !important; 
-					bottom: auto !important; 
-					left: 50% !important;
-					transform: translate(-50%, -10px) !important; 
-					height: auto !important; 
-					width: auto !important;
-					color: rgba(255, 255, 255, 0.95) !important;
-					font-size: 0.7rem !important;
-					font-weight: 600 !important;
-					line-height: 1 !important;
-					letter-spacing: 0.05em !important;
-					white-space: nowrap !important;
-					background: rgba(0, 0, 0, 0.75) !important; 
-					padding: 6px 12px !important;
-					border-radius: 12px !important;
-					opacity: 0 !important;
-					visibility: hidden !important;
-					transition: all 0.25s ease !important;
-					pointer-events: none !important; 
-					box-shadow: 0 4px 10px rgba(0,0,0,0.3) !important;
-					margin-top: 15px !important; 
-				}
+			#header nav a.custom-logo::after,
+			.social-badge::after {
+				content: attr(data-label) !important; 
+				position: absolute !important;
+				top: 100% !important; 
+				bottom: auto !important; 
+				left: 50% !important;
+				transform: translate(-50%, -10px) !important; 
+				height: auto !important; 
+				width: auto !important;
+				color: rgba(255, 255, 255, 0.95) !important;
+				font-size: 0.7rem !important;
+				font-weight: 600 !important;
+				line-height: 1 !important;
+				letter-spacing: 0.05em !important;
+				white-space: nowrap !important;
+				background: rgba(0, 0, 0, 0.75) !important; 
+				padding: 6px 12px !important;
+				border-radius: 12px !important;
+				opacity: 0 !important;
+				visibility: hidden !important;
+				transition: all 0.25s ease !important;
+				pointer-events: none !important; 
+				box-shadow: 0 4px 10px rgba(0,0,0,0.3) !important;
+				margin-top: 15px !important; 
+			}
 
-				#header nav a.custom-logo:hover::after,
-				.social-badge:hover::after {
-					opacity: 1 !important;
-					visibility: visible !important;
-					transform: translate(-50%, 5px) !important; 
-				}
+			#header nav a.custom-logo:hover::after,
+			.social-badge:hover::after {
+				opacity: 1 !important;
+				visibility: visible !important;
+				transform: translate(-50%, 5px) !important; 
+			}
 
-				.social-badge:hover {
-					background: rgba(255, 255, 255, 0.2);
-					border-color: rgba(255, 255, 255, 0.8);
-					transform: translateY(-3px) scale(1.1);
-				}
+			.social-badge:hover {
+				background: rgba(255, 255, 255, 0.2);
+				border-color: rgba(255, 255, 255, 0.8);
+				transform: translateY(-3px) scale(1.1);
+			}
 
-				.contact-btn:hover {
-					background: rgba(255, 255, 255, 0.15); 
-					border-color: rgba(255, 255, 255, 0.8);
-					transform: translateY(-2px);
-				}
+			.contact-btn:hover {
+				background: rgba(255, 255, 255, 0.15); 
+				border-color: rgba(255, 255, 255, 0.8);
+				transform: translateY(-2px);
+			}
+
+			/* ==========================================================
+			   THE DEFINITIVE STICKY HOVER FIX
+			   ========================================================== */
+			/* When a link is clicked, this class forces icons back to normal instantly */
+			body.nav-clicked #header nav a.custom-logo img,
+			body.nav-clicked .social-badge {
+				transform: scale(1) !important;
+				background-color: rgba(255, 255, 255, 0.8) !important;
+			}
+			body.nav-clicked #header nav a.custom-logo::after,
+			body.nav-clicked .social-badge::after {
+				opacity: 0 !important;
+				visibility: hidden !important;
 			}
 
 			/* ==========================================================
@@ -350,6 +360,12 @@
 					width: 4.8em !important;
 				}
 
+				/* Explicitly hide the text tooltips on mobile so they don't overlap the rows */
+				#header nav a.custom-logo::after,
+				.social-badge::after {
+					display: none !important;
+				}
+
 				.contact-btn {
 					top: 20px;
 					left: 20px;
@@ -438,11 +454,21 @@
 			window.onorientationchange = function() { document.body.scrollTop = 0; }
 
 			/* ==========================================================
-			   BFCache Fix: Prevent stuck hover states when navigating back
+			   ROBUST STICKY HOVER & BFCACHE FIX
 			   ========================================================== */
+			// 1. Immediately force elements back to normal the exact second they are clicked
+			document.querySelectorAll('a').forEach(function(link) {
+				link.addEventListener('click', function() {
+					document.body.classList.add('nav-clicked');
+				});
+			});
+
+			// 2. Remove the restriction when the page is restored from cache
 			window.addEventListener('pageshow', function (event) {
+				document.body.classList.remove('nav-clicked');
+				
 				if (event.persisted) {
-					// Force active links to drop their pseudo-states when returning to the page
+					// Double safeguard: force active links to drop their pseudo-states
 					document.querySelectorAll('a').forEach(function(link) {
 						link.blur();
 					});
