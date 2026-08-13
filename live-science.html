@@ -49,13 +49,14 @@
         height: 24px;
     }
     
-    /* LIVE SCIENCE LOGO FIX - Auto-crops the white space */
+    /* CLEAN LOGO CSS (For tightly cropped images) */
+    .header-logo {
+        display: inline-block;
+    }
     .header-logo img {
-        height: 75px; /* Larger vertical allowance */
-        width: 280px; /* Wide invisible bounding box */
-        /* object-fit: cover forces the image to fill the box, automatically cropping out the massive white space at the top and bottom of the JPG */
-        object-fit: cover; 
-        object-position: center; 
+        height: 60px; /* Gives the wide banner a great size */
+        width: auto; /* Lets the width scale naturally */
+        object-fit: contain; 
         display: block;
         transition: opacity 0.2s ease;
     }
@@ -127,12 +128,9 @@
             margin: 0;
         }
         
-        /* LIVE SCIENCE LOGO MOBILE FIX */
+        /* CLEAN MOBILE LOGO CSS */
         .header-logo img {
-            height: 45px; 
-            width: 180px; 
-            object-fit: cover; /* Same cropping trick for mobile */
-            object-position: center;
+            height: 35px; /* Scales perfectly for phone screens */
         }
         
         .back-btn { 
@@ -169,8 +167,8 @@
             </svg>
         </a>
         <a href="https://www.livescience.com" target="_blank" class="header-logo">
-            <!-- Update the file extension to .jpg to match your attached file if needed -->
-            <img src="logos/live-science-logo.png" alt="Live Science">
+            <!-- Pointing to your newly cropped file! -->
+            <img src="logos/live-science-logo_3.jpg" alt="Live Science">
         </a>
     </header>
 
