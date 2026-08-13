@@ -12,8 +12,8 @@
 		<meta http-equiv="Pragma" content="no-cache" />
 		<meta http-equiv="Expires" content="0" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<!-- Bumped version to 1.8 to bypass mobile cache -->
-		<link rel="stylesheet" href="assets/css/main.css?v=1.8" />
+		<!-- Bumped version to 2.1 to bypass mobile cache -->
+		<link rel="stylesheet" href="assets/css/main.css?v=2.1" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		
 		<style>
@@ -72,6 +72,7 @@
 				z-index: 1000;
 				display: inline-block;
 				border-bottom: none !important;
+				-webkit-tap-highlight-color: transparent; /* Removes the ugly gray tap box on mobile */
 			}
 
 			/* Ensure the list item containers don't clip the scaling image */
@@ -80,89 +81,99 @@
 			}
 
 			#header nav a.custom-logo img {
-				height: 3.85em; /* Increased size */
-				width: 3.85em;   /* Increased size */
+				height: 3.85em; 
+				width: 3.85em;   
 				object-fit: contain; 
 				background-color: rgba(255, 255, 255, 0.8); 
 				border-radius: 50%;
-				padding: 3px; /* Decreased white border */
+				padding: 3px; 
 				transition: all 0.2s ease-in-out;
 				vertical-align: middle; 
 			}
 			
-			/* ==========================================================
-			   HOVER EFFECTS (Pop-ups restored universally)
-			   ========================================================== */
-			
-			/* Stop the original template from physically expanding the box on hover */
-			#header nav a.custom-logo:hover {
+			/* Prevent the font from resizing and shifting the container */
+			#header nav a.custom-logo:hover,
+			#header nav a.custom-logo:active,
+			#header nav a.custom-logo:focus {
 				font-size: 1em !important; 
 			}
 
-			#header nav a.custom-logo:hover img {
+			/* ==========================================================
+			   UNIVERSAL ACTIVE EFFECTS (Works on Mobile Taps & Desktop Clicks)
+			   ========================================================== */
+			#header nav a.custom-logo:active img {
 				transform: scale(1.15);
 				background-color: #ffffff;
 			}
 
-			#header nav a.custom-logo::after,
-			.social-badge::after {
-				content: attr(data-label) !important; 
-				position: absolute !important;
-				top: 100% !important; 
-				bottom: auto !important; 
-				left: 50% !important;
-				transform: translate(-50%, -10px) !important; 
-				height: auto !important; 
-				width: auto !important;
-				color: rgba(255, 255, 255, 0.95) !important;
-				font-size: 0.7rem !important;
-				font-weight: 600 !important;
-				line-height: 1 !important;
-				letter-spacing: 0.05em !important;
-				white-space: nowrap !important;
-				background: rgba(0, 0, 0, 0.75) !important; 
-				padding: 6px 12px !important;
-				border-radius: 12px !important;
-				opacity: 0 !important;
-				visibility: hidden !important;
-				transition: all 0.25s ease !important;
-				pointer-events: none !important; 
-				box-shadow: 0 4px 10px rgba(0,0,0,0.3) !important;
-				margin-top: 15px !important; 
-			}
-
-			#header nav a.custom-logo:hover::after,
-			.social-badge:hover::after {
-				opacity: 1 !important;
-				visibility: visible !important;
-				transform: translate(-50%, 5px) !important; 
-			}
-
-			.social-badge:hover {
+			.social-badge:active {
 				background: rgba(255, 255, 255, 0.2);
 				border-color: rgba(255, 255, 255, 0.8);
 				transform: translateY(-3px) scale(1.1);
 			}
 
-			.contact-btn:hover {
+			.contact-btn:active {
 				background: rgba(255, 255, 255, 0.15); 
 				border-color: rgba(255, 255, 255, 0.8);
 				transform: translateY(-2px);
 			}
 
 			/* ==========================================================
-			   THE DEFINITIVE STICKY HOVER FIX
+			   HOVER EFFECTS (Only applies to Desktops/Mice to avoid BFCache bugs)
 			   ========================================================== */
-			/* When a link is clicked, this class forces icons back to normal instantly */
-			body.nav-clicked #header nav a.custom-logo img,
-			body.nav-clicked .social-badge {
-				transform: scale(1) !important;
-				background-color: rgba(255, 255, 255, 0.8) !important;
-			}
-			body.nav-clicked #header nav a.custom-logo::after,
-			body.nav-clicked .social-badge::after {
-				opacity: 0 !important;
-				visibility: hidden !important;
+			@media (hover: hover) and (pointer: fine) {
+				#header nav a.custom-logo:hover img {
+					transform: scale(1.15);
+					background-color: #ffffff;
+				}
+
+				.social-badge:hover {
+					background: rgba(255, 255, 255, 0.2);
+					border-color: rgba(255, 255, 255, 0.8);
+					transform: translateY(-3px) scale(1.1);
+				}
+
+				.contact-btn:hover {
+					background: rgba(255, 255, 255, 0.15); 
+					border-color: rgba(255, 255, 255, 0.8);
+					transform: translateY(-2px);
+				}
+
+				/* Base styling for tooltips (Hidden by default) */
+				#header nav a.custom-logo::after,
+				.social-badge::after {
+					content: attr(data-label) !important; 
+					position: absolute !important;
+					top: 100% !important; 
+					bottom: auto !important; 
+					left: 50% !important;
+					transform: translate(-50%, -10px) !important; 
+					height: auto !important; 
+					width: auto !important;
+					color: rgba(255, 255, 255, 0.95) !important;
+					font-size: 0.7rem !important;
+					font-weight: 600 !important;
+					line-height: 1 !important;
+					letter-spacing: 0.05em !important;
+					white-space: nowrap !important;
+					background: rgba(0, 0, 0, 0.75) !important; 
+					padding: 6px 12px !important;
+					border-radius: 12px !important;
+					opacity: 0 !important;
+					visibility: hidden !important;
+					transition: all 0.25s ease !important;
+					pointer-events: none !important; 
+					box-shadow: 0 4px 10px rgba(0,0,0,0.3) !important;
+					margin-top: 15px !important; 
+				}
+
+				/* Show tooltips on hover */
+				#header nav a.custom-logo:hover::after,
+				.social-badge:hover::after {
+					opacity: 1 !important;
+					visibility: visible !important;
+					transform: translate(-50%, 5px) !important; 
+				}
 			}
 
 			/* ==========================================================
@@ -215,6 +226,7 @@
 				transition: all 0.3s ease;
 				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 				z-index: 20;
+				-webkit-tap-highlight-color: transparent;
 			}
 
 			.badge-scholar { left: -10px; }
@@ -249,6 +261,7 @@
 				cursor: pointer;
 				transition: all 0.3s ease;
 				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+				-webkit-tap-highlight-color: transparent;
 			}
 
 			/* ==========================================================
@@ -454,21 +467,21 @@
 			window.onorientationchange = function() { document.body.scrollTop = 0; }
 
 			/* ==========================================================
-			   ROBUST STICKY HOVER & BFCACHE FIX
+			   BFCache Fix: Cleanly clear focus to prevent sticky hovers
 			   ========================================================== */
-			// 1. Immediately force elements back to normal the exact second they are clicked
-			document.querySelectorAll('a').forEach(function(link) {
-				link.addEventListener('click', function() {
-					document.body.classList.add('nav-clicked');
-				});
-			});
-
-			// 2. Remove the restriction when the page is restored from cache
 			window.addEventListener('pageshow', function (event) {
-				document.body.classList.remove('nav-clicked');
-				
-				if (event.persisted) {
-					// Double safeguard: force active links to drop their pseudo-states
+				// If the page is being restored from browser history (Back button)
+				if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
+					
+					// 1. Temporarily disable pointer events to force the browser to drop hover states
+					document.body.style.pointerEvents = 'none';
+					
+					// 2. Request an immediate screen repaint
+					window.requestAnimationFrame(function() {
+						document.body.style.pointerEvents = 'auto';
+					});
+					
+					// 3. Force active links to drop their focus
 					document.querySelectorAll('a').forEach(function(link) {
 						link.blur();
 					});
